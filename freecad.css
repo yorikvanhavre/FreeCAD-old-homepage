@@ -1,0 +1,220 @@
+/* FreeCAD general CSS file */
+
+/* General */
+
+body {
+	background: #191b26 url("images/background.jpg") top left no-repeat;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #eee;
+	opacity: 0.9;
+	text-align: justify;
+	padding-top: 30px;
+}
+
+a {
+	font-weight: bold;
+	text-decoration: none;
+	color: #0F3472;
+}
+
+a img {
+	border: 0;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+/* Homepage */
+
+.home {
+	width: 960px;
+	margin: auto;
+}
+
+.header {
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	color: #2E394B;
+	padding: 12px 20px 10px 20px;
+	background-color: #eee;
+	background: -webkit-linear-gradient(top,#aaa,#eee);
+	background: -moz-linear-gradient(top,#aaa,#eee);
+	background: -o-linear-gradient(top,#aaa,#eee);
+	background: -ms-linear-gradient(top,#aaa,#eee);
+	box-shadow: 0 0 5px #000;
+	position: relative;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-bottom-color: #666;
+}
+
+.header h1 {
+	font-size: 54px;
+	font-weight: bold;
+	letter-spacing: 10px;
+	margin: 0;
+	background: url("images/freecad.png") top left no-repeat;
+	padding-left: 80px;
+}
+
+#flag1 {
+	float: right;
+}
+
+.contents {
+	background-color: #eee;
+	background: -webkit-linear-gradient(top,#eee,#aaa);
+	background: -moz-linear-gradient(top,#eee,#aaa);
+	background: -o-linear-gradient(top,#eee,#aaa);
+	background: -ms-linear-gradient(top,#eee,#aaa);
+	color: #2E394B;
+	display: table;
+	width: 960px;
+	box-shadow: 0 0 5px #000;
+}
+
+.column1 {
+	width: 520px;
+	float: left;
+	margin: 0 20px 20px 20px;
+}
+
+.column2 {
+	width: 360px;
+	float: left;
+	margin: 20px;
+}
+
+.downloadbox {
+	background: #191b26 url("images/background.jpg") center center no-repeat;
+	color: #eee;
+	border-radius: 5px;
+	padding: 5px;
+	text-align: center;
+	box-shadow: 0 0 5px #000;
+}
+
+.downloadbox a {
+	padding: 8px;
+	color: #4192FF;
+}
+
+.downloadbox img {
+	width: 18px;
+}
+
+.menu {
+	margin: 30px 0 0 0;
+	padding-left: 15px;
+}
+
+.social {
+	text-align: left;
+	float: left;
+	padding-left: 10px;
+}
+
+.social img {
+	width: 18px;
+}
+
+.footer {
+	font-size: 0.8em;
+	clear: both;
+	text-align: right;
+	background: #aaa;
+	color: #2E394B;
+	padding: 0 10px 10px 10px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	margin-bottom: 30px;
+}
+
+.footer img {
+	max-height: 16px;
+}
+
+/* TinyFader */
+
+.pagination {
+	float: left;
+	list-style: none;
+	height: 16px;
+	margin: 0;
+	display: none;
+}
+
+.pagination li {
+	float: left;
+	cursor: pointer;
+	height: 12px;
+	width: 12px;
+	background: #666;
+	border-radius: 6px;
+	margin-right: 10px;
+}
+
+.pagination li:hover {
+	background: blue;
+	color: #000;
+}
+
+li.current {
+	background: red;
+}
+
+#slides {
+	width: 960px;
+	height: 380px;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+}
+
+.fader-slide {
+	opacity: 0;
+	position: absolute;
+}
+
+.fader-fade {
+	opacity: 1;
+	-webkit-transition: opacity .4s;
+	-moz-transition: opacity .4s;
+	transition: opacity .4s;
+}
+
+#navigation {
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+}
+
+.caption {
+	background: #fff;
+	position: relative;
+	height: 380px;
+}
+
+.caption div {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 960px;
+	height: 19px;
+	padding: 2px 0 0 0;
+	margin: 0;
+	background: #fff;
+	font-size: 16px;
+	color: #666;
+	text-align: center;
+	border-top-style: solid;
+	border-top-width: 1px;
+	border-top-color: #666;
+}
+
+.caption p {
+	margin: 0;
+	padding: 0;
+}
