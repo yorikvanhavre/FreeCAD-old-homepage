@@ -1,3 +1,5 @@
+// SLIDESHOW
+
 /**
 * TinyFader 2.0.2 - scriptiny.com/tinyfader
 * License: GNU GPL v3.0 - scriptiny.com/license
@@ -141,3 +143,66 @@ TINY.fader = function() {
 	
 	return{init:init}
 }();
+
+
+// FEED READER
+
+function JSONscriptRequest(fullUrl) {
+    // REST request path
+    this.fullUrl = fullUrl; 
+    // Get the DOM location to put the script tag
+    this.headLoc = document.getElementsByTagName("head").item(0);
+    // Generate a unique script tag id
+    this.scriptId = 'JscriptId' + JSONscriptRequest.scriptCounter++;
+}
+
+// Static script ID counter
+JSONscriptRequest.scriptCounter = 1;
+
+JSONscriptRequest.prototype.buildScriptTag = function () {
+    // Create the script tag
+    this.scriptObj = document.createElement("script");
+    // Add script object attributes
+    this.scriptObj.setAttribute("type", "text/javascript");
+    this.scriptObj.setAttribute("charset", "utf-8");
+    this.scriptObj.setAttribute("src", this.fullUrl);
+    this.scriptObj.setAttribute("id", this.scriptId);
+}
+
+JSONscriptRequest.prototype.removeScriptTag = function () {
+    // Destroy the script tag
+    this.headLoc.removeChild(this.scriptObj);  
+}
+
+JSONscriptRequest.prototype.addScriptTag = function () {
+    // Create the script tag
+    this.headLoc.appendChild(this.scriptObj);
+}
+
+function loadFeed() {
+    ddiv = document.getElementById("newsfeed");
+    ddiv.innerHTML = "Fetching data from the web...";
+    var obj=new JSONscriptRequest('http://pipes.yahoo.com/pipes/pipe.run?_id=da8b612e97a6bb4588b1ce27db30efd9&_render=json&_callback=showFeed');
+    obj.buildScriptTag(); // Build the script tag
+    obj.addScriptTag(); // Execute (add) the script tag
+    ddiv.innerHTML = "Done fetching";
+}
+
+function showFeed(data) {
+    ddiv = document.getElementById("newsfeed");
+    ddiv.innerHTML = "Received" + data.value.items[0].title;
+    html = '';
+    var x;
+    for (x = 1; x < 8 ; x++) {
+        var buildstring = "<li><a href=" + data.value.items[x].link + ">" + data.value.items[x].title + "</a></li>";
+        html += buildstring;
+        buildstring = null;
+    }
+    ddiv.innerHTML = html;
+}
+
+// START
+
+function start() {
+    loadFeed();
+}
