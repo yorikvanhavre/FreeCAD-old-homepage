@@ -9,6 +9,7 @@ body {
 	opacity: 0.9;
 	text-align: justify;
 	padding-top: 30px;
+    font-size: 0.9em;
 }
 
 a {
@@ -49,7 +50,7 @@ a:hover {
 	border-bottom-color: #666;
 }
 
-.header h1 {
+h1 {
 	font-size: 54px;
 	font-weight: bold;
 	letter-spacing: 10px;
@@ -57,6 +58,11 @@ a:hover {
 	background: url("images/freecad.png") top left no-repeat;
 	padding-left: 80px;
 }
+
+h2 {
+    font-size: 18px;
+    margin: 0;
+    }
 
 #flag1 {
 	float: right;
@@ -86,6 +92,11 @@ a:hover {
 	margin: 20px;
 }
 
+.column3 {
+	float: left;
+	margin: 0 20px 20px 20px;
+}
+
 .downloadbox {
 	background: #191b26 url("images/background.jpg") center center no-repeat;
 	color: #eee;
@@ -104,8 +115,8 @@ a:hover {
 	width: 18px;
 }
 
-.menu {
-	margin: 30px 0 0 0;
+.menu, ul {
+	margin: 20px 0 0 0;
 	padding-left: 15px;
 }
 
@@ -150,18 +161,18 @@ a:hover {
 	cursor: pointer;
 	height: 12px;
 	width: 12px;
-	background: #666;
+	background: #aaa;
 	border-radius: 6px;
 	margin-right: 10px;
 }
 
 .pagination li:hover {
-	background: blue;
+	background: #255991;
 	color: #000;
 }
 
 li.current {
-	background: red;
+	background: #EB210C;
 }
 
 #slides {
@@ -205,8 +216,8 @@ li.current {
 	height: 19px;
 	padding: 2px 0 0 0;
 	margin: 0;
-	background: #fff;
-	font-size: 16px;
+	background: #eee;
+	font-size: 11px;
 	color: #666;
 	text-align: center;
 	border-top-style: solid;
