@@ -179,16 +179,16 @@ JSONscriptRequest.prototype.addScriptTag = function () {
     this.headLoc.appendChild(this.scriptObj);
 }
 
-function loadFeed() {
+function loadJSON(jsonfeed) {
     ddiv = document.getElementById("newsfeed");
     ddiv.innerHTML = "Fetching data from the web...";
-    var obj=new JSONscriptRequest('http://pipes.yahoo.com/pipes/pipe.run?_id=da8b612e97a6bb4588b1ce27db30efd9&_render=json&git=https%3A%2F%2Fsourceforge.net%2Fexport%2Frss2_keepsake.php%3Fgroup_id%3D49159&twitter=https%3A%2F%2Fapi.twitter.com%2F1%2Fstatuses%2Fuser_timeline.rss%3Fscreen_name%3DFreeCADNews%26count%3D10&yorik=http%3A%2F%2Fyorik.uncreated.net%2Frss%2F&youtube=http%3A%2F%2Fgdata.youtube.com%2Ffeeds%2Fbase%2Fvideos%3Forderby%3Dpublished%26q%3D%2B%2522freecad%2522%2B-croquet%26alt%3Drss%26client%3Dytapi-youtube-rss-redirect%26v%3D2&_callback=showFeed');
+    var obj=new JSONscriptRequest(jsonfeed+'&_callback=showJSON');
     obj.buildScriptTag(); // Build the script tag
     obj.addScriptTag(); // Execute (add) the script tag
     ddiv.innerHTML = "Done fetching";
 }
 
-function showFeed(data) {
+function showJSON(data) {
     ddiv = document.getElementById("newsfeed");
     ddiv.innerHTML = "Received" + data.value.items[0].title;
     html = '';
@@ -199,10 +199,4 @@ function showFeed(data) {
         buildstring = null;
     }
     ddiv.innerHTML = html;
-}
-
-// START
-
-function start() {
-    loadFeed();
 }
