@@ -6,3 +6,7 @@ http://htmlpreview.github.com/?https://github.com/yorikvanhavre/FreeCAD-homepage
 The Yahoo pipe used for the news feed:
 
 http://pipes.yahoo.com/pipes/pipe.info?_id=da8b612e97a6bb4588b1ce27db30efd9
+
+Discussion thread about this page:
+
+http://sourceforge.net/apps/phpbb/free-cad/viewtopic.php?f=8&t=3167
