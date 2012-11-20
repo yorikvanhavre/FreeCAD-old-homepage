@@ -193,8 +193,10 @@ function showJSON(data) {
     ddiv.innerHTML = "Received" + data.value.items[0].title;
     html = '';
     var x;
-    for (x = 1; x < 8 ; x++) {
-        var buildstring = "<li><a href=" + data.value.items[x].link + ">" + data.value.items[x].title + "</a></li>";
+    for (x = 1; x < 11 ; x++) {
+        var pubdate = data.value.items[x].pubDate;
+        pubdate = "<small>" + pubdate.substr(0,4) + "." + pubdate.substr(5,2) + "." + pubdate.substr(8,2) + ": </small> ";
+        var buildstring = "<li>" + pubdate + "<a href=" + data.value.items[x].link + ">" + data.value.items[x].title + "</a></li>";
         html += buildstring;
         buildstring = null;
     }
