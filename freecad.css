@@ -78,6 +78,7 @@ h2 {
 	display: table;
 	width: 960px;
 	box-shadow: 0 0 5px #000;
+    padding-top: 20px;
 }
 
 .column1 {
@@ -101,7 +102,7 @@ h2 {
 	background: #191b26 url("images/background.jpg") center center no-repeat;
 	color: #eee;
 	border-radius: 5px;
-	padding: 5px;
+	padding: 15px;
 	text-align: center;
 	box-shadow: 0 0 5px #000;
 }
@@ -224,7 +225,7 @@ li.current {
 	padding: 2px 0 0 0;
 	margin: 0;
 	background: #eee;
-	font-size: 11px;
+	font-size: 0.9em;
 	color: #666;
 	text-align: center;
 	border-top-style: solid;
