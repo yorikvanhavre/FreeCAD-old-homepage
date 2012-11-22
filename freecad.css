@@ -175,6 +175,13 @@ li.current {
 	background: #EB210C;
 }
 
+#slideshow {
+	float: left;
+	width: 960px;
+	height: 380px;
+	background: #fff;
+}
+
 #slides {
 	width: 960px;
 	height: 380px;
