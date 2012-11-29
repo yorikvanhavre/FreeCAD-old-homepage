@@ -3,13 +3,15 @@
 /* General */
 
 body {
-	background: #191b26 url("images/background.jpg") top left no-repeat;
+	background: #191b26 url("images/background.jpg") center top no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
 	font-family: Arial, Helvetica, sans-serif;
 	color: #eee;
 	opacity: 0.9;
 	text-align: justify;
 	padding-top: 30px;
-        /* font-size: 0.9em; */
+	/* font-size: 0.9em; */
 }
 
 a {
@@ -60,9 +62,9 @@ h1 {
 }
 
 h2 {
-    font-size: 18px;
-    margin: 0;
-    }
+	font-size: 18px;
+	margin: 0;
+}
 
 #flag1 {
 	float: right;
@@ -78,7 +80,7 @@ h2 {
 	display: table;
 	width: 960px;
 	box-shadow: 0 0 5px #000;
-    padding-top: 20px;
+	padding-top: 20px;
 }
 
 .column1 {
@@ -94,7 +96,7 @@ h2 {
 }
 
 .column3 {
-	float: left;
+	clear: left;
 	margin: 0 20px 20px 20px;
 }
 
@@ -122,9 +124,7 @@ h2 {
 }
 
 .social {
-	text-align: left;
-	float: left;
-	padding-left: 10px;
+	float: right;
 }
 
 .social img {
