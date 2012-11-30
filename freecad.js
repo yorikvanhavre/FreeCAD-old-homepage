@@ -181,16 +181,15 @@ JSONscriptRequest.prototype.addScriptTag = function () {
 
 function loadJSON(jsonfeed) {
     ddiv = document.getElementById("newsfeed");
-    ddiv.innerHTML = "Fetching data from the web...";
+    ddiv.innerHTML = "Connecting to yahoo pipes...";
     var obj=new JSONscriptRequest(jsonfeed+'&_callback=showJSON');
     obj.buildScriptTag(); // Build the script tag
     obj.addScriptTag(); // Execute (add) the script tag
-    ddiv.innerHTML = "Done fetching";
+    ddiv.innerHTML = "Retrieving feed...";
 }
 
 function showJSON(data) {
     ddiv = document.getElementById("newsfeed");
-    ddiv.innerHTML = "Received" + data.value.items[0].title;
     html = '';
     var x;
     for (x = 1; x < 11 ; x++) {
