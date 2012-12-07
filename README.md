@@ -10,3 +10,7 @@ http://pipes.yahoo.com/pipes/pipe.info?_id=da8b612e97a6bb4588b1ce27db30efd9
 Discussion thread about this page:
 
 http://sourceforge.net/apps/phpbb/free-cad/viewtopic.php?f=8&t=3167
+
+Help us by translating the page in your own language:
+
+https://github.com/yorikvanhavre/FreeCAD-homepage/issues/1
