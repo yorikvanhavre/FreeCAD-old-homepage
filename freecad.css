@@ -80,7 +80,7 @@ h2 {
 	display: table;
 	width: 960px;
 	box-shadow: 0 0 5px #000;
-	padding-top: 20px;
+	padding-top: 10px;
 }
 
 .column1 {
@@ -92,7 +92,7 @@ h2 {
 .column2 {
 	width: 360px;
 	float: left;
-	margin: 20px;
+	margin: 0 20px;
 }
 
 .column3 {
@@ -107,6 +107,7 @@ h2 {
 	padding: 15px;
 	text-align: center;
 	box-shadow: 0 0 5px #000;
+    margin-top: 48px;
 }
 
 .downloadbox a {
@@ -128,7 +129,7 @@ h2 {
 }
 
 .social img {
-	width: 18px;
+	width: 32px;
 }
 
 .footer {
