@@ -70,7 +70,7 @@ h2 {
 	float: right;
 }
 
-.contents {
+.contents, #content {
 	background-color: #eee;
 	background: -webkit-linear-gradient(top,#eee,#aaa);
 	background: -moz-linear-gradient(top,#eee,#aaa);
