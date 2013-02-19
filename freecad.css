@@ -3,7 +3,7 @@
 /* General */
 
 body {
-	background: #191b26 url("images/background.jpg") center top no-repeat;
+	background: #191b26;
 	background-attachment: fixed;
 	background-size: cover;
 	font-family: Arial, Helvetica, sans-serif;
@@ -41,10 +41,10 @@ a:hover {
 	color: #2E394B;
 	padding: 12px 20px 10px 20px;
 	background-color: #eee;
-	background: -webkit-linear-gradient(top,#aaa,#eee);
-	background: -moz-linear-gradient(top,#aaa,#eee);
-	background: -o-linear-gradient(top,#aaa,#eee);
-	background: -ms-linear-gradient(top,#aaa,#eee);
+	background: -webkit-linear-gradient(top,#ccc,#eee);
+	background: -moz-linear-gradient(top,#ccc,#eee);
+	background: -o-linear-gradient(top,#ccc,#eee);
+	background: -ms-linear-gradient(top,#ccc,#eee);
 	box-shadow: 0 0 5px #000;
 	position: relative;
 	border-bottom-style: solid;
@@ -63,7 +63,7 @@ h1 {
 
 h2 {
 	font-size: 18px;
-	margin: 0;
+	margin: 30px 0 0 0;
 }
 
 #flags {
@@ -107,7 +107,7 @@ h2 {
 	padding: 15px;
 	text-align: center;
 	box-shadow: 0 0 5px #000;
-    margin-top: 48px;
+    margin-top: 68px;
 }
 
 .downloadbox a {
