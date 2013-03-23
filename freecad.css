@@ -2,7 +2,7 @@
 
 /* General */
 
-body {
+body.home, body.skin-vector {
 	background: #191b26;
 	background-attachment: fixed;
 	background-size: cover;
@@ -70,7 +70,7 @@ h2 {
 	float: right;
 }
 
-.contents, #content {
+.home .contents, .home #content {
 	background-color: #eee;
 	background: -webkit-linear-gradient(top,#eee,#aaa);
 	background: -moz-linear-gradient(top,#eee,#aaa);
@@ -237,4 +237,29 @@ li.current {
 .caption p {
 	margin: 0;
 	padding: 0;
+}
+
+
+/* Wiki-specific */
+
+.languages {
+    padding: 5px;
+    float: left;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+
+.catlinks {
+    margin-top: 20px;
+    background: transparent;
+    border: none;
+    clear: none !important;
+    float: right;
+}
+
+.docnav {
+    margin-top: 20px;
+    background: #eee;
+    padding: 5px;
+    border: 1px solid #ccc;
 }
