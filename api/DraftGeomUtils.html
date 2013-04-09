@@ -1,0 +1,591 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Draft Geometry Utilities &mdash; FreeCAD API documentation</title>
+    
+    <link rel="stylesheet" href="_static/freecad.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.13',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="FreeCAD API documentation" href="index.html" />
+    <link rel="next" title="Draft Trackers" href="DraftTrackers.html" />
+    <link rel="prev" title="Draft Vector Utilities" href="DraftVecUtils.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="DraftTrackers.html" title="Draft Trackers"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="DraftVecUtils.html" title="Draft Vector Utilities"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">FreeCAD API documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="draft-geometry-utilities">
+<h1>Draft Geometry Utilities<a class="headerlink" href="#draft-geometry-utilities" title="Permalink to this headline">¶</a></h1>
+<p>The DraftGeomUtils module offer tools to manipulate Part geometry.</p>
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+<span class="target" id="module-DraftGeomUtils"></span><dl class="function">
+<dt id="DraftGeomUtils.angleBisection">
+<tt class="descname">angleBisection</tt><big>(</big><em>edge1</em>, <em>edge2</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.angleBisection" title="Permalink to this definition">¶</a></dt>
+<dd><p>angleBisection(edge,edge) - Returns an edge that bisects the angle between the 2 edges.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.arcFromSpline">
+<tt class="descname">arcFromSpline</tt><big>(</big><em>edge</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.arcFromSpline" title="Permalink to this definition">¶</a></dt>
+<dd><p>arcFromSpline(edge): turns the given edge into an arc, by taking
+its first point, midpoint and endpoint. Works best with bspline
+segments such as those from imported svg files. Use this only
+if you are sure your edge is really an arc...</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.bind">
+<tt class="descname">bind</tt><big>(</big><em>w1</em>, <em>w2</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.bind" title="Permalink to this definition">¶</a></dt>
+<dd><p>bind(wire1,wire2): binds 2 wires by their endpoints and
+returns a face</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.calculatePlacement">
+<tt class="descname">calculatePlacement</tt><big>(</big><em>shape</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.calculatePlacement" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculatePlacement(shape): if the given shape is planar, this function
+returns a placement located at the center of gravity of the shape, and oriented
+towards the shape&#8217;s normal. Otherwise, it returns a null placement.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.circleFrom2LinesRadius">
+<tt class="descname">circleFrom2LinesRadius</tt><big>(</big><em>edge</em>, <em>edge</em>, <em>radius</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.circleFrom2LinesRadius" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.circleFrom2PointsRadius">
+<tt class="descname">circleFrom2PointsRadius</tt><big>(</big><em>p1</em>, <em>p2</em>, <em>radius</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.circleFrom2PointsRadius" title="Permalink to this definition">¶</a></dt>
+<dd><p>circleFrom2PointsRadiust(Vector, Vector, radius)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.circleFrom2tan1pt">
+<tt class="descname">circleFrom2tan1pt</tt><big>(</big><em>edge</em>, <em>edge</em>, <em>Vector</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.circleFrom2tan1pt" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.circleFrom2tan1rad">
+<tt class="descname">circleFrom2tan1rad</tt><big>(</big><em>edge</em>, <em>edge</em>, <em>float</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.circleFrom2tan1rad" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.circleFrom3CircleTangents">
+<tt class="descname">circleFrom3CircleTangents</tt><big>(</big><em>circle1</em>, <em>circle2</em>, <em>circle3</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.circleFrom3CircleTangents" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="http://en.wikipedia.org/wiki/Problem_of_Apollonius#Inversive_methods">http://en.wikipedia.org/wiki/Problem_of_Apollonius#Inversive_methods</a>
+<a class="reference external" href="http://mathworld.wolfram.com/ApolloniusCircle.html">http://mathworld.wolfram.com/ApolloniusCircle.html</a>
+<a class="reference external" href="http://mathworld.wolfram.com/ApolloniusProblem.html">http://mathworld.wolfram.com/ApolloniusProblem.html</a></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.circleFrom3LineTangents">
+<tt class="descname">circleFrom3LineTangents</tt><big>(</big><em>edge</em>, <em>edge</em>, <em>edge</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.circleFrom3LineTangents" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.circleFromPointLineRadius">
+<tt class="descname">circleFromPointLineRadius</tt><big>(</big><em>point</em>, <em>edge</em>, <em>radius</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.circleFromPointLineRadius" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.circleInversion">
+<tt class="descname">circleInversion</tt><big>(</big><em>circle</em>, <em>circle2</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.circleInversion" title="Permalink to this definition">¶</a></dt>
+<dd><p>pointInversion(Circle, Circle)</p>
+<p>Circle inversion of a circle.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.circlefrom1Line2Points">
+<tt class="descname">circlefrom1Line2Points</tt><big>(</big><em>edge</em>, <em>Vector</em>, <em>Vector</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.circlefrom1Line2Points" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.circlefrom2Lines1Point">
+<tt class="descname">circlefrom2Lines1Point</tt><big>(</big><em>edge</em>, <em>edge</em>, <em>Vector</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.circlefrom2Lines1Point" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.cleanFaces">
+<tt class="descname">cleanFaces</tt><big>(</big><em>shape</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.cleanFaces" title="Permalink to this definition">¶</a></dt>
+<dd><p>removes inner edges from coplanar faces</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.concatenate">
+<tt class="descname">concatenate</tt><big>(</big><em>shape</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.concatenate" title="Permalink to this definition">¶</a></dt>
+<dd><p>concatenate(shape) &#8211; turns several faces into one</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.connect">
+<tt class="descname">connect</tt><big>(</big><em>edges</em>, <em>closed=False</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.connect" title="Permalink to this definition">¶</a></dt>
+<dd><p>connects the edges in the given list by their intersections</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.determinant">
+<tt class="descname">determinant</tt><big>(</big><em>mat</em>, <em>n</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.determinant" title="Permalink to this definition">¶</a></dt>
+<dd><p>determinant(matrix,int) - Determinat function. Returns the determinant
+of a n-matrix. It recursively expands the minors.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.edg">
+<tt class="descname">edg</tt><big>(</big><em>p1</em>, <em>p2</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.edg" title="Permalink to this definition">¶</a></dt>
+<dd><p>edg(Vector,Vector): returns an edge from 2 vectors</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.fillet">
+<tt class="descname">fillet</tt><big>(</big><em>lEdges</em>, <em>r</em>, <em>chamfer=False</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.fillet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Take a list of two Edges &amp; a float as argument,
+Returns a list of sorted edges describing a round corner</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.filletWire">
+<tt class="descname">filletWire</tt><big>(</big><em>aWire</em>, <em>r</em>, <em>chamfer=False</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.filletWire" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fillets each angle of a wire with r as radius value
+if chamfer is true, a chamfer is made instead and r is the
+size of the chamfer</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.findClosest">
+<tt class="descname">findClosest</tt><big>(</big><em>vector</em>, <em>list</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.findClosest" title="Permalink to this definition">¶</a></dt>
+<dd><p>in a list of 3d points, finds the closest point to the base point.
+an index from the list is returned.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.findClosestCircle">
+<tt class="descname">findClosestCircle</tt><big>(</big><em>point</em>, <em>circles</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.findClosestCircle" title="Permalink to this definition">¶</a></dt>
+<dd><p>findClosestCircle(Vector, list of circles) &#8211; returns the circle with closest center</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.findDistance">
+<tt class="descname">findDistance</tt><big>(</big><em>point</em>, <em>edge</em>, <em>strict=False</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.findDistance" title="Permalink to this definition">¶</a></dt>
+<dd><p>findDistance(vector,edge,[strict]) - Returns a vector from the point to its
+closest point on the edge. If strict is True, the vector will be returned
+only if its endpoint lies on the edge.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.findEdge">
+<tt class="descname">findEdge</tt><big>(</big><em>anEdge</em>, <em>aList</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.findEdge" title="Permalink to this definition">¶</a></dt>
+<dd><p>findEdge(anEdge,aList): returns True if anEdge is found in aList of edges</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.findHomotheticCenterOfCircles">
+<tt class="descname">findHomotheticCenterOfCircles</tt><big>(</big><em>circle1</em>, <em>circle2</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.findHomotheticCenterOfCircles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the homothetic center(s) of two circles.</p>
+<p><a class="reference external" href="http://en.wikipedia.org/wiki/Homothetic_center">http://en.wikipedia.org/wiki/Homothetic_center</a>
+<a class="reference external" href="http://mathworld.wolfram.com/HomotheticCenter.html">http://mathworld.wolfram.com/HomotheticCenter.html</a></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.findIntersection">
+<tt class="descname">findIntersection</tt><big>(</big><em>edge1</em>, <em>edge2</em>, <em>infinite1=False</em>, <em>infinite2=False</em>, <em>ex1=False</em>, <em>ex2=False</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.findIntersection" title="Permalink to this definition">¶</a></dt>
+<dd><p>findIntersection(edge1,edge2,infinite1=False,infinite2=False):
+returns a list containing the intersection point(s) of 2 edges.
+You can also feed 4 points instead of edge1 and edge2</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.findMidpoint">
+<tt class="descname">findMidpoint</tt><big>(</big><em>edge</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.findMidpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculates the midpoint of an edge</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.findPerpendicular">
+<tt class="descname">findPerpendicular</tt><big>(</big><em>point</em>, <em>edgeslist</em>, <em>force=None</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.findPerpendicular" title="Permalink to this definition">¶</a></dt>
+<dd><p>findPerpendicular(vector,wire,[force]):
+finds the shortest perpendicular distance between a point and an edgeslist.
+If force is specified, only the edge[force] will be considered, and it will be
+considered infinite.
+The function will return a list [vector_from_point_to_closest_edge,edge_index]
+or None if no perpendicular vector could be found.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.findRadicalAxis">
+<tt class="descname">findRadicalAxis</tt><big>(</big><em>circle1</em>, <em>circle2</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.findRadicalAxis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the radical axis of two circles.
+On the radical axis (also called power line) of two circles any
+tangents drawn from a point on the axis to both circles have the same length.</p>
+<p><a class="reference external" href="http://en.wikipedia.org/wiki/Radical_axis">http://en.wikipedia.org/wiki/Radical_axis</a>
+<a class="reference external" href="http://mathworld.wolfram.com/RadicalLine.html">http://mathworld.wolfram.com/RadicalLine.html</a></p>
+<p>&#64;sa findRadicalCenter</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.findRadicalCenter">
+<tt class="descname">findRadicalCenter</tt><big>(</big><em>circle1</em>, <em>circle2</em>, <em>circle3</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.findRadicalCenter" title="Permalink to this definition">¶</a></dt>
+<dd><p>findRadicalCenter(circle1, circle2, circle3):
+Calculates the radical center (also called the power center) of three circles.
+It is the intersection point of the three radical axes of the pairs of circles.</p>
+<p><a class="reference external" href="http://en.wikipedia.org/wiki/Power_center_(geometry">http://en.wikipedia.org/wiki/Power_center_(geometry</a>)
+<a class="reference external" href="http://mathworld.wolfram.com/RadicalCenter.html">http://mathworld.wolfram.com/RadicalCenter.html</a></p>
+<p>&#64;sa findRadicalAxis</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.findWires">
+<tt class="descname">findWires</tt><big>(</big><em>edgeslist</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.findWires" title="Permalink to this definition">¶</a></dt>
+<dd><p>finds connected wires in the given list of edges</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.findWiresOld">
+<tt class="descname">findWiresOld</tt><big>(</big><em>edges</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.findWiresOld" title="Permalink to this definition">¶</a></dt>
+<dd><p>finds connected edges in the list, and returns a list of lists containing edges
+that can be connected</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.geom">
+<tt class="descname">geom</tt><big>(</big><em>edge, plac=Placement [Pos=(0,0,0), Yaw-Pitch-Roll=(0,0,0)]</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.geom" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a Line, ArcOfCircle or Circle geom from the given edge, according to the given placement</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.geomType">
+<tt class="descname">geomType</tt><big>(</big><em>edge</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.geomType" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the type of geom this edge is based on</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.getBoundary">
+<tt class="descname">getBoundary</tt><big>(</big><em>shape</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.getBoundary" title="Permalink to this definition">¶</a></dt>
+<dd><p>getBoundary(shape) &#8211; this function returns the boundary edges of a group of faces</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.getBoundaryAngles">
+<tt class="descname">getBoundaryAngles</tt><big>(</big><em>angle</em>, <em>alist</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.getBoundaryAngles" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the 2 closest angles from the list that
+encompass the given angle</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.getCubicDimensions">
+<tt class="descname">getCubicDimensions</tt><big>(</big><em>shape</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.getCubicDimensions" title="Permalink to this definition">¶</a></dt>
+<dd><p>getCubicDimensions(shape): returns a list containing the placement,
+the length, the width and the height of a cubic shape. If not cubic, nothing
+is returned. The placement point is the lowest corner of the shape.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.getNormal">
+<tt class="descname">getNormal</tt><big>(</big><em>shape</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.getNormal" title="Permalink to this definition">¶</a></dt>
+<dd><p>finds the normal of a shape, if possible</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.getRotation">
+<tt class="descname">getRotation</tt><big>(</big><em>v1</em>, <em>v2=Vector (0</em>, <em>0</em>, <em>1)</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.getRotation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the rotation Quaternion between 2 vectors</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.getTangent">
+<tt class="descname">getTangent</tt><big>(</big><em>edge</em>, <em>frompoint=None</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.getTangent" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the tangent to an edge. If from point is given, it is used to
+calculate the tangent (only useful for an arc of course).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.getVerts">
+<tt class="descname">getVerts</tt><big>(</big><em>shape</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.getVerts" title="Permalink to this definition">¶</a></dt>
+<dd><p>getVerts(shape): returns a list containing vectors of each vertex of the shape</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.hasCurves">
+<tt class="descname">hasCurves</tt><big>(</big><em>shape</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.hasCurves" title="Permalink to this definition">¶</a></dt>
+<dd><p>hasCurve(shape): checks if the given shape has curves</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.hasOnlyWires">
+<tt class="descname">hasOnlyWires</tt><big>(</big><em>shape</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.hasOnlyWires" title="Permalink to this definition">¶</a></dt>
+<dd><p>hasOnlyWires(shape): returns True if all the edges are inside a wire</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.innerSoddyCircle">
+<tt class="descname">innerSoddyCircle</tt><big>(</big><em>circle1</em>, <em>circle2</em>, <em>circle3</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.innerSoddyCircle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the inner soddy circle for three tightly packed circles.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.isAligned">
+<tt class="descname">isAligned</tt><big>(</big><em>edge</em>, <em>axis): checks if the given edge or line is aligned to the given axis (x</em>, <em>y or z</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.isAligned" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.isClockwise">
+<tt class="descname">isClockwise</tt><big>(</big><em>edge</em>, <em>ref=None</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.isClockwise" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns True if a circle-based edge has a clockwise direction</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.isCoplanar">
+<tt class="descname">isCoplanar</tt><big>(</big><em>faces</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.isCoplanar" title="Permalink to this definition">¶</a></dt>
+<dd><p>checks if all faces in the given list are coplanar</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.isCubic">
+<tt class="descname">isCubic</tt><big>(</big><em>shape</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.isCubic" title="Permalink to this definition">¶</a></dt>
+<dd><p>isCubic(shape): verifies if a shape is cubic, that is, has
+8 vertices, 6 faces, and all angles are 90 degrees.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.isLine">
+<tt class="descname">isLine</tt><big>(</big><em>bsp</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.isLine" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns True if the given BSpline curve is a straight line</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.isNull">
+<tt class="descname">isNull</tt><big>(</big><em>something</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.isNull" title="Permalink to this definition">¶</a></dt>
+<dd><p>isNull(object): returns true if the given shape is null or the given placement is null or
+if the given vector is (0,0,0)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.isPlanar">
+<tt class="descname">isPlanar</tt><big>(</big><em>shape</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.isPlanar" title="Permalink to this definition">¶</a></dt>
+<dd><p>checks if the given shape is planar</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.isPtOnEdge">
+<tt class="descname">isPtOnEdge</tt><big>(</big><em>pt</em>, <em>edge</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.isPtOnEdge" title="Permalink to this definition">¶</a></dt>
+<dd><p>isPtOnEdge(Vector,edge): Tests if a point is on an edge</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.isReallyClosed">
+<tt class="descname">isReallyClosed</tt><big>(</big><em>wire</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.isReallyClosed" title="Permalink to this definition">¶</a></dt>
+<dd><p>checks if a wire is really closed</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.isWideAngle">
+<tt class="descname">isWideAngle</tt><big>(</big><em>edge</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.isWideAngle" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns True if the given edge is an arc with angle &gt; 180 degrees</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.linearFromPoints">
+<tt class="descname">linearFromPoints</tt><big>(</big><em>p1</em>, <em>p2</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.linearFromPoints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate linear equation from points.
+Calculate the slope and offset parameters of the linear equation of a line defined by two points.</p>
+<p>Linear equation:
+y = m * x + b
+m = dy / dx
+m ... Slope
+b ... Offset (point where the line intersects the y axis)
+dx/dy ... Delta x and y. Using both as a vector results in a non-offset direction vector.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.mirror">
+<tt class="descname">mirror</tt><big>(</big><em>point</em>, <em>edge</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.mirror" title="Permalink to this definition">¶</a></dt>
+<dd><p>finds mirror point relative to an edge</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.offset">
+<tt class="descname">offset</tt><big>(</big><em>edge</em>, <em>vector</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.offset" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a copy of the edge at a certain (vector) distance
+if the edge is an arc, the vector will be added at its first point
+and a complete circle will be returned</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.offsetWire">
+<tt class="descname">offsetWire</tt><big>(</big><em>wire</em>, <em>dvec</em>, <em>bind=False</em>, <em>occ=False</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.offsetWire" title="Permalink to this definition">¶</a></dt>
+<dd><p>offsetWire(wire,vector,[bind]): offsets the given wire along the
+given vector. The vector will be applied at the first vertex of
+the wire. If bind is True (and the shape is open), the original
+wire and the offsetted one are bound by 2 edges, forming a face.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.outerSoddyCircle">
+<tt class="descname">outerSoddyCircle</tt><big>(</big><em>circle1</em>, <em>circle2</em>, <em>circle3</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.outerSoddyCircle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the outer soddy circle for three tightly packed circles.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.pointInversion">
+<tt class="descname">pointInversion</tt><big>(</big><em>Circle</em>, <em>Vector</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.pointInversion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Circle inversion of a point.
+Will calculate the inversed point an return it.
+If the given point is equal to the center of the circle &#8220;None&#8221; will be returned.</p>
+<p>See also:
+<a class="reference external" href="http://en.wikipedia.org/wiki/Inversive_geometry">http://en.wikipedia.org/wiki/Inversive_geometry</a></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.polarInversion">
+<tt class="descname">polarInversion</tt><big>(</big><em>circle</em>, <em>edge</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.polarInversion" title="Permalink to this definition">¶</a></dt>
+<dd><p>polarInversion(circle, edge):
+Returns the inversion pole of a line.
+edge ... The polar.
+i.e. The nearest point on the line is inversed.</p>
+<p><a class="reference external" href="http://mathworld.wolfram.com/InversionPole.html">http://mathworld.wolfram.com/InversionPole.html</a></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.precision">
+<tt class="descname">precision</tt><big>(</big><big>)</big><a class="headerlink" href="#DraftGeomUtils.precision" title="Permalink to this definition">¶</a></dt>
+<dd><p>precision(): returns the Draft precision setting</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.removeInterVertices">
+<tt class="descname">removeInterVertices</tt><big>(</big><em>wire</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.removeInterVertices" title="Permalink to this definition">¶</a></dt>
+<dd><p>removeInterVertices(wire) - remove unneeded vertices (those that
+are in the middle of a straight line) from a wire, returns a new wire.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.sortEdges">
+<tt class="descname">sortEdges</tt><big>(</big><em>lEdges</em>, <em>aVertex=None</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.sortEdges" title="Permalink to this definition">¶</a></dt>
+<dd><p>an alternative, more accurate version of Part.__sortEdges__</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.superWire">
+<tt class="descname">superWire</tt><big>(</big><em>edgeslist</em>, <em>closed=False</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.superWire" title="Permalink to this definition">¶</a></dt>
+<dd><p>superWire(edges,[closed]): forces a wire between edges that don&#8217;t necessarily
+have coincident endpoints. If closed=True, wire will always be closed</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.v1">
+<tt class="descname">v1</tt><big>(</big><em>edge</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.v1" title="Permalink to this definition">¶</a></dt>
+<dd><p>v1(edge): returns the first point of an edge</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.vec">
+<tt class="descname">vec</tt><big>(</big><em>edge</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.vec" title="Permalink to this definition">¶</a></dt>
+<dd><p>vec(edge) or vec(line): returns a vector from an edge or a Part.line</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="DraftVecUtils.html"
+                        title="previous chapter">Draft Vector Utilities</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="DraftTrackers.html"
+                        title="next chapter">Draft Trackers</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/DraftGeomUtils.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+  <p>
+	  <a href="http://www.freecadweb.org">Go back to the FreeCAD homepage</a>
+  </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="DraftTrackers.html" title="Draft Trackers"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="DraftVecUtils.html" title="Draft Vector Utilities"
+             >previous</a> |</li>
+        <li><a href="index.html">FreeCAD API documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Jürgen Riegel, Werner Mayer, Yorik van Havre.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

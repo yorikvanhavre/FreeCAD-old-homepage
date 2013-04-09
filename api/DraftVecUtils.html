@@ -1,0 +1,236 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Draft Vector Utilities &mdash; FreeCAD API documentation</title>
+    
+    <link rel="stylesheet" href="_static/freecad.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.13',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="FreeCAD API documentation" href="index.html" />
+    <link rel="next" title="Draft Geometry Utilities" href="DraftGeomUtils.html" />
+    <link rel="prev" title="Draft module" href="Draft.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="DraftGeomUtils.html" title="Draft Geometry Utilities"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Draft.html" title="Draft module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">FreeCAD API documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="draft-vector-utilities">
+<h1>Draft Vector Utilities<a class="headerlink" href="#draft-vector-utilities" title="Permalink to this headline">¶</a></h1>
+<p>The DraftVecUtils module offer several convenient utilities to deal with vectors</p>
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+<span class="target" id="module-DraftVecUtils"></span><dl class="function">
+<dt id="DraftVecUtils.angle">
+<tt class="descname">angle</tt><big>(</big><em>u</em>, <em>v=Vector (1</em>, <em>0</em>, <em>0)</em>, <em>normal=Vector (0</em>, <em>0</em>, <em>1)</em><big>)</big><a class="headerlink" href="#DraftVecUtils.angle" title="Permalink to this definition">¶</a></dt>
+<dd><p>angle(Vector,[Vector],[Vector]) - returns the angle
+in radians between the two vectors. If only one is given,
+angle is between the vector and the horizontal East direction.
+If a third vector is given, it is the normal used to determine
+the sign of the angle.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftVecUtils.dist">
+<tt class="descname">dist</tt><big>(</big><em>u</em>, <em>v</em><big>)</big><a class="headerlink" href="#DraftVecUtils.dist" title="Permalink to this definition">¶</a></dt>
+<dd><p>dist(Vector,Vector) - returns the distance between both points/vectors</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftVecUtils.equals">
+<tt class="descname">equals</tt><big>(</big><em>u</em>, <em>v</em><big>)</big><a class="headerlink" href="#DraftVecUtils.equals" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns True if vectors differ by less than precision (from ParamGet), elementwise</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftVecUtils.find">
+<tt class="descname">find</tt><big>(</big><em>vector</em>, <em>vlist</em><big>)</big><a class="headerlink" href="#DraftVecUtils.find" title="Permalink to this definition">¶</a></dt>
+<dd><p>find(vector,vlist): finds a vector in a list of vectors. returns
+the index of the matching vector, or None if none is found.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftVecUtils.getPlaneRotation">
+<tt class="descname">getPlaneRotation</tt><big>(</big><em>u</em>, <em>v</em>, <em>w=None</em><big>)</big><a class="headerlink" href="#DraftVecUtils.getPlaneRotation" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a rotation matrix defining the (u,v,w) coordinates system</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftVecUtils.isColinear">
+<tt class="descname">isColinear</tt><big>(</big><em>vlist</em><big>)</big><a class="headerlink" href="#DraftVecUtils.isColinear" title="Permalink to this definition">¶</a></dt>
+<dd><p>isColinear(list_of_vectors): checks if vectors in given list are colinear</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftVecUtils.isNull">
+<tt class="descname">isNull</tt><big>(</big><em>vector</em><big>)</big><a class="headerlink" href="#DraftVecUtils.isNull" title="Permalink to this definition">¶</a></dt>
+<dd><p>isNull(vector): Tests if a vector is nul vector</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftVecUtils.neg">
+<tt class="descname">neg</tt><big>(</big><em>u</em><big>)</big><a class="headerlink" href="#DraftVecUtils.neg" title="Permalink to this definition">¶</a></dt>
+<dd><p>neg(Vector) - returns an opposite (negative) vector</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftVecUtils.project">
+<tt class="descname">project</tt><big>(</big><em>u</em>, <em>v</em><big>)</big><a class="headerlink" href="#DraftVecUtils.project" title="Permalink to this definition">¶</a></dt>
+<dd><p>project(Vector,Vector): projects the first vector onto the second one</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftVecUtils.removeDoubles">
+<tt class="descname">removeDoubles</tt><big>(</big><em>vlist</em><big>)</big><a class="headerlink" href="#DraftVecUtils.removeDoubles" title="Permalink to this definition">¶</a></dt>
+<dd><p>removes consecutive doubles from a list of vectors</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftVecUtils.rotate">
+<tt class="descname">rotate</tt><big>(</big><em>u</em>, <em>angle</em>, <em>axis=Vector (0</em>, <em>0</em>, <em>1)</em><big>)</big><a class="headerlink" href="#DraftVecUtils.rotate" title="Permalink to this definition">¶</a></dt>
+<dd><p>rotate(Vector,Float,axis=Vector): rotates the first Vector
+around the given axis, at the given angle.
+If axis is omitted, the rotation is made on the xy plane.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftVecUtils.rotate2D">
+<tt class="descname">rotate2D</tt><big>(</big><em>u</em>, <em>angle</em><big>)</big><a class="headerlink" href="#DraftVecUtils.rotate2D" title="Permalink to this definition">¶</a></dt>
+<dd><p>rotate2D(Vector,angle): rotates the given vector around the Z axis</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftVecUtils.rounded">
+<tt class="descname">rounded</tt><big>(</big><em>v</em><big>)</big><a class="headerlink" href="#DraftVecUtils.rounded" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a rounded vector</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftVecUtils.scale">
+<tt class="descname">scale</tt><big>(</big><em>u</em>, <em>scalar</em><big>)</big><a class="headerlink" href="#DraftVecUtils.scale" title="Permalink to this definition">¶</a></dt>
+<dd><p>scale(Vector,Float) - scales (multiplies) a vector by a factor</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftVecUtils.scaleTo">
+<tt class="descname">scaleTo</tt><big>(</big><em>u</em>, <em>l</em><big>)</big><a class="headerlink" href="#DraftVecUtils.scaleTo" title="Permalink to this definition">¶</a></dt>
+<dd><p>scaleTo(Vector,length) - scales a vector to a given length</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftVecUtils.toString">
+<tt class="descname">toString</tt><big>(</big><em>u</em><big>)</big><a class="headerlink" href="#DraftVecUtils.toString" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a string containing a python command to recreate this vector</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftVecUtils.tup">
+<tt class="descname">tup</tt><big>(</big><em>u</em>, <em>array=False</em><big>)</big><a class="headerlink" href="#DraftVecUtils.tup" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a tuple (x,y,z) with the vector coords, or an array if array=true</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="Draft.html"
+                        title="previous chapter">Draft module</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="DraftGeomUtils.html"
+                        title="next chapter">Draft Geometry Utilities</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/DraftVecUtils.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+  <p>
+	  <a href="http://www.freecadweb.org">Go back to the FreeCAD homepage</a>
+  </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="DraftGeomUtils.html" title="Draft Geometry Utilities"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Draft.html" title="Draft module"
+             >previous</a> |</li>
+        <li><a href="index.html">FreeCAD API documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Jürgen Riegel, Werner Mayer, Yorik van Havre.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

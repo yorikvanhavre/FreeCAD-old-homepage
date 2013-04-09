@@ -1,0 +1,351 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The FreeCADGui module &mdash; FreeCAD API documentation</title>
+    
+    <link rel="stylesheet" href="_static/freecad.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.13',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="FreeCAD API documentation" href="index.html" />
+    <link rel="next" title="The Mesh module" href="Mesh.html" />
+    <link rel="prev" title="The FreeCAD module" href="FreeCAD.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="Mesh.html" title="The Mesh module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="FreeCAD.html" title="The FreeCAD module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">FreeCAD API documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="the-freecadgui-module">
+<h1>The FreeCADGui module<a class="headerlink" href="#the-freecadgui-module" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+<span class="target" id="module-FreeCADGui"></span><p>The functions in the FreeCADGui module allow working with GUI documents,
+view providers, views, workbenches and much more.</p>
+<p>The FreeCADGui instance provides a list of references of GUI documents which
+can be addressed by a string. These documents contain the view providers for
+objects in the associated App document. An App and GUI document can be
+accessed with the same name.</p>
+<p>The FreeCADGui module also provides a set of functions to work with so called
+workbenches.</p>
+<dl class="function">
+<dt id="FreeCADGui.SendMsgToActiveView">
+<tt class="descname">SendMsgToActiveView</tt><big>(</big><big>)</big><a class="headerlink" href="#FreeCADGui.SendMsgToActiveView" title="Permalink to this definition">¶</a></dt>
+<dd><p>deprecated &#8211; use class View</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCADGui.activateWorkbench">
+<tt class="descname">activateWorkbench</tt><big>(</big><em>string</em><big>)</big> &rarr; None<a class="headerlink" href="#FreeCADGui.activateWorkbench" title="Permalink to this definition">¶</a></dt>
+<dd><p>Activate the workbench by name</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCADGui.activeDocument">
+<tt class="descname">activeDocument</tt><big>(</big><big>)</big> &rarr; object or None<a class="headerlink" href="#FreeCADGui.activeDocument" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the active document or None if no one exists</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCADGui.activeWorkbench">
+<tt class="descname">activeWorkbench</tt><big>(</big><big>)</big> &rarr; object<a class="headerlink" href="#FreeCADGui.activeWorkbench" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the active workbench object</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCADGui.addCommand">
+<tt class="descname">addCommand</tt><big>(</big><em>string</em>, <em>object</em><big>)</big> &rarr; None<a class="headerlink" href="#FreeCADGui.addCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a command object</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCADGui.addIcon">
+<tt class="descname">addIcon</tt><big>(</big><em>string</em>, <em>string or list</em><big>)</big> &rarr; None<a class="headerlink" href="#FreeCADGui.addIcon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add an icon as file name or in XPM format to the system</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCADGui.addIconPath">
+<tt class="descname">addIconPath</tt><big>(</big><em>string</em><big>)</big> &rarr; None<a class="headerlink" href="#FreeCADGui.addIconPath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a new path to the system where to find icon files</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCADGui.addLanguagePath">
+<tt class="descname">addLanguagePath</tt><big>(</big><em>string</em><big>)</big> &rarr; None<a class="headerlink" href="#FreeCADGui.addLanguagePath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a new path to the system where to find language files</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCADGui.addPreferencePage">
+<tt class="descname">addPreferencePage</tt><big>(</big><big>)</big><a class="headerlink" href="#FreeCADGui.addPreferencePage" title="Permalink to this definition">¶</a></dt>
+<dd><p>addPreferencePage(string,string) &#8211; Add a UI form to the
+preferences dialog. The first argument specifies the file nameand the second specifies the group name</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCADGui.addResourcePath">
+<tt class="descname">addResourcePath</tt><big>(</big><em>string</em><big>)</big> &rarr; None<a class="headerlink" href="#FreeCADGui.addResourcePath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a new path to the system where to find resource files
+like icons or localization files</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCADGui.addWorkbench">
+<tt class="descname">addWorkbench</tt><big>(</big><em>string</em>, <em>object</em><big>)</big> &rarr; None<a class="headerlink" href="#FreeCADGui.addWorkbench" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a workbench under a defined name.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCADGui.createDialog">
+<tt class="descname">createDialog</tt><big>(</big><big>)</big><a class="headerlink" href="#FreeCADGui.createDialog" title="Permalink to this definition">¶</a></dt>
+<dd><p>createDialog(string) &#8211; Open a UI file</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCADGui.doCommand">
+<tt class="descname">doCommand</tt><big>(</big><em>string</em><big>)</big> &rarr; None<a class="headerlink" href="#FreeCADGui.doCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints the given string in the python console and runs it</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCADGui.embedToWindow">
+<tt class="descname">embedToWindow</tt><big>(</big><big>)</big><a class="headerlink" href="#FreeCADGui.embedToWindow" title="Permalink to this definition">¶</a></dt>
+<dd><p>embedToWindow() &#8211; Embeds the main window into another window</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCADGui.exec_loop">
+<tt class="descname">exec_loop</tt><big>(</big><big>)</big><a class="headerlink" href="#FreeCADGui.exec_loop" title="Permalink to this definition">¶</a></dt>
+<dd><p>exec_loop() &#8211; Starts the event loop
+Note: this will block the call until the event loop has terminated</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCADGui.export">
+<tt class="descname">export</tt><big>(</big><big>)</big><a class="headerlink" href="#FreeCADGui.export" title="Permalink to this definition">¶</a></dt>
+<dd><p>save scene to Inventor or VRML file</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCADGui.getDocument">
+<tt class="descname">getDocument</tt><big>(</big><em>string</em><big>)</big> &rarr; object<a class="headerlink" href="#FreeCADGui.getDocument" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a document by its name</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCADGui.getLocale">
+<tt class="descname">getLocale</tt><big>(</big><big>)</big> &rarr; string<a class="headerlink" href="#FreeCADGui.getLocale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the locale currently used by FreeCAD</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCADGui.getSoDBVersion">
+<tt class="descname">getSoDBVersion</tt><big>(</big><big>)</big> &rarr; String<a class="headerlink" href="#FreeCADGui.getSoDBVersion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a text string containing the name
+of the Coin library and version information</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCADGui.getSoQtVersion">
+<tt class="descname">getSoQtVersion</tt><big>(</big><big>)</big> &rarr; String<a class="headerlink" href="#FreeCADGui.getSoQtVersion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a text string containing the name
+of the SoQt library and version information</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCADGui.getWorkbench">
+<tt class="descname">getWorkbench</tt><big>(</big><em>string</em><big>)</big> &rarr; object<a class="headerlink" href="#FreeCADGui.getWorkbench" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the workbench by its name</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCADGui.hide">
+<tt class="descname">hide</tt><big>(</big><big>)</big><a class="headerlink" href="#FreeCADGui.hide" title="Permalink to this definition">¶</a></dt>
+<dd><p>deprecated</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCADGui.hideObject">
+<tt class="descname">hideObject</tt><big>(</big><em>object</em><big>)</big> &rarr; None<a class="headerlink" href="#FreeCADGui.hideObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hide the view provider to the given object</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCADGui.insert">
+<tt class="descname">insert</tt><big>(</big><big>)</big><a class="headerlink" href="#FreeCADGui.insert" title="Permalink to this definition">¶</a></dt>
+<dd><p>Open a macro, Inventor or VRML file</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCADGui.listWorkbenches">
+<tt class="descname">listWorkbenches</tt><big>(</big><big>)</big> &rarr; list<a class="headerlink" href="#FreeCADGui.listWorkbenches" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show a list of all workbenches</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCADGui.open">
+<tt class="descname">open</tt><big>(</big><big>)</big><a class="headerlink" href="#FreeCADGui.open" title="Permalink to this definition">¶</a></dt>
+<dd><p>Open a macro, Inventor or VRML file</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCADGui.removeWorkbench">
+<tt class="descname">removeWorkbench</tt><big>(</big><em>string</em><big>)</big> &rarr; None<a class="headerlink" href="#FreeCADGui.removeWorkbench" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove the workbench with name</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCADGui.runCommand">
+<tt class="descname">runCommand</tt><big>(</big><em>string</em><big>)</big> &rarr; None<a class="headerlink" href="#FreeCADGui.runCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run command with name</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCADGui.setupWithoutGUI">
+<tt class="descname">setupWithoutGUI</tt><big>(</big><big>)</big><a class="headerlink" href="#FreeCADGui.setupWithoutGUI" title="Permalink to this definition">¶</a></dt>
+<dd><p>setupWithoutGUI() &#8211; Uses this module without starting
+an event loop or showing up any GUI</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCADGui.show">
+<tt class="descname">show</tt><big>(</big><big>)</big><a class="headerlink" href="#FreeCADGui.show" title="Permalink to this definition">¶</a></dt>
+<dd><p>deprecated</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCADGui.showMainWindow">
+<tt class="descname">showMainWindow</tt><big>(</big><big>)</big><a class="headerlink" href="#FreeCADGui.showMainWindow" title="Permalink to this definition">¶</a></dt>
+<dd><p>showMainWindow() &#8211; Show the main window
+If no main window does exist one gets created</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCADGui.showObject">
+<tt class="descname">showObject</tt><big>(</big><em>object</em><big>)</big> &rarr; None<a class="headerlink" href="#FreeCADGui.showObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show the view provider to the given object</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCADGui.subgraphFromObject">
+<tt class="descname">subgraphFromObject</tt><big>(</big><em>object</em><big>)</big> &rarr; Node<a class="headerlink" href="#FreeCADGui.subgraphFromObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the Inventor subgraph to an object</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCADGui.updateGui">
+<tt class="descname">updateGui</tt><big>(</big><big>)</big> &rarr; None<a class="headerlink" href="#FreeCADGui.updateGui" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the main window and all its windows</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCADGui.updateLocale">
+<tt class="descname">updateLocale</tt><big>(</big><big>)</big> &rarr; None<a class="headerlink" href="#FreeCADGui.updateLocale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the localization</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="FreeCAD.html"
+                        title="previous chapter">The FreeCAD module</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="Mesh.html"
+                        title="next chapter">The Mesh module</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/FreeCADGui.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+  <p>
+	  <a href="http://www.freecadweb.org">Go back to the FreeCAD homepage</a>
+  </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="Mesh.html" title="The Mesh module"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="FreeCAD.html" title="The FreeCAD module"
+             >previous</a> |</li>
+        <li><a href="index.html">FreeCAD API documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Jürgen Riegel, Werner Mayer, Yorik van Havre.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,407 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Draft Trackers &mdash; FreeCAD API documentation</title>
+    
+    <link rel="stylesheet" href="_static/freecad.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.13',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="FreeCAD API documentation" href="index.html" />
+    <link rel="next" title="Draft Snapper" href="DraftSnap.html" />
+    <link rel="prev" title="Draft Geometry Utilities" href="DraftGeomUtils.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="DraftSnap.html" title="Draft Snapper"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="DraftGeomUtils.html" title="Draft Geometry Utilities"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">FreeCAD API documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="draft-trackers">
+<h1>Draft Trackers<a class="headerlink" href="#draft-trackers" title="Permalink to this headline">¶</a></h1>
+<p>Different trackers (temporary screen widgets) used in the Draft and Arch modules.</p>
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+<span class="target" id="module-DraftTrackers"></span><dl class="class">
+<dt id="DraftTrackers.PlaneTracker">
+<em class="property">class </em><tt class="descname">PlaneTracker</tt><a class="headerlink" href="#DraftTrackers.PlaneTracker" title="Permalink to this definition">¶</a></dt>
+<dd><p>A working plane tracker</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="DraftTrackers.Tracker">
+<em class="property">class </em><tt class="descname">Tracker</tt><big>(</big><em>dotted=False</em>, <em>scolor=None</em>, <em>swidth=None</em>, <em>children=</em><span class="optional">[</span><span class="optional">]</span>, <em>ontop=False</em><big>)</big><a class="headerlink" href="#DraftTrackers.Tracker" title="Permalink to this definition">¶</a></dt>
+<dd><p>A generic Draft Tracker, to be used by other specific trackers</p>
+<dl class="method">
+<dt id="DraftTrackers.Tracker.lowerTracker">
+<tt class="descname">lowerTracker</tt><big>(</big><big>)</big><a class="headerlink" href="#DraftTrackers.Tracker.lowerTracker" title="Permalink to this definition">¶</a></dt>
+<dd><p>lowers the tracker to the bottom of the scenegraph, so
+it doesn&#8217;t obscure the other objects</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftTrackers.Tracker.raiseTracker">
+<tt class="descname">raiseTracker</tt><big>(</big><big>)</big><a class="headerlink" href="#DraftTrackers.Tracker.raiseTracker" title="Permalink to this definition">¶</a></dt>
+<dd><p>raises the tracker to the top of the scenegraph, so
+it obscures the other objects</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="DraftTrackers.arcTracker">
+<em class="property">class </em><tt class="descname">arcTracker</tt><big>(</big><em>dotted=False</em>, <em>scolor=None</em>, <em>swidth=None</em>, <em>start=0</em>, <em>end=6.283185307179586</em><big>)</big><a class="headerlink" href="#DraftTrackers.arcTracker" title="Permalink to this definition">¶</a></dt>
+<dd><p>An arc tracker</p>
+<dl class="method">
+<dt id="DraftTrackers.arcTracker.getAngle">
+<tt class="descname">getAngle</tt><big>(</big><em>pt</em><big>)</big><a class="headerlink" href="#DraftTrackers.arcTracker.getAngle" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the angle of a given vector</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftTrackers.arcTracker.getAngles">
+<tt class="descname">getAngles</tt><big>(</big><big>)</big><a class="headerlink" href="#DraftTrackers.arcTracker.getAngles" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the start and end angles</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftTrackers.arcTracker.getRadius">
+<tt class="descname">getRadius</tt><big>(</big><big>)</big><a class="headerlink" href="#DraftTrackers.arcTracker.getRadius" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the current radius</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftTrackers.arcTracker.setApertureAngle">
+<tt class="descname">setApertureAngle</tt><big>(</big><em>ang</em><big>)</big><a class="headerlink" href="#DraftTrackers.arcTracker.setApertureAngle" title="Permalink to this definition">¶</a></dt>
+<dd><p>sets the end angle by giving the aperture angle</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftTrackers.arcTracker.setCenter">
+<tt class="descname">setCenter</tt><big>(</big><em>cen</em><big>)</big><a class="headerlink" href="#DraftTrackers.arcTracker.setCenter" title="Permalink to this definition">¶</a></dt>
+<dd><p>sets the center point</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftTrackers.arcTracker.setEndAngle">
+<tt class="descname">setEndAngle</tt><big>(</big><em>ang</em><big>)</big><a class="headerlink" href="#DraftTrackers.arcTracker.setEndAngle" title="Permalink to this definition">¶</a></dt>
+<dd><p>sets the end angle</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftTrackers.arcTracker.setEndPoint">
+<tt class="descname">setEndPoint</tt><big>(</big><em>pt</em><big>)</big><a class="headerlink" href="#DraftTrackers.arcTracker.setEndPoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>sets the end angle from a point</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftTrackers.arcTracker.setRadius">
+<tt class="descname">setRadius</tt><big>(</big><em>rad</em><big>)</big><a class="headerlink" href="#DraftTrackers.arcTracker.setRadius" title="Permalink to this definition">¶</a></dt>
+<dd><p>sets the radius</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftTrackers.arcTracker.setStartAngle">
+<tt class="descname">setStartAngle</tt><big>(</big><em>ang</em><big>)</big><a class="headerlink" href="#DraftTrackers.arcTracker.setStartAngle" title="Permalink to this definition">¶</a></dt>
+<dd><p>sets the start angle</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftTrackers.arcTracker.setStartPoint">
+<tt class="descname">setStartPoint</tt><big>(</big><em>pt</em><big>)</big><a class="headerlink" href="#DraftTrackers.arcTracker.setStartPoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>sets the start angle from a point</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="DraftTrackers.boxTracker">
+<em class="property">class </em><tt class="descname">boxTracker</tt><big>(</big><em>line=None</em>, <em>width=0.1</em>, <em>height=1</em><big>)</big><a class="headerlink" href="#DraftTrackers.boxTracker" title="Permalink to this definition">¶</a></dt>
+<dd><p>A box tracker, can be based on a line object</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="DraftTrackers.bsplineTracker">
+<em class="property">class </em><tt class="descname">bsplineTracker</tt><big>(</big><em>dotted=False</em>, <em>scolor=None</em>, <em>swidth=None</em>, <em>points=</em><span class="optional">[</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#DraftTrackers.bsplineTracker" title="Permalink to this definition">¶</a></dt>
+<dd><p>A bspline tracker</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="DraftTrackers.dimTracker">
+<em class="property">class </em><tt class="descname">dimTracker</tt><big>(</big><em>dotted=False</em>, <em>scolor=None</em>, <em>swidth=None</em><big>)</big><a class="headerlink" href="#DraftTrackers.dimTracker" title="Permalink to this definition">¶</a></dt>
+<dd><p>A Dimension tracker, used by the dimension tool</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="DraftTrackers.editTracker">
+<em class="property">class </em><tt class="descname">editTracker</tt><big>(</big><em>pos=Vector (0</em>, <em>0</em>, <em>0)</em>, <em>name='None'</em>, <em>idx=0</em>, <em>objcol=None</em><big>)</big><a class="headerlink" href="#DraftTrackers.editTracker" title="Permalink to this definition">¶</a></dt>
+<dd><p>A node edit tracker</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="DraftTrackers.ghostTracker">
+<em class="property">class </em><tt class="descname">ghostTracker</tt><big>(</big><em>sel</em><big>)</big><a class="headerlink" href="#DraftTrackers.ghostTracker" title="Permalink to this definition">¶</a></dt>
+<dd><p>A Ghost tracker, that allows to copy whole object representations.
+You can pass it an object or a list of objects, or a shape.</p>
+<dl class="method">
+<dt id="DraftTrackers.ghostTracker.center">
+<tt class="descname">center</tt><big>(</big><em>point</em><big>)</big><a class="headerlink" href="#DraftTrackers.ghostTracker.center" title="Permalink to this definition">¶</a></dt>
+<dd><p>sets the rotation/scale center of the ghost</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftTrackers.ghostTracker.getNode">
+<tt class="descname">getNode</tt><big>(</big><em>obj</em><big>)</big><a class="headerlink" href="#DraftTrackers.ghostTracker.getNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>gets a coin node which is a full copy of the current representation</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftTrackers.ghostTracker.getNodeLight">
+<tt class="descname">getNodeLight</tt><big>(</big><em>shape</em><big>)</big><a class="headerlink" href="#DraftTrackers.ghostTracker.getNodeLight" title="Permalink to this definition">¶</a></dt>
+<dd><p>extract a lighter version directly from a shape</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftTrackers.ghostTracker.move">
+<tt class="descname">move</tt><big>(</big><em>delta</em><big>)</big><a class="headerlink" href="#DraftTrackers.ghostTracker.move" title="Permalink to this definition">¶</a></dt>
+<dd><p>moves the ghost to a given position, relative from its start position</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftTrackers.ghostTracker.rotate">
+<tt class="descname">rotate</tt><big>(</big><em>axis</em>, <em>angle</em><big>)</big><a class="headerlink" href="#DraftTrackers.ghostTracker.rotate" title="Permalink to this definition">¶</a></dt>
+<dd><p>rotates the ghost of a given angle</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftTrackers.ghostTracker.scale">
+<tt class="descname">scale</tt><big>(</big><em>delta</em><big>)</big><a class="headerlink" href="#DraftTrackers.ghostTracker.scale" title="Permalink to this definition">¶</a></dt>
+<dd><p>scales the ghost by the given factor</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftTrackers.ghostTracker.update">
+<tt class="descname">update</tt><big>(</big><em>obj</em><big>)</big><a class="headerlink" href="#DraftTrackers.ghostTracker.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>recreates the ghost from a new object</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="DraftTrackers.gridTracker">
+<em class="property">class </em><tt class="descname">gridTracker</tt><a class="headerlink" href="#DraftTrackers.gridTracker" title="Permalink to this definition">¶</a></dt>
+<dd><p>A grid tracker</p>
+<dl class="method">
+<dt id="DraftTrackers.gridTracker.getClosestNode">
+<tt class="descname">getClosestNode</tt><big>(</big><em>point</em><big>)</big><a class="headerlink" href="#DraftTrackers.gridTracker.getClosestNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the closest node from the given point</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="DraftTrackers.lineTracker">
+<em class="property">class </em><tt class="descname">lineTracker</tt><big>(</big><em>dotted=False</em>, <em>scolor=None</em>, <em>swidth=None</em><big>)</big><a class="headerlink" href="#DraftTrackers.lineTracker" title="Permalink to this definition">¶</a></dt>
+<dd><p>A Line tracker, used by the tools that need to draw temporary lines</p>
+<dl class="method">
+<dt id="DraftTrackers.lineTracker.getLength">
+<tt class="descname">getLength</tt><big>(</big><big>)</big><a class="headerlink" href="#DraftTrackers.lineTracker.getLength" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the length of the line</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftTrackers.lineTracker.p1">
+<tt class="descname">p1</tt><big>(</big><em>point=None</em><big>)</big><a class="headerlink" href="#DraftTrackers.lineTracker.p1" title="Permalink to this definition">¶</a></dt>
+<dd><p>sets or gets the first point of the line</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftTrackers.lineTracker.p2">
+<tt class="descname">p2</tt><big>(</big><em>point=None</em><big>)</big><a class="headerlink" href="#DraftTrackers.lineTracker.p2" title="Permalink to this definition">¶</a></dt>
+<dd><p>sets or gets the second point of the line</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="DraftTrackers.radiusTracker">
+<em class="property">class </em><tt class="descname">radiusTracker</tt><big>(</big><em>position=Vector (0</em>, <em>0</em>, <em>0)</em>, <em>radius=1</em><big>)</big><a class="headerlink" href="#DraftTrackers.radiusTracker" title="Permalink to this definition">¶</a></dt>
+<dd><p>A tracker that displays a transparent sphere to inicate a radius</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="DraftTrackers.rectangleTracker">
+<em class="property">class </em><tt class="descname">rectangleTracker</tt><big>(</big><em>dotted=False</em>, <em>scolor=None</em>, <em>swidth=None</em><big>)</big><a class="headerlink" href="#DraftTrackers.rectangleTracker" title="Permalink to this definition">¶</a></dt>
+<dd><p>A Rectangle tracker, used by the rectangle tool</p>
+<dl class="method">
+<dt id="DraftTrackers.rectangleTracker.getNormal">
+<tt class="descname">getNormal</tt><big>(</big><big>)</big><a class="headerlink" href="#DraftTrackers.rectangleTracker.getNormal" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the normal of the rectangle</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftTrackers.rectangleTracker.getSize">
+<tt class="descname">getSize</tt><big>(</big><big>)</big><a class="headerlink" href="#DraftTrackers.rectangleTracker.getSize" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns (length,width) of the rectangle</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftTrackers.rectangleTracker.p1">
+<tt class="descname">p1</tt><big>(</big><em>point=None</em><big>)</big><a class="headerlink" href="#DraftTrackers.rectangleTracker.p1" title="Permalink to this definition">¶</a></dt>
+<dd><p>sets or gets the base point of the rectangle</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftTrackers.rectangleTracker.p2">
+<tt class="descname">p2</tt><big>(</big><big>)</big><a class="headerlink" href="#DraftTrackers.rectangleTracker.p2" title="Permalink to this definition">¶</a></dt>
+<dd><p>gets the second point (on u axis) of the rectangle</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftTrackers.rectangleTracker.p3">
+<tt class="descname">p3</tt><big>(</big><em>point=None</em><big>)</big><a class="headerlink" href="#DraftTrackers.rectangleTracker.p3" title="Permalink to this definition">¶</a></dt>
+<dd><p>sets or gets the opposite (diagonal) point of the rectangle</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftTrackers.rectangleTracker.p4">
+<tt class="descname">p4</tt><big>(</big><big>)</big><a class="headerlink" href="#DraftTrackers.rectangleTracker.p4" title="Permalink to this definition">¶</a></dt>
+<dd><p>gets the fourth point (on v axis) of the rectangle</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftTrackers.rectangleTracker.setPlane">
+<tt class="descname">setPlane</tt><big>(</big><em>u</em>, <em>v=None</em><big>)</big><a class="headerlink" href="#DraftTrackers.rectangleTracker.setPlane" title="Permalink to this definition">¶</a></dt>
+<dd><p>sets given (u,v) vectors as working plane. You can give only u
+and v will be deduced automatically given current workplane</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftTrackers.rectangleTracker.setorigin">
+<tt class="descname">setorigin</tt><big>(</big><em>point</em><big>)</big><a class="headerlink" href="#DraftTrackers.rectangleTracker.setorigin" title="Permalink to this definition">¶</a></dt>
+<dd><p>sets the base point of the rectangle</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftTrackers.rectangleTracker.update">
+<tt class="descname">update</tt><big>(</big><em>point</em><big>)</big><a class="headerlink" href="#DraftTrackers.rectangleTracker.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>sets the opposite (diagonal) point of the rectangle</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="DraftTrackers.snapTracker">
+<em class="property">class </em><tt class="descname">snapTracker</tt><a class="headerlink" href="#DraftTrackers.snapTracker" title="Permalink to this definition">¶</a></dt>
+<dd><p>A Snap Mark tracker, used by tools that support snapping</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="DraftTrackers.wireTracker">
+<em class="property">class </em><tt class="descname">wireTracker</tt><big>(</big><em>wire</em><big>)</big><a class="headerlink" href="#DraftTrackers.wireTracker" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wire tracker</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="DraftGeomUtils.html"
+                        title="previous chapter">Draft Geometry Utilities</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="DraftSnap.html"
+                        title="next chapter">Draft Snapper</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/DraftTrackers.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+  <p>
+	  <a href="http://www.freecadweb.org">Go back to the FreeCAD homepage</a>
+  </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="DraftSnap.html" title="Draft Snapper"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="DraftGeomUtils.html" title="Draft Geometry Utilities"
+             >previous</a> |</li>
+        <li><a href="index.html">FreeCAD API documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Jürgen Riegel, Werner Mayer, Yorik van Havre.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

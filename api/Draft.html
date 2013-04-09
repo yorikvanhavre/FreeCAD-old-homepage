@@ -1,0 +1,565 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Draft module &mdash; FreeCAD API documentation</title>
+    
+    <link rel="stylesheet" href="_static/freecad.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.13',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="FreeCAD API documentation" href="index.html" />
+    <link rel="next" title="Draft Vector Utilities" href="DraftVecUtils.html" />
+    <link rel="prev" title="The PartDesign module" href="PartDesign.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="DraftVecUtils.html" title="Draft Vector Utilities"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="PartDesign.html" title="The PartDesign module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">FreeCAD API documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="draft-module">
+<h1>Draft module<a class="headerlink" href="#draft-module" title="Permalink to this headline">¶</a></h1>
+<p>The Draft module offer several convenient functions to work with simple objects.</p>
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+<span class="target" id="module-Draft"></span><dl class="function">
+<dt id="Draft.array">
+<tt class="descname">array</tt><big>(</big><em>objectslist</em>, <em>arg1</em>, <em>arg2</em>, <em>arg3</em>, <em>arg4=None</em><big>)</big><a class="headerlink" href="#Draft.array" title="Permalink to this definition">¶</a></dt>
+<dd><p>array(objectslist,xvector,yvector,xnum,ynum) for rectangular array, or
+array(objectslist,center,totalangle,totalnum) for polar array: Creates an array
+of the objects contained in list (that can be an object or a list of objects)
+with, in case of rectangular array, xnum of iterations in the x direction
+at xvector distance between iterations, and same for y direction with yvector
+and ynum. In case of polar array, center is a vector, totalangle is the angle
+to cover (in degrees) and totalnum is the number of objects, including the original.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Draft.clone">
+<tt class="descname">clone</tt><big>(</big><em>obj</em>, <em>delta=None</em><big>)</big><a class="headerlink" href="#Draft.clone" title="Permalink to this definition">¶</a></dt>
+<dd><p>clone(obj,[delta]): makes a clone of the given object(s). The clone is an exact,
+linked copy of the given object. If the original object changes, the final object
+changes too. Optionally, you can give a delta Vector to move the clone from the
+original position.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Draft.cut">
+<tt class="descname">cut</tt><big>(</big><em>object1</em>, <em>object2</em><big>)</big><a class="headerlink" href="#Draft.cut" title="Permalink to this definition">¶</a></dt>
+<dd><p>cut(oject1,object2): returns a cut object made from
+the difference of the 2 given objects.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Draft.dimSymbol">
+<tt class="descname">dimSymbol</tt><big>(</big><big>)</big><a class="headerlink" href="#Draft.dimSymbol" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the current dim symbol from the preferences as a pivy SoMarkerSet</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Draft.downgrade">
+<tt class="descname">downgrade</tt><big>(</big><em>objects</em>, <em>delete=False</em>, <em>force=None</em><big>)</big><a class="headerlink" href="#Draft.downgrade" title="Permalink to this definition">¶</a></dt>
+<dd><p>downgrade(objects,delete=False,force=None): Downgrades the given object(s) (can be
+an object or a list of objects). If delete is True, old objects are deleted.
+The force attribute can be used to
+force a certain way of downgrading. It can be: explode, shapify, subtr,
+splitFaces, cut2, getWire, splitWires.
+Returns a dictionnary containing two lists, a list of new objects and a list 
+of objects to be deleted</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Draft.draftify">
+<tt class="descname">draftify</tt><big>(</big><em>objectslist</em>, <em>makeblock=False</em>, <em>delete=True</em><big>)</big><a class="headerlink" href="#Draft.draftify" title="Permalink to this definition">¶</a></dt>
+<dd><p>draftify(objectslist,[makeblock],[delete]): turns each object of the given list
+(objectslist can also be a single object) into a Draft parametric
+wire. If makeblock is True, multiple objects will be grouped in a block.
+If delete = False, old objects are not deleted</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Draft.extrude">
+<tt class="descname">extrude</tt><big>(</big><em>obj</em>, <em>vector</em><big>)</big><a class="headerlink" href="#Draft.extrude" title="Permalink to this definition">¶</a></dt>
+<dd><p>makeExtrusion(object,vector): extrudes the given object
+in the direction given by the vector. The original object
+gets hidden.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Draft.formatObject">
+<tt class="descname">formatObject</tt><big>(</big><em>target</em>, <em>origin=None</em><big>)</big><a class="headerlink" href="#Draft.formatObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>formatObject(targetObject,[originObject]): This function applies
+to the given target object the current properties 
+set on the toolbar (line color and line width),
+or copies the properties of another object if given as origin.
+It also places the object in construction group if needed.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Draft.fuse">
+<tt class="descname">fuse</tt><big>(</big><em>object1</em>, <em>object2</em><big>)</big><a class="headerlink" href="#Draft.fuse" title="Permalink to this definition">¶</a></dt>
+<dd><p>fuse(oject1,object2): returns an object made from
+the union of the 2 given objects. If the objects are
+coplanar, a special Draft Wire is used, otherwise we use
+a standard Part fuse.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Draft.get3DView">
+<tt class="descname">get3DView</tt><big>(</big><big>)</big><a class="headerlink" href="#Draft.get3DView" title="Permalink to this definition">¶</a></dt>
+<dd><p>get3DView(): returns the current view if it is 3D, or the first 3D view found, or None</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Draft.getGroupContents">
+<tt class="descname">getGroupContents</tt><big>(</big><em>objectslist</em>, <em>walls=False</em><big>)</big><a class="headerlink" href="#Draft.getGroupContents" title="Permalink to this definition">¶</a></dt>
+<dd><p>getGroupContents(objectlist): if any object of the given list
+is a group, its content is appened to the list, which is returned</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Draft.getGroupNames">
+<tt class="descname">getGroupNames</tt><big>(</big><big>)</big><a class="headerlink" href="#Draft.getGroupNames" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a list of existing groups in the document</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Draft.getObjectsOfType">
+<tt class="descname">getObjectsOfType</tt><big>(</big><em>objectslist</em>, <em>typ</em><big>)</big><a class="headerlink" href="#Draft.getObjectsOfType" title="Permalink to this definition">¶</a></dt>
+<dd><p>getObjectsOfType(objectslist,typ): returns a list of objects of type &#8220;typ&#8221; found
+in the given object list</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Draft.getParam">
+<tt class="descname">getParam</tt><big>(</big><em>param</em><big>)</big><a class="headerlink" href="#Draft.getParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>getParam(parameterName): returns a Draft parameter value from the current config</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Draft.getRealName">
+<tt class="descname">getRealName</tt><big>(</big><em>name</em><big>)</big><a class="headerlink" href="#Draft.getRealName" title="Permalink to this definition">¶</a></dt>
+<dd><p>getRealName(string): strips the trailing numbers from a string name</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Draft.getSVG">
+<tt class="descname">getSVG</tt><big>(</big><em>obj</em>, <em>scale=1</em>, <em>linewidth=0.35</em>, <em>fontsize=12</em>, <em>fillstyle='shape color'</em>, <em>direction=None</em><big>)</big><a class="headerlink" href="#Draft.getSVG" title="Permalink to this definition">¶</a></dt>
+<dd><p>getSVG(object,[scale], [linewidth],[fontsize],[fillstyle],[direction]):
+returns a string containing a SVG representation of the given object,
+with the given linewidth and fontsize (used if the given object contains
+any text). You can also supply an arbitrary projection vector. the
+scale parameter allows to scale linewidths down, so they are resolution-independant.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Draft.getSelection">
+<tt class="descname">getSelection</tt><big>(</big><big>)</big><a class="headerlink" href="#Draft.getSelection" title="Permalink to this definition">¶</a></dt>
+<dd><p>getSelection(): returns the current FreeCAD selection</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Draft.getType">
+<tt class="descname">getType</tt><big>(</big><em>obj</em><big>)</big><a class="headerlink" href="#Draft.getType" title="Permalink to this definition">¶</a></dt>
+<dd><p>getType(object): returns the Draft type of the given object</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Draft.heal">
+<tt class="descname">heal</tt><big>(</big><em>objlist=None</em>, <em>delete=True</em>, <em>reparent=True</em><big>)</big><a class="headerlink" href="#Draft.heal" title="Permalink to this definition">¶</a></dt>
+<dd><p>heal([objlist],[delete],[reparent]) - recreates Draft objects that are damaged,
+for example if created from an earlier version. If delete is True,
+the damaged objects are deleted (default). If ran without arguments, all the objects
+in the document will be healed if they are damaged. If reparent is True (default),
+new objects go at the very same place in the tree than their original.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Draft.isClone">
+<tt class="descname">isClone</tt><big>(</big><em>obj</em>, <em>objtype</em><big>)</big><a class="headerlink" href="#Draft.isClone" title="Permalink to this definition">¶</a></dt>
+<dd><p>isClone(obj,objtype): returns True if the given object is 
+a clone of an object of the given type</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Draft.loadTexture">
+<tt class="descname">loadTexture</tt><big>(</big><em>filename</em><big>)</big><a class="headerlink" href="#Draft.loadTexture" title="Permalink to this definition">¶</a></dt>
+<dd><p>loadTexture(filename): returns a SoSFImage from a file</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Draft.makeAngularDimension">
+<tt class="descname">makeAngularDimension</tt><big>(</big><em>center</em>, <em>angles</em>, <em>p3</em><big>)</big><a class="headerlink" href="#Draft.makeAngularDimension" title="Permalink to this definition">¶</a></dt>
+<dd><p>makeAngularDimension(center,[angle1,angle2],p3): creates an angular Dimension
+from the given center, with the given list of angles, passing through p3.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Draft.makeArray">
+<tt class="descname">makeArray</tt><big>(</big><em>baseobject</em>, <em>arg1</em>, <em>arg2</em>, <em>arg3</em>, <em>arg4=None</em><big>)</big><a class="headerlink" href="#Draft.makeArray" title="Permalink to this definition">¶</a></dt>
+<dd><p>makeArray(object,xvector,yvector,xnum,ynum) for rectangular array, or
+makeArray(object,center,totalangle,totalnum) for polar array: Creates an array
+of the given object
+with, in case of rectangular array, xnum of iterations in the x direction
+at xvector distance between iterations, and same for y direction with yvector
+and ynum. In case of polar array, center is a vector, totalangle is the angle
+to cover (in degrees) and totalnum is the number of objects, including the original.
+The result is a parametric Draft Array.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Draft.makeBSpline">
+<tt class="descname">makeBSpline</tt><big>(</big><em>pointslist</em>, <em>closed=False</em>, <em>placement=None</em>, <em>face=True</em>, <em>support=None</em><big>)</big><a class="headerlink" href="#Draft.makeBSpline" title="Permalink to this definition">¶</a></dt>
+<dd><p>makeBSpline(pointslist,[closed],[placement]): Creates a B-Spline object
+from the given list of vectors. If closed is True or first
+and last points are identical, the wire is closed. If face is
+true (and wire is closed), the wire will appear filled. Instead of
+a pointslist, you can also pass a Part Wire.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Draft.makeBlock">
+<tt class="descname">makeBlock</tt><big>(</big><em>objectslist</em><big>)</big><a class="headerlink" href="#Draft.makeBlock" title="Permalink to this definition">¶</a></dt>
+<dd><p>makeBlock(objectslist): Creates a Draft Block from the given objects</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Draft.makeCircle">
+<tt class="descname">makeCircle</tt><big>(</big><em>radius</em><span class="optional">[</span>, <em>placement</em>, <em>face</em>, <em>startangle</em>, <em>endangle</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#Draft.makeCircle" title="Permalink to this definition">¶</a></dt>
+<dd><p>or makeCircle(edge,[face]):
+Creates a circle object with given radius. If placement is given, it is
+used. If face is False, the circle is shown as a
+wireframe, otherwise as a face. If startangle AND endangle are given
+(in degrees), they are used and the object appears as an arc. If an edge
+is passed, its Curve must be a Part.Circle</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Draft.makeCopy">
+<tt class="descname">makeCopy</tt><big>(</big><em>obj</em>, <em>force=None</em>, <em>reparent=False</em><big>)</big><a class="headerlink" href="#Draft.makeCopy" title="Permalink to this definition">¶</a></dt>
+<dd><p>makeCopy(object): returns an exact copy of an object</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Draft.makeDimension">
+<tt class="descname">makeDimension</tt><big>(</big><em>p1,p2,[p3]) or makeDimension(object,i1,i2,p3</em><big>)</big><a class="headerlink" href="#Draft.makeDimension" title="Permalink to this definition">¶</a></dt>
+<dd><p>or makeDimension(objlist,indices,p3): Creates a Dimension object with
+the dimension line passign through p3.The current line width and color
+will be used. There are multiple  ways to create a dimension, depending on
+the arguments you pass to it:
+- (p1,p2,p3): creates a standard dimension from p1 to p2
+- (object,i1,i2,p3): creates a linked dimension to the given object,
+measuring the distance between its vertices indexed i1 and i2
+- (object,i1,mode,p3): creates a linked dimension
+to the given object, i1 is the index of the (curved) edge to measure,
+and mode is either &#8220;radius&#8221; or &#8220;diameter&#8221;.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Draft.makeDrawingView">
+<tt class="descname">makeDrawingView</tt><big>(</big><em>obj</em>, <em>page</em>, <em>lwmod=None</em>, <em>tmod=None</em><big>)</big><a class="headerlink" href="#Draft.makeDrawingView" title="Permalink to this definition">¶</a></dt>
+<dd><p>makeDrawingView(object,page,[lwmod,tmod]) - adds a View of the given object to the
+given page. lwmod modifies lineweights (in percent), tmod modifies text heights
+(in percent). The Hint scale, X and Y of the page are used.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Draft.makeEllipse">
+<tt class="descname">makeEllipse</tt><big>(</big><em>majradius</em>, <em>minradius</em>, <em>placement=None</em><big>)</big><a class="headerlink" href="#Draft.makeEllipse" title="Permalink to this definition">¶</a></dt>
+<dd><p>makeEllipse(majradius,minradius,[placement]): makes
+an ellipse with the given major and minor radius, and optionally
+a placement.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Draft.makeLine">
+<tt class="descname">makeLine</tt><big>(</big><em>p1</em>, <em>p2</em><big>)</big><a class="headerlink" href="#Draft.makeLine" title="Permalink to this definition">¶</a></dt>
+<dd><p>makeLine(p1,p2): Creates a line between p1 and p2.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Draft.makePoint">
+<tt class="descname">makePoint</tt><big>(</big><em>X=0</em>, <em>Y=0</em>, <em>Z=0</em>, <em>color=None</em>, <em>name='Point'</em>, <em>point_size=5</em><big>)</big><a class="headerlink" href="#Draft.makePoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>make a point (at coordinates x,y,z ,color(r,g,b),point_size)
+example usage: 
+p1 = makePoint()
+p1.ViewObject.Visibility= False # make it invisible
+p1.ViewObject.Visibility= True  # make it visible
+p1 = makePoint(-1,0,0) #make a point at -1,0,0
+p1 = makePoint(1,0,0,(1,0,0)) # color = red
+p1.X = 1 #move it in x
+p1.ViewObject.PointColor =(0.0,0.0,1.0) #change the color-make sure values are floats</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Draft.makePolygon">
+<tt class="descname">makePolygon</tt><big>(</big><em>nfaces</em>, <em>radius=1</em>, <em>inscribed=True</em>, <em>placement=None</em>, <em>face=True</em>, <em>support=None</em><big>)</big><a class="headerlink" href="#Draft.makePolygon" title="Permalink to this definition">¶</a></dt>
+<dd><p>makePolgon(nfaces,[radius],[inscribed],[placement],[face]): Creates a
+polygon object with the given number of faces and the radius.
+if inscribed is False, the polygon is circumscribed around a circle
+with the given radius, otherwise it is inscribed. If face is True,
+the resulting shape is displayed as a face, otherwise as a wireframe.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Draft.makeRectangle">
+<tt class="descname">makeRectangle</tt><big>(</big><em>length</em>, <em>height</em>, <em>placement=None</em>, <em>face=True</em>, <em>support=None</em><big>)</big><a class="headerlink" href="#Draft.makeRectangle" title="Permalink to this definition">¶</a></dt>
+<dd><p>makeRectangle(length,width,[placement],[face]): Creates a Rectangle
+object with length in X direction and height in Y direction.
+If a placement is given, it is used. If face is False, the
+rectangle is shown as a wireframe, otherwise as a face.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Draft.makeShape2DView">
+<tt class="descname">makeShape2DView</tt><big>(</big><em>baseobj</em>, <em>projectionVector=None</em>, <em>facenumbers=</em><span class="optional">[</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#Draft.makeShape2DView" title="Permalink to this definition">¶</a></dt>
+<dd><p>makeShape2DView(object,[projectionVector,facenumbers]) - adds a 2D shape to the document, which is a
+2D projection of the given object. A specific projection vector can also be given. You can also
+specify a list of face numbers to be considered in individual faces mode.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Draft.makeSketch">
+<tt class="descname">makeSketch</tt><big>(</big><em>objectslist</em>, <em>autoconstraints=False</em>, <em>addTo=None</em>, <em>delete=False</em>, <em>name='Sketch'</em><big>)</big><a class="headerlink" href="#Draft.makeSketch" title="Permalink to this definition">¶</a></dt>
+<dd><p>makeSketch(objectslist,[autoconstraints],[addTo],[delete],[name]): makes a Sketch
+objectslist with the given Draft objects. If autoconstraints is True,
+constraints will be automatically added to wire nodes, rectangles
+and circles. If addTo is an existing sketch, geometry will be added to it instead of
+creating a new one. If delete is True, the original object will be deleted</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Draft.makeText">
+<tt class="descname">makeText</tt><big>(</big><em>stringslist</em>, <em>point=Vector (0</em>, <em>0</em>, <em>0)</em>, <em>screen=False</em><big>)</big><a class="headerlink" href="#Draft.makeText" title="Permalink to this definition">¶</a></dt>
+<dd><p>makeText(strings,[point],[screen]): Creates a Text object at the given point,
+containing the strings given in the strings list, one string by line (strings
+can also be one single string). The current color and text height and font
+specified in preferences are used.
+If screen is True, the text always faces the view direction.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Draft.makeWire">
+<tt class="descname">makeWire</tt><big>(</big><em>pointslist</em>, <em>closed=False</em>, <em>placement=None</em>, <em>face=True</em>, <em>support=None</em><big>)</big><a class="headerlink" href="#Draft.makeWire" title="Permalink to this definition">¶</a></dt>
+<dd><p>makeWire(pointslist,[closed],[placement]): Creates a Wire object
+from the given list of vectors. If closed is True or first
+and last points are identical, the wire is closed. If face is
+true (and wire is closed), the wire will appear filled. Instead of
+a pointslist, you can also pass a Part Wire.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Draft.move">
+<tt class="descname">move</tt><big>(</big><em>objectslist</em>, <em>vector</em>, <em>copy=False</em><big>)</big><a class="headerlink" href="#Draft.move" title="Permalink to this definition">¶</a></dt>
+<dd><p>move(objects,vector,[copy]): Moves the objects contained
+in objects (that can be an object or a list of objects)
+in the direction and distance indicated by the given
+vector. If copy is True, the actual objects are not moved, but copies
+are created instead.he objects (or their copies) are returned.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Draft.offset">
+<tt class="descname">offset</tt><big>(</big><em>obj</em>, <em>delta</em>, <em>copy=False</em>, <em>bind=False</em>, <em>sym=False</em>, <em>occ=False</em><big>)</big><a class="headerlink" href="#Draft.offset" title="Permalink to this definition">¶</a></dt>
+<dd><p>offset(object,Vector,[copymode],[bind]): offsets the given wire by
+applying the given Vector to its first vertex. If copymode is
+True, another object is created, otherwise the same object gets
+offsetted. If bind is True, and provided the wire is open, the original
+and the offsetted wires will be bound by their endpoints, forming a face
+if sym is True, bind must be true too, and the offset is made on both
+sides, the total width being the given delta length.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Draft.precision">
+<tt class="descname">precision</tt><big>(</big><big>)</big><a class="headerlink" href="#Draft.precision" title="Permalink to this definition">¶</a></dt>
+<dd><p>precision(): returns the precision value from Draft user settings</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Draft.printShape">
+<tt class="descname">printShape</tt><big>(</big><em>shape</em><big>)</big><a class="headerlink" href="#Draft.printShape" title="Permalink to this definition">¶</a></dt>
+<dd><p>prints detailed information of a shape</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Draft.removeHidden">
+<tt class="descname">removeHidden</tt><big>(</big><em>objectslist</em><big>)</big><a class="headerlink" href="#Draft.removeHidden" title="Permalink to this definition">¶</a></dt>
+<dd><p>removeHidden(objectslist): removes hidden objects from the list</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Draft.rotate">
+<tt class="descname">rotate</tt><big>(</big><em>objectslist</em>, <em>angle</em>, <em>center=Vector (0</em>, <em>0</em>, <em>0)</em>, <em>axis=Vector (0</em>, <em>0</em>, <em>1)</em>, <em>copy=False</em><big>)</big><a class="headerlink" href="#Draft.rotate" title="Permalink to this definition">¶</a></dt>
+<dd><p>rotate(objects,angle,[center,axis,copy]): Rotates the objects contained
+in objects (that can be a list of objects or an object) of the given angle
+(in degrees) around the center, using axis as a rotation axis. If axis is
+omitted, the rotation will be around the vertical Z axis.
+If copy is True, the actual objects are not moved, but copies
+are created instead. The objects (or their copies) are returned.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Draft.scale">
+<tt class="descname">scale</tt><big>(</big><em>objectslist</em>, <em>delta=Vector (1</em>, <em>1</em>, <em>1)</em>, <em>center=Vector (0</em>, <em>0</em>, <em>0)</em>, <em>copy=False</em>, <em>legacy=False</em><big>)</big><a class="headerlink" href="#Draft.scale" title="Permalink to this definition">¶</a></dt>
+<dd><p>scale(objects,vector,[center,copy,legacy]): Scales the objects contained
+in objects (that can be a list of objects or an object) of the given scale
+factors defined by the given vector (in X, Y and Z directions) around
+given center. If legacy is True, direct (old) mode is used, otherwise
+a parametric copy is made. If copy is True, the actual objects are not moved,
+but copies are created instead. The objects (or their copies) are returned.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Draft.select">
+<tt class="descname">select</tt><big>(</big><em>objs=None</em><big>)</big><a class="headerlink" href="#Draft.select" title="Permalink to this definition">¶</a></dt>
+<dd><p>select(object): deselects everything and selects only the passed object or list</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Draft.setParam">
+<tt class="descname">setParam</tt><big>(</big><em>param</em>, <em>value</em><big>)</big><a class="headerlink" href="#Draft.setParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>setParam(parameterName,value): sets a Draft parameter with the given value</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Draft.shapify">
+<tt class="descname">shapify</tt><big>(</big><em>obj</em><big>)</big><a class="headerlink" href="#Draft.shapify" title="Permalink to this definition">¶</a></dt>
+<dd><p>shapify(object): transforms a parametric shape object into
+non-parametric and returns the new object</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Draft.tolerance">
+<tt class="descname">tolerance</tt><big>(</big><big>)</big><a class="headerlink" href="#Draft.tolerance" title="Permalink to this definition">¶</a></dt>
+<dd><p>tolerance(): returns the tolerance value from Draft user settings</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Draft.typecheck">
+<tt class="descname">typecheck</tt><big>(</big><em>args_and_types</em>, <em>name='?'</em><big>)</big><a class="headerlink" href="#Draft.typecheck" title="Permalink to this definition">¶</a></dt>
+<dd><p>typecheck([arg1,type),(arg2,type),...]): checks arguments types</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Draft.ungroup">
+<tt class="descname">ungroup</tt><big>(</big><em>obj</em><big>)</big><a class="headerlink" href="#Draft.ungroup" title="Permalink to this definition">¶</a></dt>
+<dd><p>removes the current object from any group it belongs to</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Draft.upgrade">
+<tt class="descname">upgrade</tt><big>(</big><em>objects</em>, <em>delete=False</em>, <em>force=None</em><big>)</big><a class="headerlink" href="#Draft.upgrade" title="Permalink to this definition">¶</a></dt>
+<dd><p>upgrade(objects,delete=False,force=None): Upgrades the given object(s) (can be
+an object or a list of objects). If delete is True, old objects are deleted.
+The force attribute can be used to
+force a certain way of upgrading. It can be: makeCompound, closeGroupWires,
+makeSolid, closeWire, turnToParts, makeFusion, makeShell, makeFaces, draftify,
+joinFaces, makeSketchFace, makeWires
+Returns a dictionnary containing two lists, a list of new objects and a list 
+of objects to be deleted</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="PartDesign.html"
+                        title="previous chapter">The PartDesign module</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="DraftVecUtils.html"
+                        title="next chapter">Draft Vector Utilities</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/Draft.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+  <p>
+	  <a href="http://www.freecadweb.org">Go back to the FreeCAD homepage</a>
+  </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="DraftVecUtils.html" title="Draft Vector Utilities"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="PartDesign.html" title="The PartDesign module"
+             >previous</a> |</li>
+        <li><a href="index.html">FreeCAD API documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Jürgen Riegel, Werner Mayer, Yorik van Havre.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,424 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The Mesh module &mdash; FreeCAD API documentation</title>
+    
+    <link rel="stylesheet" href="_static/freecad.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.13',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="FreeCAD API documentation" href="index.html" />
+    <link rel="next" title="The Part module" href="Part.html" />
+    <link rel="prev" title="The FreeCADGui module" href="FreeCADGui.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="Part.html" title="The Part module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="FreeCADGui.html" title="The FreeCADGui module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">FreeCAD API documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="the-mesh-module">
+<h1>The Mesh module<a class="headerlink" href="#the-mesh-module" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+<span class="target" id="module-Mesh"></span><p>The functions in this module allow working with mesh objects.
+A set of functions are provided that allow to read in registered mesh file formats
+to either an newly created or already exising document.</p>
+<p>open(string) &#8211; Create a new document and a Mesh::Import feature to load the file into the document.
+insert(string, string) &#8211; Create a Mesh::Import feature to load the file into the given document.
+mesh() &#8211; Create an empty mesh object.</p>
+<dl class="class">
+<dt id="Mesh.Facet">
+<em class="property">class </em><tt class="descname">Facet</tt><a class="headerlink" href="#Mesh.Facet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Facet in mesh
+This is a facet in a MeshObject. You can get it by e.g. iterating a
+mesh. The facet has a connection to its mesh and allows therefore
+topological operations. It is also possible to create an unbounded facet e.g. to create
+a mesh. In this case the topological operations will fail. The same is
+when you cut the bound to the mesh by calling unbound().</p>
+<dl class="attribute">
+<dt id="Mesh.Facet.Bound">
+<tt class="descname">Bound</tt><a class="headerlink" href="#Mesh.Facet.Bound" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bound state of the facet</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Mesh.Facet.Index">
+<tt class="descname">Index</tt><a class="headerlink" href="#Mesh.Facet.Index" title="Permalink to this definition">¶</a></dt>
+<dd><p>The index of this facet in the MeshObject</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Mesh.Facet.NeighbourIndices">
+<tt class="descname">NeighbourIndices</tt><a class="headerlink" href="#Mesh.Facet.NeighbourIndices" title="Permalink to this definition">¶</a></dt>
+<dd><p>The index tuple of neighbour facets of the mesh this facet is adjacent with</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Mesh.Facet.Normal">
+<tt class="descname">Normal</tt><a class="headerlink" href="#Mesh.Facet.Normal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normal vector of the facet.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Mesh.Facet.PointIndices">
+<tt class="descname">PointIndices</tt><a class="headerlink" href="#Mesh.Facet.PointIndices" title="Permalink to this definition">¶</a></dt>
+<dd><p>The index tuple of point vertices of the mesh this facet is built of</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Mesh.Facet.Points">
+<tt class="descname">Points</tt><a class="headerlink" href="#Mesh.Facet.Points" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of points of the facet</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Mesh.Facet.intersect">
+<tt class="descname">intersect</tt><big>(</big><em>Facet</em><big>)</big> &rarr; list<a class="headerlink" href="#Mesh.Facet.intersect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a list of intersection points with another triangle.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Mesh.Facet.unbound">
+<tt class="descname">unbound</tt><big>(</big><big>)</big><a class="headerlink" href="#Mesh.Facet.unbound" title="Permalink to this definition">¶</a></dt>
+<dd><p>method unbound()
+Cut the connection to a MeshObject. The facet becomes
+free and is more or less a simple facet.
+After calling unbound() no topological operation will
+work!</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="Mesh.Feature">
+<em class="property">class </em><tt class="descname">Feature</tt><a class="headerlink" href="#Mesh.Feature" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Mesh::Feature class handles meshes.
+The Mesh.MeshFeature() function is for internal use only and cannot be used to create instances of this class.
+Therefore you must have a reference to a document, e.g. &#8216;d&#8217; then you can create an instance with
+d.addObject(&#8220;Mesh::Feature&#8221;).</p>
+<dl class="method">
+<dt id="Mesh.Feature.countFacets">
+<tt class="descname">countFacets</tt><big>(</big><big>)</big><a class="headerlink" href="#Mesh.Feature.countFacets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the number of facets of the mesh object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Mesh.Feature.countPoints">
+<tt class="descname">countPoints</tt><big>(</big><big>)</big><a class="headerlink" href="#Mesh.Feature.countPoints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the number of vertices of the mesh object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Mesh.Feature.fixDegenerations">
+<tt class="descname">fixDegenerations</tt><big>(</big><big>)</big><a class="headerlink" href="#Mesh.Feature.fixDegenerations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove degenerated facets</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Mesh.Feature.fixIndices">
+<tt class="descname">fixIndices</tt><big>(</big><big>)</big><a class="headerlink" href="#Mesh.Feature.fixIndices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Repair any invalid indices</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Mesh.Feature.fixSelfIntersections">
+<tt class="descname">fixSelfIntersections</tt><big>(</big><big>)</big><a class="headerlink" href="#Mesh.Feature.fixSelfIntersections" title="Permalink to this definition">¶</a></dt>
+<dd><p>Repair self-intersections</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Mesh.Feature.harmonizeNormals">
+<tt class="descname">harmonizeNormals</tt><big>(</big><big>)</big><a class="headerlink" href="#Mesh.Feature.harmonizeNormals" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adjust wrong oriented facets</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Mesh.Feature.removeDuplicatedFacets">
+<tt class="descname">removeDuplicatedFacets</tt><big>(</big><big>)</big><a class="headerlink" href="#Mesh.Feature.removeDuplicatedFacets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove duplicated facets</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Mesh.Feature.removeDuplicatedPoints">
+<tt class="descname">removeDuplicatedPoints</tt><big>(</big><big>)</big><a class="headerlink" href="#Mesh.Feature.removeDuplicatedPoints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove duplicated points</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Mesh.Feature.removeFoldsOnSurface">
+<tt class="descname">removeFoldsOnSurface</tt><big>(</big><big>)</big><a class="headerlink" href="#Mesh.Feature.removeFoldsOnSurface" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove folds on surfaces</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Mesh.Feature.removeNonManifolds">
+<tt class="descname">removeNonManifolds</tt><big>(</big><big>)</big><a class="headerlink" href="#Mesh.Feature.removeNonManifolds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove non-manifolds</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Mesh.Feature.smooth">
+<tt class="descname">smooth</tt><big>(</big><big>)</big><a class="headerlink" href="#Mesh.Feature.smooth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Smooth the mesh data</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Mesh.Mesh">
+<tt class="descname">Mesh</tt><a class="headerlink" href="#Mesh.Mesh" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <tt class="xref py py-class docutils literal"><span class="pre">MeshObject</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="Mesh.MeshPoint">
+<em class="property">class </em><tt class="descname">MeshPoint</tt><a class="headerlink" href="#Mesh.MeshPoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Point in mesh
+This is a point in a MeshObject. You can get it by e.g. iterating a
+mesh. The point has a connection to its mesh and allows therefore 
+topological operations. It is also possible to create an unbounded mesh point e.g. to create
+a mesh. In this case the topological operations will fail. The same is
+when you cut the bound to the mesh by calling unbound().</p>
+<dl class="attribute">
+<dt id="Mesh.MeshPoint.Bound">
+<tt class="descname">Bound</tt><a class="headerlink" href="#Mesh.MeshPoint.Bound" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bound state of the point</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Mesh.MeshPoint.Index">
+<tt class="descname">Index</tt><a class="headerlink" href="#Mesh.MeshPoint.Index" title="Permalink to this definition">¶</a></dt>
+<dd><p>The index of this point in the MeshObject</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Mesh.MeshPoint.Normal">
+<tt class="descname">Normal</tt><a class="headerlink" href="#Mesh.MeshPoint.Normal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normal vector of the point computed by the surrounding mesh.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Mesh.MeshPoint.Vector">
+<tt class="descname">Vector</tt><a class="headerlink" href="#Mesh.MeshPoint.Vector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Vector of the point.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Mesh.MeshPoint.move">
+<tt class="descname">move</tt><big>(</big><big>)</big><a class="headerlink" href="#Mesh.MeshPoint.move" title="Permalink to this definition">¶</a></dt>
+<dd><p>method move(Vector)
+This method moves the point in the mesh along the 
+given vector. This affects the geometry of the mesh.
+Be aware that after moving point(s) the mesh can 
+have self intersections!</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Mesh.MeshPoint.unbound">
+<tt class="descname">unbound</tt><big>(</big><big>)</big><a class="headerlink" href="#Mesh.MeshPoint.unbound" title="Permalink to this definition">¶</a></dt>
+<dd><p>method unbound()
+Cut the connection to a MeshObject. The point becomes
+free and is more or less a simple vector/point.
+After calling unbound() no topological operation will
+work!</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Mesh.MeshPoint.x">
+<tt class="descname">x</tt><a class="headerlink" href="#Mesh.MeshPoint.x" title="Permalink to this definition">¶</a></dt>
+<dd><p>The X component of the point.
+Setting this value also affects the mesh if this point is connected to it.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Mesh.MeshPoint.y">
+<tt class="descname">y</tt><a class="headerlink" href="#Mesh.MeshPoint.y" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Y component of the point.
+Setting this value also affects the mesh if this point is connected to it.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Mesh.MeshPoint.z">
+<tt class="descname">z</tt><a class="headerlink" href="#Mesh.MeshPoint.z" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Z component of the point.
+Setting this value also affects the mesh if this point is connected to it.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="Mesh.createBox">
+<tt class="descname">createBox</tt><big>(</big><big>)</big><a class="headerlink" href="#Mesh.createBox" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a solid mesh box</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Mesh.createCone">
+<tt class="descname">createCone</tt><big>(</big><big>)</big><a class="headerlink" href="#Mesh.createCone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a tessellated cone</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Mesh.createCylinder">
+<tt class="descname">createCylinder</tt><big>(</big><big>)</big><a class="headerlink" href="#Mesh.createCylinder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a tessellated cylinder</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Mesh.createEllipsoid">
+<tt class="descname">createEllipsoid</tt><big>(</big><big>)</big><a class="headerlink" href="#Mesh.createEllipsoid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a tessellated ellipsoid</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Mesh.createPlane">
+<tt class="descname">createPlane</tt><big>(</big><big>)</big><a class="headerlink" href="#Mesh.createPlane" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a mesh XY plane normal +Z</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Mesh.createSphere">
+<tt class="descname">createSphere</tt><big>(</big><big>)</big><a class="headerlink" href="#Mesh.createSphere" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a tessellated sphere</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Mesh.createTorus">
+<tt class="descname">createTorus</tt><big>(</big><big>)</big><a class="headerlink" href="#Mesh.createTorus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a tessellated torus</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Mesh.export">
+<tt class="descname">export</tt><big>(</big><big>)</big><a class="headerlink" href="#Mesh.export" title="Permalink to this definition">¶</a></dt>
+<dd><p>export(list,string) &#8211; Export a list of objects into a single file.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Mesh.insert">
+<tt class="descname">insert</tt><big>(</big><big>)</big><a class="headerlink" href="#Mesh.insert" title="Permalink to this definition">¶</a></dt>
+<dd><p>insert(string|mesh,[string]) &#8211; Load or insert a mesh into the given or active document.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Mesh.open">
+<tt class="descname">open</tt><big>(</big><big>)</big><a class="headerlink" href="#Mesh.open" title="Permalink to this definition">¶</a></dt>
+<dd><p>open(string) &#8211; Create a new document and a Mesh::Import feature to load the file into the document.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Mesh.read">
+<tt class="descname">read</tt><big>(</big><big>)</big><a class="headerlink" href="#Mesh.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a mesh from a file and returns a Mesh object.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Mesh.show">
+<tt class="descname">show</tt><big>(</big><big>)</big><a class="headerlink" href="#Mesh.show" title="Permalink to this definition">¶</a></dt>
+<dd><p>Put a mesh object in the active document or creates one if needed</p>
+</dd></dl>
+
+<span class="target" id="module-MeshGui"></span></div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="FreeCADGui.html"
+                        title="previous chapter">The FreeCADGui module</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="Part.html"
+                        title="next chapter">The Part module</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/Mesh.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+  <p>
+	  <a href="http://www.freecadweb.org">Go back to the FreeCAD homepage</a>
+  </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="Part.html" title="The Part module"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="FreeCADGui.html" title="The FreeCADGui module"
+             >previous</a> |</li>
+        <li><a href="index.html">FreeCAD API documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Jürgen Riegel, Werner Mayer, Yorik van Havre.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

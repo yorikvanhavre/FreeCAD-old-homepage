@@ -1,0 +1,685 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The FreeCAD module &mdash; FreeCAD API documentation</title>
+    
+    <link rel="stylesheet" href="_static/freecad.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.13',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="FreeCAD API documentation" href="index.html" />
+    <link rel="next" title="The FreeCADGui module" href="FreeCADGui.html" />
+    <link rel="prev" title="FreeCAD python API documentation" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="FreeCADGui.html" title="The FreeCADGui module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="FreeCAD python API documentation"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">FreeCAD API documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="the-freecad-module">
+<h1>The FreeCAD module<a class="headerlink" href="#the-freecad-module" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+<span class="target" id="module-FreeCAD"></span><p>The functions in the FreeCAD module allow working with documents.
+The FreeCAD instance provides a list of references of documents which
+can be addressed by a string. Hence the document name must be unique.</p>
+<p>The document has the read-only attribute FileName which points to the
+file the document should be stored to.</p>
+<dl class="class">
+<dt id="FreeCAD.Vector">
+<em class="property">class </em><tt class="descname">Vector</tt><a class="headerlink" href="#FreeCAD.Vector" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class represents a 3D float vector</p>
+<dl class="attribute">
+<dt id="FreeCAD.Vector.Length">
+<tt class="descname">Length</tt><a class="headerlink" href="#FreeCAD.Vector.Length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Length([Float]) -&gt; Float
+gets or sets the length of this vector</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="FreeCAD.Vector.add">
+<tt class="descname">add</tt><big>(</big><em>Vector</em><big>)</big><a class="headerlink" href="#FreeCAD.Vector.add" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the sum of this and another vector</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="FreeCAD.Vector.cross">
+<tt class="descname">cross</tt><big>(</big><em>Vector</em><big>)</big><a class="headerlink" href="#FreeCAD.Vector.cross" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the cross product between this and another vector</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="FreeCAD.Vector.distanceToLine">
+<tt class="descname">distanceToLine</tt><big>(</big><em>Vector</em>, <em>Vector</em><big>)</big><a class="headerlink" href="#FreeCAD.Vector.distanceToLine" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the distance between this vector and a line defined by
+a base point and a direction</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="FreeCAD.Vector.distanceToLineSegment">
+<tt class="descname">distanceToLineSegment</tt><big>(</big><em>Vector</em>, <em>Vector</em><big>)</big><a class="headerlink" href="#FreeCAD.Vector.distanceToLineSegment" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the distance between this vector and a line segment defined by
+a base point and a direction</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="FreeCAD.Vector.distanceToPlane">
+<tt class="descname">distanceToPlane</tt><big>(</big><em>Vector</em>, <em>Vector</em><big>)</big><a class="headerlink" href="#FreeCAD.Vector.distanceToPlane" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the distance between this vector and a plane defined by
+a base point and a normal</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="FreeCAD.Vector.dot">
+<tt class="descname">dot</tt><big>(</big><em>Vector</em><big>)</big><a class="headerlink" href="#FreeCAD.Vector.dot" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the dot product of the this vector with another one</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="FreeCAD.Vector.getAngle">
+<tt class="descname">getAngle</tt><big>(</big><em>Vector</em><big>)</big><a class="headerlink" href="#FreeCAD.Vector.getAngle" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the angle in radians between this and another vector</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="FreeCAD.Vector.multiply">
+<tt class="descname">multiply</tt><big>(</big><em>Float</em><big>)</big><a class="headerlink" href="#FreeCAD.Vector.multiply" title="Permalink to this definition">¶</a></dt>
+<dd><p>multiplies (scales) this vector by a single factor</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="FreeCAD.Vector.normalize">
+<tt class="descname">normalize</tt><big>(</big><big>)</big><a class="headerlink" href="#FreeCAD.Vector.normalize" title="Permalink to this definition">¶</a></dt>
+<dd><p>normalizes the vector to the length of 1.0</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="FreeCAD.Vector.projectToLine">
+<tt class="descname">projectToLine</tt><big>(</big><em>Vector</em>, <em>Vector</em><big>)</big><a class="headerlink" href="#FreeCAD.Vector.projectToLine" title="Permalink to this definition">¶</a></dt>
+<dd><p>projects the vector on a line defined by a base point and a direction</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="FreeCAD.Vector.projectToPlane">
+<tt class="descname">projectToPlane</tt><big>(</big><em>Vector</em>, <em>Vector</em><big>)</big><a class="headerlink" href="#FreeCAD.Vector.projectToPlane" title="Permalink to this definition">¶</a></dt>
+<dd><p>projects the vector on a plane defined by a base point and a normal</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="FreeCAD.Vector.scale">
+<tt class="descname">scale</tt><big>(</big><em>Float</em>, <em>Float</em>, <em>Float</em><big>)</big><a class="headerlink" href="#FreeCAD.Vector.scale" title="Permalink to this definition">¶</a></dt>
+<dd><p>scales (multiplies) this vector by a factor</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="FreeCAD.Vector.sub">
+<tt class="descname">sub</tt><big>(</big><em>Vector</em><big>)</big><a class="headerlink" href="#FreeCAD.Vector.sub" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the difference of this and another vector</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="FreeCAD.Vector.x">
+<tt class="descname">x</tt><a class="headerlink" href="#FreeCAD.Vector.x" title="Permalink to this definition">¶</a></dt>
+<dd><p>x([Float]) -&gt; Float
+gets or sets the X component of this vector</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="FreeCAD.Vector.y">
+<tt class="descname">y</tt><a class="headerlink" href="#FreeCAD.Vector.y" title="Permalink to this definition">¶</a></dt>
+<dd><p>y([Float]) -&gt; Float
+gets or sets the Y component of this vector</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="FreeCAD.Vector.z">
+<tt class="descname">z</tt><a class="headerlink" href="#FreeCAD.Vector.z" title="Permalink to this definition">¶</a></dt>
+<dd><p>z([Float]) -&gt; Float
+gets or sets the Z component of this vector</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="FreeCAD.Matrix">
+<em class="property">class </em><tt class="descname">Matrix</tt><a class="headerlink" href="#FreeCAD.Matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>A 4x4 Matrix</p>
+<dl class="attribute">
+<dt id="FreeCAD.Matrix.A">
+<tt class="descname">A</tt><a class="headerlink" href="#FreeCAD.Matrix.A" title="Permalink to this definition">¶</a></dt>
+<dd><p>The matrix elements</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="FreeCAD.Matrix.A11">
+<tt class="descname">A11</tt><a class="headerlink" href="#FreeCAD.Matrix.A11" title="Permalink to this definition">¶</a></dt>
+<dd><p>The matrix elements</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="FreeCAD.Matrix.A12">
+<tt class="descname">A12</tt><a class="headerlink" href="#FreeCAD.Matrix.A12" title="Permalink to this definition">¶</a></dt>
+<dd><p>The matrix elements</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="FreeCAD.Matrix.A13">
+<tt class="descname">A13</tt><a class="headerlink" href="#FreeCAD.Matrix.A13" title="Permalink to this definition">¶</a></dt>
+<dd><p>The matrix elements</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="FreeCAD.Matrix.A14">
+<tt class="descname">A14</tt><a class="headerlink" href="#FreeCAD.Matrix.A14" title="Permalink to this definition">¶</a></dt>
+<dd><p>The matrix elements</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="FreeCAD.Matrix.A21">
+<tt class="descname">A21</tt><a class="headerlink" href="#FreeCAD.Matrix.A21" title="Permalink to this definition">¶</a></dt>
+<dd><p>The matrix elements</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="FreeCAD.Matrix.A22">
+<tt class="descname">A22</tt><a class="headerlink" href="#FreeCAD.Matrix.A22" title="Permalink to this definition">¶</a></dt>
+<dd><p>The matrix elements</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="FreeCAD.Matrix.A23">
+<tt class="descname">A23</tt><a class="headerlink" href="#FreeCAD.Matrix.A23" title="Permalink to this definition">¶</a></dt>
+<dd><p>The matrix elements</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="FreeCAD.Matrix.A24">
+<tt class="descname">A24</tt><a class="headerlink" href="#FreeCAD.Matrix.A24" title="Permalink to this definition">¶</a></dt>
+<dd><p>The matrix elements</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="FreeCAD.Matrix.A31">
+<tt class="descname">A31</tt><a class="headerlink" href="#FreeCAD.Matrix.A31" title="Permalink to this definition">¶</a></dt>
+<dd><p>The matrix elements</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="FreeCAD.Matrix.A32">
+<tt class="descname">A32</tt><a class="headerlink" href="#FreeCAD.Matrix.A32" title="Permalink to this definition">¶</a></dt>
+<dd><p>The matrix elements</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="FreeCAD.Matrix.A33">
+<tt class="descname">A33</tt><a class="headerlink" href="#FreeCAD.Matrix.A33" title="Permalink to this definition">¶</a></dt>
+<dd><p>The matrix elements</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="FreeCAD.Matrix.A34">
+<tt class="descname">A34</tt><a class="headerlink" href="#FreeCAD.Matrix.A34" title="Permalink to this definition">¶</a></dt>
+<dd><p>The matrix elements</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="FreeCAD.Matrix.A41">
+<tt class="descname">A41</tt><a class="headerlink" href="#FreeCAD.Matrix.A41" title="Permalink to this definition">¶</a></dt>
+<dd><p>The matrix elements</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="FreeCAD.Matrix.A42">
+<tt class="descname">A42</tt><a class="headerlink" href="#FreeCAD.Matrix.A42" title="Permalink to this definition">¶</a></dt>
+<dd><p>The matrix elements</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="FreeCAD.Matrix.A43">
+<tt class="descname">A43</tt><a class="headerlink" href="#FreeCAD.Matrix.A43" title="Permalink to this definition">¶</a></dt>
+<dd><p>The matrix elements</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="FreeCAD.Matrix.A44">
+<tt class="descname">A44</tt><a class="headerlink" href="#FreeCAD.Matrix.A44" title="Permalink to this definition">¶</a></dt>
+<dd><p>The matrix elements</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="FreeCAD.Matrix.analyze">
+<tt class="descname">analyze</tt><big>(</big><big>)</big> &rarr; string<a class="headerlink" href="#FreeCAD.Matrix.analyze" title="Permalink to this definition">¶</a></dt>
+<dd><p>Analyzes the type of transformation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="FreeCAD.Matrix.determinant">
+<tt class="descname">determinant</tt><big>(</big><big>)</big> &rarr; Float<a class="headerlink" href="#FreeCAD.Matrix.determinant" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the determinant of the matrix</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="FreeCAD.Matrix.inverse">
+<tt class="descname">inverse</tt><big>(</big><big>)</big> &rarr; Matrix<a class="headerlink" href="#FreeCAD.Matrix.inverse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the inverse matrix, if possible</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="FreeCAD.Matrix.invert">
+<tt class="descname">invert</tt><big>(</big><big>)</big> &rarr; None<a class="headerlink" href="#FreeCAD.Matrix.invert" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the inverse matrix, if possible</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="FreeCAD.Matrix.isOrthogonal">
+<tt class="descname">isOrthogonal</tt><big>(</big><span class="optional">[</span><em>Float</em><span class="optional">]</span><big>)</big> &rarr; Float<a class="headerlink" href="#FreeCAD.Matrix.isOrthogonal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the matrix is orthogonal, i.e. M * M^T = k*I and returns
+the multiple of the identity matrix. If it&#8217;s not orthogonal 0 is returned.
+As argument you can set a tolerance which by default is 1.0e-6.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="FreeCAD.Matrix.move">
+<tt class="descname">move</tt><big>(</big><em>Vector</em><big>)</big><a class="headerlink" href="#FreeCAD.Matrix.move" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move the matrix along the vector</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="FreeCAD.Matrix.multiply">
+<tt class="descname">multiply</tt><big>(</big><em>Matrix|Vector</em><big>)</big><a class="headerlink" href="#FreeCAD.Matrix.multiply" title="Permalink to this definition">¶</a></dt>
+<dd><p>Multiply a matrix or vector with this matrix</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="FreeCAD.Matrix.rotateX">
+<tt class="descname">rotateX</tt><big>(</big><big>)</big><a class="headerlink" href="#FreeCAD.Matrix.rotateX" title="Permalink to this definition">¶</a></dt>
+<dd><p>rotateX(float) - rotate around X</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="FreeCAD.Matrix.rotateY">
+<tt class="descname">rotateY</tt><big>(</big><big>)</big><a class="headerlink" href="#FreeCAD.Matrix.rotateY" title="Permalink to this definition">¶</a></dt>
+<dd><p>rotateY(float) - rotate around Y</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="FreeCAD.Matrix.rotateZ">
+<tt class="descname">rotateZ</tt><big>(</big><big>)</big><a class="headerlink" href="#FreeCAD.Matrix.rotateZ" title="Permalink to this definition">¶</a></dt>
+<dd><p>rotateZ(float) - rotate around Z</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="FreeCAD.Matrix.scale">
+<tt class="descname">scale</tt><big>(</big><em>Vector</em><big>)</big><a class="headerlink" href="#FreeCAD.Matrix.scale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scale the matrix with the vector</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="FreeCAD.Matrix.submatrix">
+<tt class="descname">submatrix</tt><big>(</big><em>int</em><big>)</big> &rarr; Matrix<a class="headerlink" href="#FreeCAD.Matrix.submatrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the sub-matrix. The parameter must be in the range [1,4].</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="FreeCAD.Matrix.transform">
+<tt class="descname">transform</tt><big>(</big><big>)</big><a class="headerlink" href="#FreeCAD.Matrix.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>transform(Vector,Matrix) - return the dot product of the two vectors</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="FreeCAD.Matrix.transpose">
+<tt class="descname">transpose</tt><big>(</big><big>)</big> &rarr; None<a class="headerlink" href="#FreeCAD.Matrix.transpose" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transpose the matrix.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="FreeCAD.Matrix.transposed">
+<tt class="descname">transposed</tt><big>(</big><big>)</big> &rarr; Matrix<a class="headerlink" href="#FreeCAD.Matrix.transposed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a transposed copy of this matrix.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="FreeCAD.Matrix.unity">
+<tt class="descname">unity</tt><big>(</big><big>)</big><a class="headerlink" href="#FreeCAD.Matrix.unity" title="Permalink to this definition">¶</a></dt>
+<dd><p>unity() - make this matrix to unity</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="FreeCAD.Placement">
+<em class="property">class </em><tt class="descname">Placement</tt><a class="headerlink" href="#FreeCAD.Placement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Placement
+A placement defines an orientation (rotation) and a position (base) in 3D space.
+It is used when no scaling or other distortion is needed.</p>
+<p>The following constructors are supported:
+Placement() &#8211; empty constructor
+Placement(Placement) &#8211; copy constructor
+Placement(Matrix) &#8211; 4D matrix consisting of rotation and translation
+Placement(Base, Rotation) &#8211; define position and rotation
+Placement(Base, Rotation,Center) &#8211; define position and rotation with center
+Placement(Base, Axis, Angle) &#8211; define position and rotation</p>
+<dl class="attribute">
+<dt id="FreeCAD.Placement.Base">
+<tt class="descname">Base</tt><a class="headerlink" href="#FreeCAD.Placement.Base" title="Permalink to this definition">¶</a></dt>
+<dd><p>Vector to the Base Position of the Placement</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="FreeCAD.Placement.Rotation">
+<tt class="descname">Rotation</tt><a class="headerlink" href="#FreeCAD.Placement.Rotation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Orientation of the placement expressed as rotation</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="FreeCAD.Placement.copy">
+<tt class="descname">copy</tt><big>(</big><big>)</big><a class="headerlink" href="#FreeCAD.Placement.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a copy of this Placement</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="FreeCAD.Placement.inverse">
+<tt class="descname">inverse</tt><big>(</big><big>)</big> &rarr; Placement<a class="headerlink" href="#FreeCAD.Placement.inverse" title="Permalink to this definition">¶</a></dt>
+<dd><p>compute the inverse placement</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="FreeCAD.Placement.isNull">
+<tt class="descname">isNull</tt><big>(</big><big>)</big> &rarr; Bool<a class="headerlink" href="#FreeCAD.Placement.isNull" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns True if the placement has no displacement and no rotation</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="FreeCAD.Placement.move">
+<tt class="descname">move</tt><big>(</big><big>)</big><a class="headerlink" href="#FreeCAD.Placement.move" title="Permalink to this definition">¶</a></dt>
+<dd><p>move(Vector) 
+Move the placement along the vector</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="FreeCAD.Placement.multVec">
+<tt class="descname">multVec</tt><big>(</big><big>)</big><a class="headerlink" href="#FreeCAD.Placement.multVec" title="Permalink to this definition">¶</a></dt>
+<dd><p>multVector(Vector) -&gt; Vector
+Compute the transformed vector using the placement</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="FreeCAD.Placement.multiply">
+<tt class="descname">multiply</tt><big>(</big><em>Placement</em><big>)</big><a class="headerlink" href="#FreeCAD.Placement.multiply" title="Permalink to this definition">¶</a></dt>
+<dd><p>Multiply this placement with another placement</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="FreeCAD.Placement.toMatrix">
+<tt class="descname">toMatrix</tt><big>(</big><big>)</big><a class="headerlink" href="#FreeCAD.Placement.toMatrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>convert the placement to a matrix representation</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="FreeCAD.Console">
+<tt class="descname">Console</tt><a class="headerlink" href="#FreeCAD.Console" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <tt class="xref py py-class docutils literal"><span class="pre">__FreeCADConsole__</span></tt></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCAD.ConfigDump">
+<tt class="descname">ConfigDump</tt><big>(</big><big>)</big><a class="headerlink" href="#FreeCAD.ConfigDump" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dump the configuration to the output.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCAD.ConfigGet">
+<tt class="descname">ConfigGet</tt><big>(</big><big>)</big><a class="headerlink" href="#FreeCAD.ConfigGet" title="Permalink to this definition">¶</a></dt>
+<dd><p>ConfigGet([string]) &#8211; Get the value for the given key.
+If no key is given the complete configuration is dumped to
+the output.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCAD.ConfigSet">
+<tt class="descname">ConfigSet</tt><big>(</big><big>)</big><a class="headerlink" href="#FreeCAD.ConfigSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>ConfigSet(string, string) &#8211; Set the given key to the given value.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCAD.EndingAdd">
+<tt class="descname">EndingAdd</tt><big>(</big><big>)</big><a class="headerlink" href="#FreeCAD.EndingAdd" title="Permalink to this definition">¶</a></dt>
+<dd><p>deprecated &#8211; use addImportType</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCAD.EndingGet">
+<tt class="descname">EndingGet</tt><big>(</big><big>)</big><a class="headerlink" href="#FreeCAD.EndingGet" title="Permalink to this definition">¶</a></dt>
+<dd><p>deprecated &#8211; use getImportType</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCAD.ParamGet">
+<tt class="descname">ParamGet</tt><big>(</big><big>)</big><a class="headerlink" href="#FreeCAD.ParamGet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get parameters by path</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCAD.Version">
+<tt class="descname">Version</tt><big>(</big><big>)</big><a class="headerlink" href="#FreeCAD.Version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print the version to the output.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCAD.activeDocument">
+<tt class="descname">activeDocument</tt><big>(</big><big>)</big> &rarr; object or None<a class="headerlink" href="#FreeCAD.activeDocument" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the active document or None if there is no one.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCAD.addDocumentObserver">
+<tt class="descname">addDocumentObserver</tt><big>(</big><big>)</big> &rarr; None<a class="headerlink" href="#FreeCAD.addDocumentObserver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add an observer to get notified about changes on documents.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCAD.addExportType">
+<tt class="descname">addExportType</tt><big>(</big><big>)</big><a class="headerlink" href="#FreeCAD.addExportType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Register filetype for export</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCAD.addImportType">
+<tt class="descname">addImportType</tt><big>(</big><big>)</big><a class="headerlink" href="#FreeCAD.addImportType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Register filetype for import</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCAD.closeDocument">
+<tt class="descname">closeDocument</tt><big>(</big><em>string</em><big>)</big> &rarr; None<a class="headerlink" href="#FreeCAD.closeDocument" title="Permalink to this definition">¶</a></dt>
+<dd><p>Close the document with a given name.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCAD.getDocument">
+<tt class="descname">getDocument</tt><big>(</big><em>string</em><big>)</big> &rarr; object<a class="headerlink" href="#FreeCAD.getDocument" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a document by its name or raise an exception
+if there is no document with the given name.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCAD.getExportType">
+<tt class="descname">getExportType</tt><big>(</big><big>)</big><a class="headerlink" href="#FreeCAD.getExportType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the name of the module that can export the filetype</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCAD.getHomePath">
+<tt class="descname">getHomePath</tt><big>(</big><big>)</big><a class="headerlink" href="#FreeCAD.getHomePath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the home path, i.e. the parent directory of the executable</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCAD.getImportType">
+<tt class="descname">getImportType</tt><big>(</big><big>)</big><a class="headerlink" href="#FreeCAD.getImportType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the name of the module that can import the filetype</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCAD.getResourceDir">
+<tt class="descname">getResourceDir</tt><big>(</big><big>)</big><a class="headerlink" href="#FreeCAD.getResourceDir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the root directory of all resources</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCAD.listDocuments">
+<tt class="descname">listDocuments</tt><big>(</big><big>)</big> &rarr; list<a class="headerlink" href="#FreeCAD.listDocuments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of names of all documents.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCAD.loadFile">
+<tt class="descname">loadFile</tt><big>(</big><em>string=filename</em><span class="optional">[</span>, <em>string=module</em><span class="optional">]</span><big>)</big> &rarr; None<a class="headerlink" href="#FreeCAD.loadFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads an arbitrary file by delegating to the given Python module:
+* If no module is given it will be determined by the file extension.
+* If more than one module can load a file the first one one will be taken.
+* If no module exists to load the file an exception will be raised.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCAD.newDocument">
+<tt class="descname">newDocument</tt><big>(</big><span class="optional">[</span><em>string</em><span class="optional">]</span><big>)</big> &rarr; object<a class="headerlink" href="#FreeCAD.newDocument" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a new document with a given name.
+The document name must be unique which
+is checked automatically.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCAD.open">
+<tt class="descname">open</tt><big>(</big><big>)</big><a class="headerlink" href="#FreeCAD.open" title="Permalink to this definition">¶</a></dt>
+<dd><p>See openDocument(string)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCAD.openDocument">
+<tt class="descname">openDocument</tt><big>(</big><em>string</em><big>)</big> &rarr; object<a class="headerlink" href="#FreeCAD.openDocument" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a document and load the project file into the document.
+The string argument must point to an existing file. If the file doesn&#8217;t exist
+or the file cannot be loaded an I/O exception is thrown. In this case the
+document is kept alive.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCAD.removeDocumentObserver">
+<tt class="descname">removeDocumentObserver</tt><big>(</big><big>)</big> &rarr; None<a class="headerlink" href="#FreeCAD.removeDocumentObserver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove an added document observer.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCAD.setActiveDocument">
+<tt class="descname">setActiveDocument</tt><big>(</big><big>)</big><a class="headerlink" href="#FreeCAD.setActiveDocument" title="Permalink to this definition">¶</a></dt>
+<dd><p>setActiveDocement(string) -&gt; None</p>
+<p>Set the active document by its name.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">FreeCAD python API documentation</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="FreeCADGui.html"
+                        title="next chapter">The FreeCADGui module</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/FreeCAD.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+  <p>
+	  <a href="http://www.freecadweb.org">Go back to the FreeCAD homepage</a>
+  </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="FreeCADGui.html" title="The FreeCADGui module"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="FreeCAD python API documentation"
+             >previous</a> |</li>
+        <li><a href="index.html">FreeCAD API documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Jürgen Riegel, Werner Mayer, Yorik van Havre.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

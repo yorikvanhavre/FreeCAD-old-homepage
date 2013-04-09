@@ -1,0 +1,212 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The Sketcher module &mdash; FreeCAD API documentation</title>
+    
+    <link rel="stylesheet" href="_static/freecad.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.13',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="FreeCAD API documentation" href="index.html" />
+    <link rel="next" title="The PartDesign module" href="PartDesign.html" />
+    <link rel="prev" title="The Part module" href="Part.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="PartDesign.html" title="The PartDesign module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Part.html" title="The Part module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">FreeCAD API documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="the-sketcher-module">
+<h1>The Sketcher module<a class="headerlink" href="#the-sketcher-module" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+<span class="target" id="module-Sketcher"></span><p>This module is the Sketcher module.</p>
+<dl class="class">
+<dt id="Sketcher.Constraint">
+<em class="property">class </em><tt class="descname">Constraint</tt><a class="headerlink" href="#Sketcher.Constraint" title="Permalink to this definition">¶</a></dt>
+<dd><p>With this objects you can handle sketches</p>
+<dl class="attribute">
+<dt id="Sketcher.Constraint.First">
+<tt class="descname">First</tt><a class="headerlink" href="#Sketcher.Constraint.First" title="Permalink to this definition">¶</a></dt>
+<dd><p>First geometry index the Constraint referse to</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Sketcher.Constraint.Second">
+<tt class="descname">Second</tt><a class="headerlink" href="#Sketcher.Constraint.Second" title="Permalink to this definition">¶</a></dt>
+<dd><p>Second geometry index the Constraint referse to</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="Sketcher.Sketch">
+<em class="property">class </em><tt class="descname">Sketch</tt><a class="headerlink" href="#Sketcher.Sketch" title="Permalink to this definition">¶</a></dt>
+<dd><p>With this objects you can handle constraint sketches</p>
+<dl class="attribute">
+<dt id="Sketcher.Sketch.Constraint">
+<tt class="descname">Constraint</tt><a class="headerlink" href="#Sketcher.Sketch.Constraint" title="Permalink to this definition">¶</a></dt>
+<dd><p>0: exactly constraint, -1 under-constraint, 1 over-constraint</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Sketcher.Sketch.Constraints">
+<tt class="descname">Constraints</tt><a class="headerlink" href="#Sketcher.Sketch.Constraints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tuple of all constrains in this sketch</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Sketcher.Sketch.Geometries">
+<tt class="descname">Geometries</tt><a class="headerlink" href="#Sketcher.Sketch.Geometries" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tuple of all geometric elements in this sketch</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Sketcher.Sketch.Shape">
+<tt class="descname">Shape</tt><a class="headerlink" href="#Sketcher.Sketch.Shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resulting shape from the sketch geometry</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Sketcher.Sketch.addConstraint">
+<tt class="descname">addConstraint</tt><big>(</big><big>)</big><a class="headerlink" href="#Sketcher.Sketch.addConstraint" title="Permalink to this definition">¶</a></dt>
+<dd><p>add an constraint object to the sketch</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Sketcher.Sketch.addGeometry">
+<tt class="descname">addGeometry</tt><big>(</big><big>)</big><a class="headerlink" href="#Sketcher.Sketch.addGeometry" title="Permalink to this definition">¶</a></dt>
+<dd><p>add a geometric object to the sketch</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Sketcher.Sketch.clear">
+<tt class="descname">clear</tt><big>(</big><big>)</big><a class="headerlink" href="#Sketcher.Sketch.clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>clear the sketch</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Sketcher.Sketch.movePoint">
+<tt class="descname">movePoint</tt><big>(</big><em>GeoIndex,PointPos,Vector,[relative]) - move a given point (or curve</em><big>)</big><a class="headerlink" href="#Sketcher.Sketch.movePoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>to another location.
+It moves the specified point (or curve) to the given location by adding some
+temporary weak constraints and solve the sketch.
+This method is mostly used to allow the user to drag some portions of the sketch
+in real time by e.g. the mouse and it works only for underconstrained portions of
+the sketch.
+The argument &#8216;relative&#8217;, if present, states if the new location is given
+relatively to the current one.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Sketcher.Sketch.solve">
+<tt class="descname">solve</tt><big>(</big><big>)</big><a class="headerlink" href="#Sketcher.Sketch.solve" title="Permalink to this definition">¶</a></dt>
+<dd><p>solve the actual set of geometry and constraints</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="Part.html"
+                        title="previous chapter">The Part module</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="PartDesign.html"
+                        title="next chapter">The PartDesign module</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/Sketch.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+  <p>
+	  <a href="http://www.freecadweb.org">Go back to the FreeCAD homepage</a>
+  </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="PartDesign.html" title="The PartDesign module"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Part.html" title="The Part module"
+             >previous</a> |</li>
+        <li><a href="index.html">FreeCAD API documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Jürgen Riegel, Werner Mayer, Yorik van Havre.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

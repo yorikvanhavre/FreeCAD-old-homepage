@@ -1,0 +1,341 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The Arch module &mdash; FreeCAD API documentation</title>
+    
+    <link rel="stylesheet" href="_static/freecad.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.13',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="FreeCAD API documentation" href="index.html" />
+    <link rel="next" title="The Drawing module" href="Drawing.html" />
+    <link rel="prev" title="Draft Snapper" href="DraftSnap.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="Drawing.html" title="The Drawing module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="DraftSnap.html" title="Draft Snapper"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">FreeCAD API documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="the-arch-module">
+<h1>The Arch module<a class="headerlink" href="#the-arch-module" title="Permalink to this headline">¶</a></h1>
+<p>The Arch module is a metamodule that imports useful methods from several of the Arch submodules. You can invoke the following methods either from their specific submodule (ArchWall.areSameWallTypes()) or from the Arch module itself (Arch.areSameWallTypes()).</p>
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+<span class="target" id="module-Arch"></span><span class="target" id="module-ArchWall"></span><dl class="function">
+<dt id="ArchWall.areSameWallTypes">
+<tt class="descname">areSameWallTypes</tt><big>(</big><em>walls</em><big>)</big><a class="headerlink" href="#ArchWall.areSameWallTypes" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns True is all the walls in the given list have same height, width, and alignment</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ArchWall.joinWalls">
+<tt class="descname">joinWalls</tt><big>(</big><em>walls</em>, <em>delete=False</em><big>)</big><a class="headerlink" href="#ArchWall.joinWalls" title="Permalink to this definition">¶</a></dt>
+<dd><p>joins the given list of walls into one sketch-based wall. If delete
+is True, merged wall objects are deleted</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ArchWall.makeWall">
+<tt class="descname">makeWall</tt><big>(</big><em>baseobj=None</em>, <em>width=None</em>, <em>height=None</em>, <em>align='Center'</em>, <em>name='Wall'</em><big>)</big><a class="headerlink" href="#ArchWall.makeWall" title="Permalink to this definition">¶</a></dt>
+<dd><p>makeWall(obj,[width],[height],[align],[name]): creates a wall based on the
+given object, which can be a sketch, a draft object, a face or a solid. align
+can be &#8220;Center&#8221;,&#8221;Left&#8221; or &#8220;Right&#8221;</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ArchWall.mergeShapes">
+<tt class="descname">mergeShapes</tt><big>(</big><em>w1</em>, <em>w2</em><big>)</big><a class="headerlink" href="#ArchWall.mergeShapes" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a Shape built on two walls that share same properties and have a coincident endpoint</p>
+</dd></dl>
+
+<span class="target" id="module-ArchCell"></span><dl class="function">
+<dt id="ArchCell.makeCell">
+<tt class="descname">makeCell</tt><big>(</big><em>objectslist=None</em>, <em>join=True</em>, <em>name='Cell'</em><big>)</big><a class="headerlink" href="#ArchCell.makeCell" title="Permalink to this definition">¶</a></dt>
+<dd><p>makeCell([objectslist],[joinmode]): creates a cell including the
+objects from the given list. If joinmode is False, contents will
+not be joined.</p>
+</dd></dl>
+
+<span class="target" id="module-ArchFloor"></span><dl class="function">
+<dt id="ArchFloor.makeFloor">
+<tt class="descname">makeFloor</tt><big>(</big><em>objectslist=None</em>, <em>join=True</em>, <em>name='Floor'</em><big>)</big><a class="headerlink" href="#ArchFloor.makeFloor" title="Permalink to this definition">¶</a></dt>
+<dd><p>makeFloor(objectslist,[joinmode]): creates a floor including the
+objects from the given list. If joinmode is False, components will
+not be joined.</p>
+</dd></dl>
+
+<span class="target" id="module-ArchSite"></span><dl class="function">
+<dt id="ArchSite.makeSite">
+<tt class="descname">makeSite</tt><big>(</big><em>objectslist=None</em>, <em>name='Site'</em><big>)</big><a class="headerlink" href="#ArchSite.makeSite" title="Permalink to this definition">¶</a></dt>
+<dd><p>makeBuilding(objectslist): creates a site including the
+objects from the given list.</p>
+</dd></dl>
+
+<span class="target" id="module-ArchStructure"></span><dl class="function">
+<dt id="ArchStructure.makeStructuralSystem">
+<tt class="descname">makeStructuralSystem</tt><big>(</big><em>objects</em>, <em>axes</em><big>)</big><a class="headerlink" href="#ArchStructure.makeStructuralSystem" title="Permalink to this definition">¶</a></dt>
+<dd><p>makeStructuralSystem(objects,axes): makes a structural system
+based on the given objects and axes</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ArchStructure.makeStructure">
+<tt class="descname">makeStructure</tt><big>(</big><em>baseobj=None</em>, <em>length=1</em>, <em>width=1</em>, <em>height=1</em>, <em>name='Structure'</em><big>)</big><a class="headerlink" href="#ArchStructure.makeStructure" title="Permalink to this definition">¶</a></dt>
+<dd><p>makeStructure([obj],[length],[width],[heigth],[swap]): creates a
+structure element based on the given profile object and the given
+extrusion height. If no base object is given, you can also specify
+length and width for a cubic object.</p>
+</dd></dl>
+
+<span class="target" id="module-ArchWindow"></span><dl class="function">
+<dt id="ArchWindow.makeDefaultWindowPart">
+<tt class="descname">makeDefaultWindowPart</tt><big>(</big><em>obj</em><big>)</big><a class="headerlink" href="#ArchWindow.makeDefaultWindowPart" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a list of 5 strings defining a default window part from a 2D object</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ArchWindow.makeWindow">
+<tt class="descname">makeWindow</tt><big>(</big><em>baseobj=None</em>, <em>width=None</em>, <em>name='Window'</em><big>)</big><a class="headerlink" href="#ArchWindow.makeWindow" title="Permalink to this definition">¶</a></dt>
+<dd><p>makeWindow(obj,[name]): creates a window based on the
+given object</p>
+</dd></dl>
+
+<span class="target" id="module-ArchSectionPlane"></span><dl class="function">
+<dt id="ArchSectionPlane.makeSectionPlane">
+<tt class="descname">makeSectionPlane</tt><big>(</big><em>objectslist=None</em><big>)</big><a class="headerlink" href="#ArchSectionPlane.makeSectionPlane" title="Permalink to this definition">¶</a></dt>
+<dd><p>makeSectionPlane([objectslist]) : Creates a Section plane objects including the
+given objects. If no object is given, the whole document will be considered.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ArchSectionPlane.makeSectionView">
+<tt class="descname">makeSectionView</tt><big>(</big><em>section</em><big>)</big><a class="headerlink" href="#ArchSectionPlane.makeSectionView" title="Permalink to this definition">¶</a></dt>
+<dd><p>makeSectionView(section) : Creates a Drawing view of the given Section Plane
+in the active Page object (a new page will be created if none exists</p>
+</dd></dl>
+
+<span class="target" id="module-ArchBuilding"></span><dl class="function">
+<dt id="ArchBuilding.makeBuilding">
+<tt class="descname">makeBuilding</tt><big>(</big><em>objectslist=None</em>, <em>join=False</em>, <em>name='Building'</em><big>)</big><a class="headerlink" href="#ArchBuilding.makeBuilding" title="Permalink to this definition">¶</a></dt>
+<dd><p>makeBuilding(objectslist,[joinmode]): creates a building including the
+objects from the given list. If joinmode is True, components will be joined.</p>
+</dd></dl>
+
+<span class="target" id="module-ArchCommands"></span><dl class="function">
+<dt id="ArchCommands.addComponents">
+<tt class="descname">addComponents</tt><big>(</big><em>objectsList</em>, <em>host</em><big>)</big><a class="headerlink" href="#ArchCommands.addComponents" title="Permalink to this definition">¶</a></dt>
+<dd><p>addComponents(objectsList,hostObject): adds the given object or the objects
+from the given list as components to the given host Object. Use this for
+example to add windows to a wall, or to add walls to a cell or floor.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ArchCommands.check">
+<tt class="descname">check</tt><big>(</big><em>objectslist</em>, <em>includehidden=False</em><big>)</big><a class="headerlink" href="#ArchCommands.check" title="Permalink to this definition">¶</a></dt>
+<dd><p>check(objectslist,includehidden=False): checks if the given objects contain only solids</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ArchCommands.closeHole">
+<tt class="descname">closeHole</tt><big>(</big><em>shape</em><big>)</big><a class="headerlink" href="#ArchCommands.closeHole" title="Permalink to this definition">¶</a></dt>
+<dd><p>closeHole(shape): closes a hole in an open shape</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ArchCommands.copyProperties">
+<tt class="descname">copyProperties</tt><big>(</big><em>obj1</em>, <em>obj2</em><big>)</big><a class="headerlink" href="#ArchCommands.copyProperties" title="Permalink to this definition">¶</a></dt>
+<dd><p>copyProperties(obj1,obj2): Copies properties values from obj1 to obj2,
+when that property exists in both objects</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ArchCommands.download">
+<tt class="descname">download</tt><big>(</big><em>url</em><big>)</big><a class="headerlink" href="#ArchCommands.download" title="Permalink to this definition">¶</a></dt>
+<dd><p>downloads a file from the given URL and saves it in the
+user directory. Returns the path to the saved file</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ArchCommands.fixWindow">
+<tt class="descname">fixWindow</tt><big>(</big><em>obj</em><big>)</big><a class="headerlink" href="#ArchCommands.fixWindow" title="Permalink to this definition">¶</a></dt>
+<dd><p>fixWindow(object): Fixes non-DAG problems in windows
+by removing supports and external geometry from underlying sketches</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ArchCommands.getCutVolume">
+<tt class="descname">getCutVolume</tt><big>(</big><em>cutplane</em>, <em>shapes</em><big>)</big><a class="headerlink" href="#ArchCommands.getCutVolume" title="Permalink to this definition">¶</a></dt>
+<dd><p>getCutVolume(cutplane,shapes): returns a cut face and a cut volume
+from the given shapes and the given cutting plane</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ArchCommands.getDefaultColor">
+<tt class="descname">getDefaultColor</tt><big>(</big><em>objectType</em><big>)</big><a class="headerlink" href="#ArchCommands.getDefaultColor" title="Permalink to this definition">¶</a></dt>
+<dd><p>getDefaultColor(string): returns a color value for the given object
+type (Wall, Structure, Window)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ArchCommands.getStringList">
+<tt class="descname">getStringList</tt><big>(</big><em>objects</em><big>)</big><a class="headerlink" href="#ArchCommands.getStringList" title="Permalink to this definition">¶</a></dt>
+<dd><p>getStringList(objects): returns a string defining a list
+of objects</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ArchCommands.makeFace">
+<tt class="descname">makeFace</tt><big>(</big><em>wires</em>, <em>method=2</em>, <em>cleanup=False</em><big>)</big><a class="headerlink" href="#ArchCommands.makeFace" title="Permalink to this definition">¶</a></dt>
+<dd><p>makeFace(wires): makes a face from a list of wires, finding which ones are holes</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ArchCommands.mergeCells">
+<tt class="descname">mergeCells</tt><big>(</big><em>objectslist</em><big>)</big><a class="headerlink" href="#ArchCommands.mergeCells" title="Permalink to this definition">¶</a></dt>
+<dd><p>mergeCells(objectslist): merges the objects in the given list
+into one. All objects must be of the same type and based on the Cell
+object (cells, floors, buildings, or sites).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ArchCommands.meshToShape">
+<tt class="descname">meshToShape</tt><big>(</big><em>obj</em>, <em>mark=True</em><big>)</big><a class="headerlink" href="#ArchCommands.meshToShape" title="Permalink to this definition">¶</a></dt>
+<dd><p>meshToShape(object,[mark]): turns a mesh into a shape, joining coplanar facets. If
+mark is True (default), non-solid objects will be marked in red</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ArchCommands.removeComponents">
+<tt class="descname">removeComponents</tt><big>(</big><em>objectsList</em>, <em>host=None</em><big>)</big><a class="headerlink" href="#ArchCommands.removeComponents" title="Permalink to this definition">¶</a></dt>
+<dd><p>removeComponents(objectsList,[hostObject]): removes the given component or
+the components from the given list from their parents. If a host object is
+specified, this function will try adding the components as holes to the host
+object instead.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ArchCommands.removeShape">
+<tt class="descname">removeShape</tt><big>(</big><em>objs</em>, <em>mark=True</em><big>)</big><a class="headerlink" href="#ArchCommands.removeShape" title="Permalink to this definition">¶</a></dt>
+<dd><p>takes an arch object (wall or structure) built on a cubic shape, and removes
+the inner shape, keeping its length, width and height as parameters.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ArchCommands.splitMesh">
+<tt class="descname">splitMesh</tt><big>(</big><em>obj</em>, <em>mark=True</em><big>)</big><a class="headerlink" href="#ArchCommands.splitMesh" title="Permalink to this definition">¶</a></dt>
+<dd><p>splitMesh(object,[mark]): splits the given mesh object into separated components.
+If mark is False, nothing else is done. If True (default), non-manifold components
+will be painted in red.</p>
+</dd></dl>
+
+<span class="target" id="module-ArchAxis"></span><dl class="function">
+<dt id="ArchAxis.makeAxis">
+<tt class="descname">makeAxis</tt><big>(</big><em>num=5</em>, <em>size=1</em>, <em>name='Axes'</em><big>)</big><a class="headerlink" href="#ArchAxis.makeAxis" title="Permalink to this definition">¶</a></dt>
+<dd><p>makeAxis(num,size): makes an Axis System
+based on the given number of axes and interval distances</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="DraftSnap.html"
+                        title="previous chapter">Draft Snapper</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="Drawing.html"
+                        title="next chapter">The Drawing module</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/Arch.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+  <p>
+	  <a href="http://www.freecadweb.org">Go back to the FreeCAD homepage</a>
+  </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="Drawing.html" title="The Drawing module"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="DraftSnap.html" title="Draft Snapper"
+             >previous</a> |</li>
+        <li><a href="index.html">FreeCAD API documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Jürgen Riegel, Werner Mayer, Yorik van Havre.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

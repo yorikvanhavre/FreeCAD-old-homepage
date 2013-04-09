@@ -1,0 +1,341 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Draft Snapper &mdash; FreeCAD API documentation</title>
+    
+    <link rel="stylesheet" href="_static/freecad.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.13',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="FreeCAD API documentation" href="index.html" />
+    <link rel="next" title="The Arch module" href="Arch.html" />
+    <link rel="prev" title="Draft Trackers" href="DraftTrackers.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="Arch.html" title="The Arch module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="DraftTrackers.html" title="Draft Trackers"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">FreeCAD API documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="draft-snapper">
+<h1>Draft Snapper<a class="headerlink" href="#draft-snapper" title="Permalink to this headline">¶</a></h1>
+<p>The Draft Snapper manages object snapping in Draft and Arch modules.</p>
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+<span class="target" id="module-DraftSnap"></span><dl class="class">
+<dt id="DraftSnap.Snapper">
+<em class="property">class </em><tt class="descname">Snapper</tt><a class="headerlink" href="#DraftSnap.Snapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Snapper objects contains all the functionality used by draft
+and arch module to manage object snapping. It is responsible for
+finding snap points and displaying snap markers. Usually You
+only need to invoke it&#8217;s snap() function, all the rest is taken
+care of.</p>
+<p>3 functions are useful for the scriptwriter: snap(), constrain()
+or getPoint() which is an all-in-one combo.</p>
+<p>The indivudual snapToXXX() functions return a snap definition in
+the form [real_point,marker_type,visual_point], and are not
+meant to be used directly, they are all called when necessary by
+the general snap() function.</p>
+<p>The Snapper lives inside FreeCADGui once the Draft module has been
+loaded.</p>
+<dl class="method">
+<dt id="DraftSnap.Snapper.constrain">
+<tt class="descname">constrain</tt><big>(</big><em>point</em>, <em>basepoint=None</em>, <em>axis=None</em><big>)</big><a class="headerlink" href="#DraftSnap.Snapper.constrain" title="Permalink to this definition">¶</a></dt>
+<dd><p>constrain(point,basepoint=None,axis=None: Returns a
+constrained point. Axis can be &#8220;x&#8221;,&#8221;y&#8221; or &#8220;z&#8221; or a custom vector. If None,
+the closest working plane axis will be picked.
+Basepoint is the base point used to figure out from where the point
+must be constrained. If no basepoint is given, the current point is
+used as basepoint.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftSnap.Snapper.getApparentPoint">
+<tt class="descname">getApparentPoint</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#DraftSnap.Snapper.getApparentPoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a 3D point, projected on the current working plane</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftSnap.Snapper.getPerpendicular">
+<tt class="descname">getPerpendicular</tt><big>(</big><em>edge</em>, <em>pt</em><big>)</big><a class="headerlink" href="#DraftSnap.Snapper.getPerpendicular" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a point on an edge, perpendicular to the given point</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftSnap.Snapper.getPoint">
+<tt class="descname">getPoint</tt><big>(</big><em>last=None</em>, <em>callback=None</em>, <em>movecallback=None</em>, <em>extradlg=None</em><big>)</big><a class="headerlink" href="#DraftSnap.Snapper.getPoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>getPoint([last],[callback],[movecallback],[extradlg]) : gets a 3D point
+from the screen. You can provide an existing point, in that case additional
+snap options and a tracker are available.
+You can also pass a function as callback, which will get called
+with the resulting point as argument, when a point is clicked, and optionally
+another callback which gets called when the mouse is moved.</p>
+<p>If the operation gets cancelled (the user pressed Escape), no point is returned.</p>
+<p>Example:</p>
+<dl class="docutils">
+<dt>def cb(point):</dt>
+<dd><dl class="first last docutils">
+<dt>if point:</dt>
+<dd>print &#8220;got a 3D point: &#8221;,point</dd>
+</dl>
+</dd>
+</dl>
+<p>FreeCADGui.Snapper.getPoint(callback=cb)</p>
+<p>If the callback function accepts more than one argument, it will also receive
+the last snapped object. Finally, a pyqt dialog can be passed as extra taskbox.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftSnap.Snapper.getScreenDist">
+<tt class="descname">getScreenDist</tt><big>(</big><em>dist</em>, <em>cursor</em><big>)</big><a class="headerlink" href="#DraftSnap.Snapper.getScreenDist" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a distance in 3D space from a screen pixels distance</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftSnap.Snapper.isEnabled">
+<tt class="descname">isEnabled</tt><big>(</big><em>but</em><big>)</big><a class="headerlink" href="#DraftSnap.Snapper.isEnabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns true if the given button is turned on</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftSnap.Snapper.makeSnapToolBar">
+<tt class="descname">makeSnapToolBar</tt><big>(</big><big>)</big><a class="headerlink" href="#DraftSnap.Snapper.makeSnapToolBar" title="Permalink to this definition">¶</a></dt>
+<dd><p>builds the Snap toolbar</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftSnap.Snapper.off">
+<tt class="descname">off</tt><big>(</big><big>)</big><a class="headerlink" href="#DraftSnap.Snapper.off" title="Permalink to this definition">¶</a></dt>
+<dd><p>finishes snapping</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftSnap.Snapper.saveSnapModes">
+<tt class="descname">saveSnapModes</tt><big>(</big><big>)</big><a class="headerlink" href="#DraftSnap.Snapper.saveSnapModes" title="Permalink to this definition">¶</a></dt>
+<dd><p>saves the snap modes for next sessions</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftSnap.Snapper.setCursor">
+<tt class="descname">setCursor</tt><big>(</big><em>mode=None</em><big>)</big><a class="headerlink" href="#DraftSnap.Snapper.setCursor" title="Permalink to this definition">¶</a></dt>
+<dd><p>setCursor(self,mode=None): sets or resets the cursor to the given mode or resets</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftSnap.Snapper.setGrid">
+<tt class="descname">setGrid</tt><big>(</big><big>)</big><a class="headerlink" href="#DraftSnap.Snapper.setGrid" title="Permalink to this definition">¶</a></dt>
+<dd><p>sets the grid, if visible</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftSnap.Snapper.show">
+<tt class="descname">show</tt><big>(</big><big>)</big><a class="headerlink" href="#DraftSnap.Snapper.show" title="Permalink to this definition">¶</a></dt>
+<dd><p>shows the toolbar and the grid</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftSnap.Snapper.showradius">
+<tt class="descname">showradius</tt><big>(</big><big>)</big><a class="headerlink" href="#DraftSnap.Snapper.showradius" title="Permalink to this definition">¶</a></dt>
+<dd><p>shows the snap radius indicator</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftSnap.Snapper.snap">
+<tt class="descname">snap</tt><big>(</big><em>screenpos</em>, <em>lastpoint=None</em>, <em>active=True</em>, <em>constrain=False</em><big>)</big><a class="headerlink" href="#DraftSnap.Snapper.snap" title="Permalink to this definition">¶</a></dt>
+<dd><p>snap(screenpos,lastpoint=None,active=True,constrain=False): returns a snapped
+point from the given (x,y) screenpos (the position of the mouse cursor), active is to
+activate active point snapping or not (passive), lastpoint is an optional
+other point used to draw an imaginary segment and get additional snap locations. Constrain can
+be True to constrain the point against the closest working plane axis.
+Screenpos can be a list, a tuple or a coin.SbVec2s object.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftSnap.Snapper.snapToAngles">
+<tt class="descname">snapToAngles</tt><big>(</big><em>shape</em><big>)</big><a class="headerlink" href="#DraftSnap.Snapper.snapToAngles" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a list of angle snap locations</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftSnap.Snapper.snapToCenter">
+<tt class="descname">snapToCenter</tt><big>(</big><em>shape</em><big>)</big><a class="headerlink" href="#DraftSnap.Snapper.snapToCenter" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a list of center snap locations</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftSnap.Snapper.snapToElines">
+<tt class="descname">snapToElines</tt><big>(</big><em>e1</em>, <em>e2</em><big>)</big><a class="headerlink" href="#DraftSnap.Snapper.snapToElines" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a snap location at the infinite intersection of the given edges</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftSnap.Snapper.snapToEndpoints">
+<tt class="descname">snapToEndpoints</tt><big>(</big><em>shape</em><big>)</big><a class="headerlink" href="#DraftSnap.Snapper.snapToEndpoints" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a list of enpoints snap locations</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftSnap.Snapper.snapToExtOrtho">
+<tt class="descname">snapToExtOrtho</tt><big>(</big><em>last</em>, <em>constrain</em>, <em>eline</em><big>)</big><a class="headerlink" href="#DraftSnap.Snapper.snapToExtOrtho" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns an ortho X extension snap location</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftSnap.Snapper.snapToExtPerpendicular">
+<tt class="descname">snapToExtPerpendicular</tt><big>(</big><em>last</em><big>)</big><a class="headerlink" href="#DraftSnap.Snapper.snapToExtPerpendicular" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a perpendicular X extension snap location</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftSnap.Snapper.snapToExtensions">
+<tt class="descname">snapToExtensions</tt><big>(</big><em>point</em>, <em>last</em>, <em>constrain</em>, <em>eline</em><big>)</big><a class="headerlink" href="#DraftSnap.Snapper.snapToExtensions" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a point snapped to extension or parallel line to last object, if any</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftSnap.Snapper.snapToGrid">
+<tt class="descname">snapToGrid</tt><big>(</big><em>point</em><big>)</big><a class="headerlink" href="#DraftSnap.Snapper.snapToGrid" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a grid snap point if available</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftSnap.Snapper.snapToIntersection">
+<tt class="descname">snapToIntersection</tt><big>(</big><em>shape</em><big>)</big><a class="headerlink" href="#DraftSnap.Snapper.snapToIntersection" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a list of intersection snap locations</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftSnap.Snapper.snapToMidpoint">
+<tt class="descname">snapToMidpoint</tt><big>(</big><em>shape</em><big>)</big><a class="headerlink" href="#DraftSnap.Snapper.snapToMidpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a list of midpoints snap locations</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftSnap.Snapper.snapToOrtho">
+<tt class="descname">snapToOrtho</tt><big>(</big><em>shape</em>, <em>last</em>, <em>constrain</em><big>)</big><a class="headerlink" href="#DraftSnap.Snapper.snapToOrtho" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a list of ortho snap locations</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftSnap.Snapper.snapToPerpendicular">
+<tt class="descname">snapToPerpendicular</tt><big>(</big><em>shape</em>, <em>last</em><big>)</big><a class="headerlink" href="#DraftSnap.Snapper.snapToPerpendicular" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a list of perpendicular snap locations</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftSnap.Snapper.snapToPolar">
+<tt class="descname">snapToPolar</tt><big>(</big><em>point</em>, <em>last</em><big>)</big><a class="headerlink" href="#DraftSnap.Snapper.snapToPolar" title="Permalink to this definition">¶</a></dt>
+<dd><p>snaps to polar lines from the given point</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftSnap.Snapper.toggle">
+<tt class="descname">toggle</tt><big>(</big><em>checked=None</em><big>)</big><a class="headerlink" href="#DraftSnap.Snapper.toggle" title="Permalink to this definition">¶</a></dt>
+<dd><p>toggles the snap mode</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="DraftTrackers.html"
+                        title="previous chapter">Draft Trackers</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="Arch.html"
+                        title="next chapter">The Arch module</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/DraftSnap.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+  <p>
+	  <a href="http://www.freecadweb.org">Go back to the FreeCAD homepage</a>
+  </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="Arch.html" title="The Arch module"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="DraftTrackers.html" title="Draft Trackers"
+             >previous</a> |</li>
+        <li><a href="index.html">FreeCAD API documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Jürgen Riegel, Werner Mayer, Yorik van Havre.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

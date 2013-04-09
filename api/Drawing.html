@@ -1,0 +1,151 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The Drawing module &mdash; FreeCAD API documentation</title>
+    
+    <link rel="stylesheet" href="_static/freecad.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.13',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="FreeCAD API documentation" href="index.html" />
+    <link rel="next" title="The RayTracing module" href="RayTracing.html" />
+    <link rel="prev" title="The Arch module" href="Arch.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="RayTracing.html" title="The RayTracing module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Arch.html" title="The Arch module"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">FreeCAD API documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="the-drawing-module">
+<h1>The Drawing module<a class="headerlink" href="#the-drawing-module" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+<span class="target" id="module-Drawing"></span><p>This module is the drawing module.</p>
+<dl class="function">
+<dt id="Drawing.project">
+<tt class="descname">project</tt><big>(</big><big>)</big><a class="headerlink" href="#Drawing.project" title="Permalink to this definition">¶</a></dt>
+<dd><p>[visiblyG0,visiblyG1,hiddenG0,hiddenG1] = project(TopoShape[,App.Vector Direction, string type]) &#8211; Project a shape and return the visible/invisible parts of it.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Drawing.projectEx">
+<tt class="descname">projectEx</tt><big>(</big><big>)</big><a class="headerlink" href="#Drawing.projectEx" title="Permalink to this definition">¶</a></dt>
+<dd><p>[V,V1,VN,VO,VI,H,H1,HN,HO,HI] = projectEx(TopoShape[,App.Vector Direction, string type]) &#8211; Project a shape and return the all parts of it.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Drawing.projectToDXF">
+<tt class="descname">projectToDXF</tt><big>(</big><big>)</big><a class="headerlink" href="#Drawing.projectToDXF" title="Permalink to this definition">¶</a></dt>
+<dd><p>string = projectToDXF(TopoShape[,App.Vector Direction, string type]) &#8211; Project a shape and return the DXF representation as string.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Drawing.projectToSVG">
+<tt class="descname">projectToSVG</tt><big>(</big><big>)</big><a class="headerlink" href="#Drawing.projectToSVG" title="Permalink to this definition">¶</a></dt>
+<dd><p>string = projectToSVG(TopoShape[,App.Vector Direction, string type]) &#8211; Project a shape and return the SVG representation as string.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="Arch.html"
+                        title="previous chapter">The Arch module</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="RayTracing.html"
+                        title="next chapter">The RayTracing module</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/Drawing.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+  <p>
+	  <a href="http://www.freecadweb.org">Go back to the FreeCAD homepage</a>
+  </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="RayTracing.html" title="The RayTracing module"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Arch.html" title="The Arch module"
+             >previous</a> |</li>
+        <li><a href="index.html">FreeCAD API documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Jürgen Riegel, Werner Mayer, Yorik van Havre.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>
