@@ -25,7 +25,6 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="top" title="FreeCAD API documentation" href="index.html" />
     <link rel="next" title="Draft Vector Utilities" href="DraftVecUtils.html" />
     <link rel="prev" title="The PartDesign module" href="PartDesign.html" /> 
@@ -202,6 +201,13 @@ scale parameter allows to scale linewidths down, so they are resolution-independ
 <dt id="Draft.getType">
 <tt class="descname">getType</tt><big>(</big><em>obj</em><big>)</big><a class="headerlink" href="#Draft.getType" title="Permalink to this definition">¶</a></dt>
 <dd><p>getType(object): returns the Draft type of the given object</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Draft.getrgb">
+<tt class="descname">getrgb</tt><big>(</big><em>color</em>, <em>testbw=True</em><big>)</big><a class="headerlink" href="#Draft.getrgb" title="Permalink to this definition">¶</a></dt>
+<dd><p>getRGB(color,[testbw]): returns a rgb value #000000 from a freecad color
+if testwb = True (default), pure white will be converted into pure black</p>
 </dd></dl>
 
 <dl class="function">

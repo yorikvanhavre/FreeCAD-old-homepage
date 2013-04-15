@@ -1,0 +1,276 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The FreeCAD Document Object &mdash; FreeCAD API documentation</title>
+    
+    <link rel="stylesheet" href="_static/freecad.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.13',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="FreeCAD API documentation" href="index.html" />
+    <link rel="next" title="The View Provider object" href="ViewProvider.html" />
+    <link rel="prev" title="The FreeCAD Document" href="Document.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ViewProvider.html" title="The View Provider object"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Document.html" title="The FreeCAD Document"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">FreeCAD API documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="the-freecad-document-object">
+<h1>The FreeCAD Document Object<a class="headerlink" href="#the-freecad-document-object" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+<span class="target" id="module-DocumentObject"></span><dl class="class">
+<dt id="DocumentObject.DocumentObject">
+<em class="property">class </em><tt class="descname">DocumentObject</tt><a class="headerlink" href="#DocumentObject.DocumentObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Document object is the base class for all FreeCAD objects.
+Example of use:</p>
+<p>import FreeCAD</p>
+<p>doc=FreeCAD.newDocument()</p>
+<p>myobj = doc.addObject(&#8220;Mesh::FeaturePython&#8221;,&#8221;MyName&#8221;)</p>
+<p>myobj.addProperty(&#8220;App::PropertyLinkList&#8221;,&#8221;Layers&#8221;,&#8221;Base&#8221;, &#8220;Layers&#8221;)</p>
+<dl class="method">
+<dt id="DocumentObject.DocumentObject.__setstate__">
+<tt class="descname">__setstate__</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#DocumentObject.DocumentObject.__setstate__" title="Permalink to this definition">¶</a></dt>
+<dd><p>allows to save custom attributes of this object as strings, so they can be saved when saving the FreeCAD document</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DocumentObject.DocumentObject.__getstate__">
+<tt class="descname">__getstate__</tt><big>(</big><big>)</big><a class="headerlink" href="#DocumentObject.DocumentObject.__getstate__" title="Permalink to this definition">¶</a></dt>
+<dd><p>reads values previously saved with __setstate__()</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="DocumentObject.DocumentObject.Content">
+<tt class="descname">Content</tt><a class="headerlink" href="#DocumentObject.DocumentObject.Content" title="Permalink to this definition">¶</a></dt>
+<dd><p>shows the contents of the properties of this object as an xml string.
+This is the content that is saved when the file is saved by FreeCAD</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="DocumentObject.DocumentObject.Document">
+<tt class="descname">Document</tt><a class="headerlink" href="#DocumentObject.DocumentObject.Document" title="Permalink to this definition">¶</a></dt>
+<dd><p>the document this object is part of</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="DocumentObject.DocumentObject.InList">
+<tt class="descname">InList</tt><a class="headerlink" href="#DocumentObject.DocumentObject.InList" title="Permalink to this definition">¶</a></dt>
+<dd><p>lists the parents of this object</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="DocumentObject.DocumentObject.MemSize">
+<tt class="descname">MemSize</tt><a class="headerlink" href="#DocumentObject.DocumentObject.MemSize" title="Permalink to this definition">¶</a></dt>
+<dd><p>shows the amount of memory this object uses</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="DocumentObject.DocumentObject.Module">
+<tt class="descname">Module</tt><a class="headerlink" href="#DocumentObject.DocumentObject.Module" title="Permalink to this definition">¶</a></dt>
+<dd><p>gives the module this object is defined in</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="DocumentObject.DocumentObject.Name">
+<tt class="descname">Name</tt><a class="headerlink" href="#DocumentObject.DocumentObject.Name" title="Permalink to this definition">¶</a></dt>
+<dd><p>the name ofthis object, unique in the FreeCAD document</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="DocumentObject.DocumentObject.OutList">
+<tt class="descname">OutList</tt><a class="headerlink" href="#DocumentObject.DocumentObject.OutList" title="Permalink to this definition">¶</a></dt>
+<dd><p>lists the children of this object</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="DocumentObject.DocumentObject.PropertiesList">
+<tt class="descname">PropertiesList</tt><a class="headerlink" href="#DocumentObject.DocumentObject.PropertiesList" title="Permalink to this definition">¶</a></dt>
+<dd><p>lists the current properties of this object</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="DocumentObject.DocumentObject.State">
+<tt class="descname">State</tt><a class="headerlink" href="#DocumentObject.DocumentObject.State" title="Permalink to this definition">¶</a></dt>
+<dd><p>shows if this object is valid (presents no errors)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="DocumentObject.DocumentObject.Type">
+<tt class="descname">Type</tt><a class="headerlink" href="#DocumentObject.DocumentObject.Type" title="Permalink to this definition">¶</a></dt>
+<dd><p>shows the C++ class of this object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DocumentObject.DocumentObject.addProperty">
+<tt class="descname">addProperty</tt><big>(</big><em>type</em>, <em>name=''</em>, <em>group=''</em>, <em>doc=''</em>, <em>attr=0</em>, <em>readonly=False</em>, <em>hidden=False</em><big>)</big><a class="headerlink" href="#DocumentObject.DocumentObject.addProperty" title="Permalink to this definition">¶</a></dt>
+<dd><p>adds a new property to this object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DocumentObject.DocumentObject.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#DocumentObject.DocumentObject.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>this method is executed on object creation and whenever the document is recomputed</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DocumentObject.DocumentObject.getAllDerivedFrom">
+<tt class="descname">getAllDerivedFrom</tt><big>(</big><big>)</big><a class="headerlink" href="#DocumentObject.DocumentObject.getAllDerivedFrom" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns all parent C++ classes of this object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DocumentObject.DocumentObject.getDocumentationOfProperty">
+<tt class="descname">getDocumentationOfProperty</tt><big>(</big><em>attr</em><big>)</big><a class="headerlink" href="#DocumentObject.DocumentObject.getDocumentationOfProperty" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the documentation string of a given property</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DocumentObject.DocumentObject.getGroupOfProperty">
+<tt class="descname">getGroupOfProperty</tt><big>(</big><em>attr</em><big>)</big><a class="headerlink" href="#DocumentObject.DocumentObject.getGroupOfProperty" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the group of a given property</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DocumentObject.DocumentObject.getProperty">
+<tt class="descname">getProperty</tt><big>(</big><em>attr</em><big>)</big><a class="headerlink" href="#DocumentObject.DocumentObject.getProperty" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the value of a given property</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DocumentObject.DocumentObject.getTypeOfProperty">
+<tt class="descname">getTypeOfProperty</tt><big>(</big><em>attr</em><big>)</big><a class="headerlink" href="#DocumentObject.DocumentObject.getTypeOfProperty" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the type of a given property</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DocumentObject.DocumentObject.isDerivedFrom">
+<tt class="descname">isDerivedFrom</tt><big>(</big><em>obj</em><big>)</big><a class="headerlink" href="#DocumentObject.DocumentObject.isDerivedFrom" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns True if this object is derived from the given C++ class, for
+example Part::Feature</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DocumentObject.DocumentObject.purgeTouched">
+<tt class="descname">purgeTouched</tt><big>(</big><big>)</big><a class="headerlink" href="#DocumentObject.DocumentObject.purgeTouched" title="Permalink to this definition">¶</a></dt>
+<dd><p>removes the to-be-recomputed flag of this object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DocumentObject.DocumentObject.supportedProperties">
+<tt class="descname">supportedProperties</tt><big>(</big><big>)</big><a class="headerlink" href="#DocumentObject.DocumentObject.supportedProperties" title="Permalink to this definition">¶</a></dt>
+<dd><p>lists the property types supported by this object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DocumentObject.DocumentObject.touch">
+<tt class="descname">touch</tt><big>(</big><big>)</big><a class="headerlink" href="#DocumentObject.DocumentObject.touch" title="Permalink to this definition">¶</a></dt>
+<dd><p>marks this object to be recomputed</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="Document.html"
+                        title="previous chapter">The FreeCAD Document</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ViewProvider.html"
+                        title="next chapter">The View Provider object</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/DocumentObject.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+  <p>
+	  <a href="http://www.freecadweb.org">Go back to the FreeCAD homepage</a>
+  </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ViewProvider.html" title="The View Provider object"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Document.html" title="The FreeCAD Document"
+             >previous</a> |</li>
+        <li><a href="index.html">FreeCAD API documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Jürgen Riegel, Werner Mayer, Yorik van Havre.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

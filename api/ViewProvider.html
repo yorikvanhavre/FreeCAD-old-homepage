@@ -1,0 +1,298 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The View Provider object &mdash; FreeCAD API documentation</title>
+    
+    <link rel="stylesheet" href="_static/freecad.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.13',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="FreeCAD API documentation" href="index.html" />
+    <link rel="next" title="The Mesh module" href="Mesh.html" />
+    <link rel="prev" title="The FreeCAD Document Object" href="DocumentObject.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="Mesh.html" title="The Mesh module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="DocumentObject.html" title="The FreeCAD Document Object"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">FreeCAD API documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="the-view-provider-object">
+<h1>The View Provider object<a class="headerlink" href="#the-view-provider-object" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+<span class="target" id="module-DocumentObject"></span><dl class="class">
+<dt id="DocumentObject.ViewProvider">
+<em class="property">class </em><tt class="descname">ViewProvider</tt><a class="headerlink" href="#DocumentObject.ViewProvider" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ViewProvider is the counterpart of the DocumentObject in
+the GUI space. It is only present when FreeCAD runs in GUI mode.
+It contains all that is needed to represent the DocumentObject in
+the 3D view and the FreeCAD interface</p>
+<dl class="attribute">
+<dt id="DocumentObject.ViewProvider.Annotation">
+<tt class="descname">Annotation</tt><a class="headerlink" href="#DocumentObject.ViewProvider.Annotation" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the Annotation coin node of this object</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="DocumentObject.ViewProvider.Content">
+<tt class="descname">Content</tt><a class="headerlink" href="#DocumentObject.ViewProvider.Content" title="Permalink to this definition">¶</a></dt>
+<dd><p>shows the contents of the properties of this object as an xml string.
+This is the content that is saved when the file is saved by FreeCAD</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="DocumentObject.ViewProvider.DisplayModes">
+<tt class="descname">DisplayModes</tt><a class="headerlink" href="#DocumentObject.ViewProvider.DisplayModes" title="Permalink to this definition">¶</a></dt>
+<dd><p>lists the display modes of this object</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="DocumentObject.ViewProvider.MemSize">
+<tt class="descname">MemSize</tt><a class="headerlink" href="#DocumentObject.ViewProvider.MemSize" title="Permalink to this definition">¶</a></dt>
+<dd><p>shows the amount of memory this object uses</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="DocumentObject.ViewProvider.Module">
+<tt class="descname">Module</tt><a class="headerlink" href="#DocumentObject.ViewProvider.Module" title="Permalink to this definition">¶</a></dt>
+<dd><p>gives the module this object is defined in</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="DocumentObject.ViewProvider.Object">
+<tt class="descname">Object</tt><a class="headerlink" href="#DocumentObject.ViewProvider.Object" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the DocumentObject this ViewProvider is associated to</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="DocumentObject.ViewProvider.PropertiesList">
+<tt class="descname">PropertiesList</tt><a class="headerlink" href="#DocumentObject.ViewProvider.PropertiesList" title="Permalink to this definition">¶</a></dt>
+<dd><p>lists the current properties of this object</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="DocumentObject.ViewProvider.RootNode">
+<tt class="descname">RootNode</tt><a class="headerlink" href="#DocumentObject.ViewProvider.RootNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the Root coin node of this object</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="DocumentObject.ViewProvider.Type">
+<tt class="descname">Type</tt><a class="headerlink" href="#DocumentObject.ViewProvider.Type" title="Permalink to this definition">¶</a></dt>
+<dd><p>shows the C++ class of this object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DocumentObject.ViewProvider.addDisplayMode">
+<tt class="descname">addDisplayMode</tt><big>(</big><em>node</em>, <em>mode</em><big>)</big><a class="headerlink" href="#DocumentObject.ViewProvider.addDisplayMode" title="Permalink to this definition">¶</a></dt>
+<dd><p>adds a coin node as a display mode to this object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DocumentObject.ViewProvider.addProperty">
+<tt class="descname">addProperty</tt><big>(</big><em>type</em>, <em>name=''</em>, <em>group=''</em>, <em>doc=''</em>, <em>attr=0</em>, <em>readonly=False</em>, <em>hidden=False</em><big>)</big><a class="headerlink" href="#DocumentObject.ViewProvider.addProperty" title="Permalink to this definition">¶</a></dt>
+<dd><p>adds a new property to this object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DocumentObject.ViewProvider.finishEditing">
+<tt class="descname">finishEditing</tt><big>(</big><big>)</big><a class="headerlink" href="#DocumentObject.ViewProvider.finishEditing" title="Permalink to this definition">¶</a></dt>
+<dd><p>leaves edit mode for this object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DocumentObject.ViewProvider.getAllDerivedFrom">
+<tt class="descname">getAllDerivedFrom</tt><big>(</big><big>)</big><a class="headerlink" href="#DocumentObject.ViewProvider.getAllDerivedFrom" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns all parent C++ classes of this object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DocumentObject.ViewProvider.getDocumentationOfProperty">
+<tt class="descname">getDocumentationOfProperty</tt><big>(</big><em>attr</em><big>)</big><a class="headerlink" href="#DocumentObject.ViewProvider.getDocumentationOfProperty" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the documentation string of a given property</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DocumentObject.ViewProvider.getGroupOfProperty">
+<tt class="descname">getGroupOfProperty</tt><big>(</big><em>attr</em><big>)</big><a class="headerlink" href="#DocumentObject.ViewProvider.getGroupOfProperty" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the group of a given property</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DocumentObject.ViewProvider.getProperty">
+<tt class="descname">getProperty</tt><big>(</big><em>attr</em><big>)</big><a class="headerlink" href="#DocumentObject.ViewProvider.getProperty" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the value of a given property</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DocumentObject.ViewProvider.getTypeOfProperty">
+<tt class="descname">getTypeOfProperty</tt><big>(</big><em>attr</em><big>)</big><a class="headerlink" href="#DocumentObject.ViewProvider.getTypeOfProperty" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the type of a given property</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DocumentObject.ViewProvider.hide">
+<tt class="descname">hide</tt><big>(</big><big>)</big><a class="headerlink" href="#DocumentObject.ViewProvider.hide" title="Permalink to this definition">¶</a></dt>
+<dd><p>switches this object to invisible</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DocumentObject.ViewProvider.isDerivedFrom">
+<tt class="descname">isDerivedFrom</tt><big>(</big><em>obj</em><big>)</big><a class="headerlink" href="#DocumentObject.ViewProvider.isDerivedFrom" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns True if this object is derived from the given C++ class, for
+example Part::Feature</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DocumentObject.ViewProvider.isEditing">
+<tt class="descname">isEditing</tt><big>(</big><big>)</big><a class="headerlink" href="#DocumentObject.ViewProvider.isEditing" title="Permalink to this definition">¶</a></dt>
+<dd><p>shows wether this object is in edit mode</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DocumentObject.ViewProvider.isVisible">
+<tt class="descname">isVisible</tt><big>(</big><big>)</big><a class="headerlink" href="#DocumentObject.ViewProvider.isVisible" title="Permalink to this definition">¶</a></dt>
+<dd><p>shows wether this object is visible or invisible</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DocumentObject.ViewProvider.setTransformation">
+<tt class="descname">setTransformation</tt><big>(</big><em>trsf</em><big>)</big><a class="headerlink" href="#DocumentObject.ViewProvider.setTransformation" title="Permalink to this definition">¶</a></dt>
+<dd><p>defines a transformation for this object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DocumentObject.ViewProvider.show">
+<tt class="descname">show</tt><big>(</big><big>)</big><a class="headerlink" href="#DocumentObject.ViewProvider.show" title="Permalink to this definition">¶</a></dt>
+<dd><p>switches this object to visible</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DocumentObject.ViewProvider.startEditing">
+<tt class="descname">startEditing</tt><big>(</big><em>mode=0</em><big>)</big><a class="headerlink" href="#DocumentObject.ViewProvider.startEditing" title="Permalink to this definition">¶</a></dt>
+<dd><p>sets this object in edit mode</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DocumentObject.ViewProvider.supportedProperties">
+<tt class="descname">supportedProperties</tt><big>(</big><big>)</big><a class="headerlink" href="#DocumentObject.ViewProvider.supportedProperties" title="Permalink to this definition">¶</a></dt>
+<dd><p>lists the property types this ViewProvider supports</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DocumentObject.ViewProvider.toString">
+<tt class="descname">toString</tt><big>(</big><big>)</big><a class="headerlink" href="#DocumentObject.ViewProvider.toString" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a string representation of the coin node of this object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DocumentObject.ViewProvider.update">
+<tt class="descname">update</tt><big>(</big><big>)</big><a class="headerlink" href="#DocumentObject.ViewProvider.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>this method is executed whenever any of the properties of this ViewProvider changes</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="DocumentObject.html"
+                        title="previous chapter">The FreeCAD Document Object</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="Mesh.html"
+                        title="next chapter">The Mesh module</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/ViewProvider.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+  <p>
+	  <a href="http://www.freecadweb.org">Go back to the FreeCAD homepage</a>
+  </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="Mesh.html" title="The Mesh module"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="DocumentObject.html" title="The FreeCAD Document Object"
+             >previous</a> |</li>
+        <li><a href="index.html">FreeCAD API documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Jürgen Riegel, Werner Mayer, Yorik van Havre.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

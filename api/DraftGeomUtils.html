@@ -25,7 +25,6 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="top" title="FreeCAD API documentation" href="index.html" />
     <link rel="next" title="Draft Trackers" href="DraftTrackers.html" />
     <link rel="prev" title="Draft Vector Utilities" href="DraftVecUtils.html" /> 
@@ -152,6 +151,12 @@ towards the shape&#8217;s normal. Otherwise, it returns a null placement.</p>
 <dt id="DraftGeomUtils.cleanFaces">
 <tt class="descname">cleanFaces</tt><big>(</big><em>shape</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.cleanFaces" title="Permalink to this definition">¶</a></dt>
 <dd><p>removes inner edges from coplanar faces</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.cleanProjection">
+<tt class="descname">cleanProjection</tt><big>(</big><em>shape</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.cleanProjection" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a valid compound of edges, by recreating them</p>
 </dd></dl>
 
 <dl class="function">
@@ -312,6 +317,12 @@ that can be connected</p>
 <tt class="descname">getBoundaryAngles</tt><big>(</big><em>angle</em>, <em>alist</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.getBoundaryAngles" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns the 2 closest angles from the list that
 encompass the given angle</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.getCircleFromSpline">
+<tt class="descname">getCircleFromSpline</tt><big>(</big><em>edge</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.getCircleFromSpline" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a circle-based edge from a bspline-based edge</p>
 </dd></dl>
 
 <dl class="function">
