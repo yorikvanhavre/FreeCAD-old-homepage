@@ -256,12 +256,16 @@ li.current {
 .mediawiki h2 {
     font-size: 20px;
     font-weight: bold;
-    border-bottom: none;
+    /*border-bottom: none;*/
     margin-bottom: 20px;
 }
 
 .mediawiki h3 {
     font-size: 120%;
+}
+
+.mediawiki h4 {
+    font-size: 90%;
 }
 
 .languages {
