@@ -331,4 +331,35 @@ li.current {
 #footer a {
     color: #1E90FF !important;
 }
-    
+
+table.ct {
+    background-color: #eee !important;
+    border: none !important;
+}
+
+table.ct tr th {
+    background-color: transparent !important;
+    border: none !important;
+    color: #888;
+    font-size: 0.9em;
+    text-align: left !important;
+    padding: 0 0 0 20px !important;
+}
+
+table.ct tr td {
+    background-color: transparent !important;
+    border: none !important;
+    padding: 0 10px 10px 10px !important;
+}
+
+table.mousemodel {
+    background: #eee;
+    border: none;
+    border-collapse: collapse;
+}
+
+table.mousemodel td, table.mousemodel th {
+    border: none;
+    border-left: 3px solid white;
+    padding: 0 12px;
+}
