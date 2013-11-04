@@ -1,0 +1,26 @@
+/* FreeCAD theme for MantisBT */
+
+/*@import "/freecad.css";*/
+
+html {
+	background-color: #191b26;
+}
+
+body {
+    width: 100%;
+    max-width: 1024px;
+    margin: 10px auto !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+    border-radius: 3px;
+    }
+    
+table.width100 {
+    border: none !important;
+    padding: 5px;
+}
+
+a {
+    color: #0F3472;
+}
+
+
