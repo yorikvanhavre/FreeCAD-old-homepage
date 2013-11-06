@@ -1,0 +1,25 @@
+/* FreeCAD theme for phpbb */
+
+/*@import "/freecad.css";*/
+
+html {
+	background-color: #191b26;
+}
+
+body {
+    width: 100%;
+    max-width: 1024px;
+    margin: 10px auto !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+    border-radius: 3px;
+    }
+
+a {
+    color: #0F3472;
+}
+
+.postprofile {
+    max-width: 140px;
+    }
+
+
