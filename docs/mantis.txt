@@ -1,0 +1,97 @@
+This document describes the steps needed to migrate the FreeCAD mantisbt to
+a different host.
+
+1. Backing up the files
+
+The mantisbt is made of 2 components: the database and the attachments. The
+database can be backed up with a tool like phpmyadmin. and should be backud 
+up in a .sql file.
+
+Mantisbt stores attachments inside the DB by default, so if this is the case
+there is nothing more to do. If not, the attachments files are located inside 
+an arbitrary directory inside or outside the mantisbt folder. The path to each 
+attachment is stored inside the mantis_bug_file_table DB table.
+
+2. Installing the new mantisbt
+
+Just download the latest tarball from the mantisbt website, unpack it
+on the webhost.
+
+3. Uploading attachments
+
+The backed up attachments need to be uploaded in a folder inside the new mantisbt
+
+4. Update the sql file
+
+The sql file must be opened and paths to attachments must be changed to the new path 
+( /home/freecadweb/public_html/tracker/attachments/ ) (mantisbt_bug_file/diskfile and folder)
+
+5. Insert the DB backup
+
+The .sql backup can then be inserted into the new db with phpmysqladmin
+
+6. Modify an admin password
+
+From phpmysql, edit your user, se a new password for him, and select MD5 besides
+the password field before saving
+
+7. Install
+
+Just access the mantisbt site and the install procedure will start, converting the DB
+
+8. Install plugins
+Source control integration: Download them all from
+https://github.com/mantisbt-plugins/source-integration
+and place the folders into mantisbt/plugins then acivate from mantisbt->manage screen
+
+9. Add these settings to config.inc.php
+
+    $g_allow_file_upload    = ON;
+    $g_file_upload_method   = DISK; # or DATABASE
+    $g_absolute_path_default_upload_folder = '/home/freecadweb/public_html/tracker/attachments/'; # used with DISK, must contain trailing \ or /.
+    $g_max_file_size        = 5000000;  # in bytes
+    
+10. Installation of the github plugin:
+
+    Install the Source Integration plugin and the GitHub plugin.
+    Create a GitHub Application for your Mantis installation (you only need the one):
+        Application Name: "MantisBT Source Integration"
+        Homepage URL: the URL to your Mantis installation (e.g. "http://domain.tld/path/to/mantis/")
+        Authorization Callback URL: the URL to your Source Integration GitHub plugin's Source/oauth page (your Mantis installation's URL with "/plugin.php?page=Source/oauth" appended to it; e.g. "http://domain.tld/path/to/mantis/plugin.php?page=Source/oauth")
+    In Mantis, click on the "Repositories" link in the nav bar (e.g. "http://domain.tld/path/to/mantis/plugin.php?page=Source/index").
+    In the "Create Repository" form, enter/select the following, then click "Create Repository":
+        Name: the name of your repository
+        Type: "GitHub"
+    This should take you to that repository's "Update Repository" page, where you'll want to enter the following:
+        URL: "git@github.com:/.git" (replacing " with the GitHub username of the repository's owner & "" with the repository's name; you can copy this from the project's GitHub page).
+        GitHub Username: the GitHub username of the repository's owner (must match that found in the above URL).
+        GitHub Repository Name: the name of the GitHub repository (must match that found in the above URL).
+        GitHub Application Client ID: the Client ID hash copied from the GitHub Application created in Step 2.
+        GitHub Application Secret: the Client Secret hash copied from the GitHub Application created in Step 2.
+        Click "Update Repository".
+    Click the "Manage" link next to your newly cleated repository to bring you back to the repository's "Update Repository" page, then:
+        Click the "Authorize" link in the "Hub Application Access Token" field. This will take you off to the GitHub site to authorize access to the repository, when you're returned to this page, it should say "Authorized".
+        Click "Update Repository".
+    In the repository's "Manage Repository" page, click "Import Everything" to perform the initial import.
+    
+11. Allow anonymous login:
+    http://www.mantisbt.org/wiki/doku.php/mantisbt:enabling_anonymous_access
+    
+    # --- anonymous login -----------
+    $g_allow_anonymous_login = ON;
+    $g_anonymous_account = 'anonymous';
+    # Optionally, if you want to use blank email addresses
+    $g_allow_blank_email = ON;
+    
+12. theming
+
+Inside css/default.css, add the following line (must be the first line): 
+@import "/mantis.css";
+
+13. Spam prevention
+Currently nothing is implemented, doesn't seem necessary so far.
+
+    
+
+
+

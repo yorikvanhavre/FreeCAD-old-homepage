@@ -25,9 +25,10 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="top" title="FreeCAD API documentation" href="index.html" />
-    <link rel="next" title="The FreeCAD Document" href="Document.html" />
-    <link rel="prev" title="The Matrix object" href="Matrix.html" /> 
+    <link rel="next" title="The Vector object" href="Vector.html" />
+    <link rel="prev" title="The FreeCAD module" href="FreeCAD.html" /> 
   </head>
   <body>
     <div class="related">
@@ -40,10 +41,10 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="Document.html" title="The FreeCAD Document"
+          <a href="Vector.html" title="The Vector object"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="Matrix.html" title="The Matrix object"
+          <a href="FreeCAD.html" title="The FreeCAD module"
              accesskey="P">previous</a> |</li>
         <li><a href="index.html">FreeCAD API documentation</a> &raquo;</li> 
       </ul>
@@ -117,6 +118,12 @@ workbenches.</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="FreeCADGui.addModule">
+<tt class="descname">addModule</tt><big>(</big><em>string</em><big>)</big> &rarr; None<a class="headerlink" href="#FreeCADGui.addModule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints the given module import only once in the macro recording</p>
+</dd></dl>
+
+<dl class="function">
 <dt id="FreeCADGui.addPreferencePage">
 <tt class="descname">addPreferencePage</tt><big>(</big><big>)</big><a class="headerlink" href="#FreeCADGui.addPreferencePage" title="Permalink to this definition">¶</a></dt>
 <dd><p>addPreferencePage(string,string) &#8211; Add a UI form to the
@@ -177,6 +184,12 @@ Note: this will block the call until the event loop has terminated</p>
 <dt id="FreeCADGui.getLocale">
 <tt class="descname">getLocale</tt><big>(</big><big>)</big> &rarr; string<a class="headerlink" href="#FreeCADGui.getLocale" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the locale currently used by FreeCAD</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="FreeCADGui.getMainWindow">
+<tt class="descname">getMainWindow</tt><big>(</big><big>)</big> &rarr; QMainWindow<a class="headerlink" href="#FreeCADGui.getMainWindow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the main window instance</p>
 </dd></dl>
 
 <dl class="function">
@@ -294,11 +307,11 @@ If no main window does exist one gets created</p>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
-  <p class="topless"><a href="Matrix.html"
-                        title="previous chapter">The Matrix object</a></p>
+  <p class="topless"><a href="FreeCAD.html"
+                        title="previous chapter">The FreeCAD module</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="Document.html"
-                        title="next chapter">The FreeCAD Document</a></p>
+  <p class="topless"><a href="Vector.html"
+                        title="next chapter">The Vector object</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/FreeCADGui.txt"
@@ -334,10 +347,10 @@ If no main window does exist one gets created</p>
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="Document.html" title="The FreeCAD Document"
+          <a href="Vector.html" title="The Vector object"
              >next</a> |</li>
         <li class="right" >
-          <a href="Matrix.html" title="The Matrix object"
+          <a href="FreeCAD.html" title="The FreeCAD module"
              >previous</a> |</li>
         <li><a href="index.html">FreeCAD API documentation</a> &raquo;</li> 
       </ul>

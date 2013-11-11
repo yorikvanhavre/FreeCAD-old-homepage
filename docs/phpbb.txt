@@ -1,0 +1,38 @@
+phpbb migration
+
+1) import the database
+
+No big problem, simply followed the instructions from
+https://sourceforge.net/p/forge/community-docs/Migrating%20phpBB%20from%20Hosted%20Apps/
+with these differences:
+phpmyadmin didn't accept the db dump in one piece. I did this:
+- import the dbdump into a new database on sourceforge
+- export all tables except post and search_wordwrap
+- export each of those 2 in 2 parts: structure and data. For structure, untick "add backslashes" otherwise it gives an import error
+when everything is imported:
+- add "autoincrement" to post_id in posts table
+- change your own password using this method: 
+http://joshhighland.com/blog/2009/03/31/phpbb-admin-password-manual-reset/
+Follow the rest of the instructions on the SF page, plus this:
+- change phpbb_style to "prosilver"
+- a little difference with the SF instructions above: all path to subdirectories (images, icons, avatars, attachments) are
+  relative to the forum folder (use images/, not /forum/images)
+
+2) install the support toolkit from https://www.phpbb.com/support/stk/
+in the support toolkit, use "reset styles" (will reset the changes SF has been doing)
+
+3) copy attachments:
+- extract saved attachment archive
+- copy files to corresponding folders inside phpbb
+
+To backup, basically backup /files and /images/avatars/uploaded
+
+4) cookie settings
+- domain: freecadweb.org
+- name: phpbb_freecad (or anything else)
+- disable SSL
+
+5) spam prevention: force first posts to be moderated.
+- set new users to "New registered users" group durin 1 post in general settings
+- set the posts of that group to require moderation ( https://www.phpbb.com/community/viewtopic.php?f=64&t=2033765 )
+

@@ -25,6 +25,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="top" title="FreeCAD API documentation" href="index.html" />
     <link rel="next" title="Draft Snapper" href="DraftSnap.html" />
     <link rel="prev" title="Draft Geometry Utilities" href="DraftGeomUtils.html" /> 
@@ -154,6 +155,37 @@ it obscures the other objects</p>
 </dd></dl>
 
 <dl class="class">
+<dt id="DraftTrackers.archDimTracker">
+<em class="property">class </em><tt class="descname">archDimTracker</tt><big>(</big><em>p1=Vector (0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>p2=Vector (1.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>mode=1</em><big>)</big><a class="headerlink" href="#DraftTrackers.archDimTracker" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper around a Sketcher dim</p>
+<dl class="method">
+<dt id="DraftTrackers.archDimTracker.p1">
+<tt class="descname">p1</tt><big>(</big><em>point=None</em><big>)</big><a class="headerlink" href="#DraftTrackers.archDimTracker.p1" title="Permalink to this definition">¶</a></dt>
+<dd><p>sets or gets the first point of the dim</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftTrackers.archDimTracker.p2">
+<tt class="descname">p2</tt><big>(</big><em>point=None</em><big>)</big><a class="headerlink" href="#DraftTrackers.archDimTracker.p2" title="Permalink to this definition">¶</a></dt>
+<dd><p>sets or gets the second point of the dim</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftTrackers.archDimTracker.setMode">
+<tt class="descname">setMode</tt><big>(</big><em>mode=1</em><big>)</big><a class="headerlink" href="#DraftTrackers.archDimTracker.setMode" title="Permalink to this definition">¶</a></dt>
+<dd><p>sets the mode: 0 = without lines (a simple mark), 1 =
+aligned (default), 2 = horizontal, 3 = vertical.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftTrackers.archDimTracker.setString">
+<tt class="descname">setString</tt><big>(</big><em>text=None</em><big>)</big><a class="headerlink" href="#DraftTrackers.archDimTracker.setString" title="Permalink to this definition">¶</a></dt>
+<dd><p>sets the dim string to the given value or auto value</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="DraftTrackers.boxTracker">
 <em class="property">class </em><tt class="descname">boxTracker</tt><big>(</big><em>line=None</em>, <em>width=0.1</em>, <em>height=1</em><big>)</big><a class="headerlink" href="#DraftTrackers.boxTracker" title="Permalink to this definition">¶</a></dt>
 <dd><p>A box tracker, can be based on a line object</p>
@@ -173,7 +205,7 @@ it obscures the other objects</p>
 
 <dl class="class">
 <dt id="DraftTrackers.editTracker">
-<em class="property">class </em><tt class="descname">editTracker</tt><big>(</big><em>pos=Vector (0</em>, <em>0</em>, <em>0)</em>, <em>name='None'</em>, <em>idx=0</em>, <em>objcol=None</em><big>)</big><a class="headerlink" href="#DraftTrackers.editTracker" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descname">editTracker</tt><big>(</big><em>pos=Vector (0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>name='None'</em>, <em>idx=0</em>, <em>objcol=None</em><big>)</big><a class="headerlink" href="#DraftTrackers.editTracker" title="Permalink to this definition">¶</a></dt>
 <dd><p>A node edit tracker</p>
 </dd></dl>
 
@@ -264,13 +296,13 @@ You can pass it an object or a list of objects, or a shape.</p>
 
 <dl class="class">
 <dt id="DraftTrackers.radiusTracker">
-<em class="property">class </em><tt class="descname">radiusTracker</tt><big>(</big><em>position=Vector (0</em>, <em>0</em>, <em>0)</em>, <em>radius=1</em><big>)</big><a class="headerlink" href="#DraftTrackers.radiusTracker" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descname">radiusTracker</tt><big>(</big><em>position=Vector (0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>radius=1</em><big>)</big><a class="headerlink" href="#DraftTrackers.radiusTracker" title="Permalink to this definition">¶</a></dt>
 <dd><p>A tracker that displays a transparent sphere to inicate a radius</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="DraftTrackers.rectangleTracker">
-<em class="property">class </em><tt class="descname">rectangleTracker</tt><big>(</big><em>dotted=False</em>, <em>scolor=None</em>, <em>swidth=None</em><big>)</big><a class="headerlink" href="#DraftTrackers.rectangleTracker" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descname">rectangleTracker</tt><big>(</big><em>dotted=False</em>, <em>scolor=None</em>, <em>swidth=None</em>, <em>face=False</em><big>)</big><a class="headerlink" href="#DraftTrackers.rectangleTracker" title="Permalink to this definition">¶</a></dt>
 <dd><p>A Rectangle tracker, used by the rectangle tool</p>
 <dl class="method">
 <dt id="DraftTrackers.rectangleTracker.getNormal">

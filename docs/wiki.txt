@@ -223,3 +223,9 @@ Import the .sql backup into the new database with phpmyadmin
 This is important to reconciliate the database (and if needed
 upgrade it to a newer version of mediawiki): simply access
 wiki/mw-config again, and follow the steps.
+
+8 Theming
+
+All the theming of the wiki is done internally, inside the MediaWiki:Common.css page.
+That page imports the main freecad.css file from the homepage too, where generic styles
+that apply to the whole freecad website are defined (background, font, link color, etc...)

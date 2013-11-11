@@ -25,6 +25,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="top" title="FreeCAD API documentation" href="index.html" />
     <link rel="next" title="The Arch module" href="Arch.html" />
     <link rel="prev" title="Draft Trackers" href="DraftTrackers.html" /> 
@@ -155,6 +156,12 @@ the last snapped object. Finally, a pyqt dialog can be passed as extra taskbox.<
 </dd></dl>
 
 <dl class="method">
+<dt id="DraftSnap.Snapper.setArchDims">
+<tt class="descname">setArchDims</tt><big>(</big><em>p1</em>, <em>p2</em><big>)</big><a class="headerlink" href="#DraftSnap.Snapper.setArchDims" title="Permalink to this definition">¶</a></dt>
+<dd><p>show arch dimensions between 2 points</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="DraftSnap.Snapper.setCursor">
 <tt class="descname">setCursor</tt><big>(</big><em>mode=None</em><big>)</big><a class="headerlink" href="#DraftSnap.Snapper.setCursor" title="Permalink to this definition">¶</a></dt>
 <dd><p>setCursor(self,mode=None): sets or resets the cursor to the given mode or resets</p>
@@ -180,13 +187,14 @@ the last snapped object. Finally, a pyqt dialog can be passed as extra taskbox.<
 
 <dl class="method">
 <dt id="DraftSnap.Snapper.snap">
-<tt class="descname">snap</tt><big>(</big><em>screenpos</em>, <em>lastpoint=None</em>, <em>active=True</em>, <em>constrain=False</em><big>)</big><a class="headerlink" href="#DraftSnap.Snapper.snap" title="Permalink to this definition">¶</a></dt>
-<dd><p>snap(screenpos,lastpoint=None,active=True,constrain=False): returns a snapped
+<tt class="descname">snap</tt><big>(</big><em>screenpos</em>, <em>lastpoint=None</em>, <em>active=True</em>, <em>constrain=False</em>, <em>noTracker=False</em><big>)</big><a class="headerlink" href="#DraftSnap.Snapper.snap" title="Permalink to this definition">¶</a></dt>
+<dd><p>snap(screenpos,lastpoint=None,active=True,constrain=False,noTracker=False): returns a snapped
 point from the given (x,y) screenpos (the position of the mouse cursor), active is to
 activate active point snapping or not (passive), lastpoint is an optional
 other point used to draw an imaginary segment and get additional snap locations. Constrain can
 be True to constrain the point against the closest working plane axis.
-Screenpos can be a list, a tuple or a coin.SbVec2s object.</p>
+Screenpos can be a list, a tuple or a coin.SbVec2s object. If noTracker is True,
+the tracking line is not displayed.</p>
 </dd></dl>
 
 <dl class="method">
@@ -265,6 +273,12 @@ Screenpos can be a list, a tuple or a coin.SbVec2s object.</p>
 <dt id="DraftSnap.Snapper.snapToPolar">
 <tt class="descname">snapToPolar</tt><big>(</big><em>point</em>, <em>last</em><big>)</big><a class="headerlink" href="#DraftSnap.Snapper.snapToPolar" title="Permalink to this definition">¶</a></dt>
 <dd><p>snaps to polar lines from the given point</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftSnap.Snapper.snapToPolygon">
+<tt class="descname">snapToPolygon</tt><big>(</big><em>obj</em><big>)</big><a class="headerlink" href="#DraftSnap.Snapper.snapToPolygon" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a list of polygon center snap locations</p>
 </dd></dl>
 
 <dl class="method">

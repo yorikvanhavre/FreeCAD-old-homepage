@@ -1,8 +1,12 @@
 The FreeCAD Document
 ====================
 
+.. currentmodule:: FreeCAD
+
 .. toctree::
    :maxdepth: 4
 
-.. automodule:: ActiveDocument
+.. autoclass:: ActiveDocument
    :members:
+
+

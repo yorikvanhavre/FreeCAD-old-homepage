@@ -25,6 +25,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="top" title="FreeCAD API documentation" href="index.html" />
     <link rel="next" title="The Drawing module" href="Drawing.html" />
     <link rel="prev" title="Draft Snapper" href="DraftSnap.html" /> 
@@ -76,9 +77,10 @@ is True, merged wall objects are deleted</p>
 
 <dl class="function">
 <dt id="ArchWall.makeWall">
-<tt class="descname">makeWall</tt><big>(</big><em>baseobj=None</em>, <em>width=None</em>, <em>height=None</em>, <em>align='Center'</em>, <em>name='Wall'</em><big>)</big><a class="headerlink" href="#ArchWall.makeWall" title="Permalink to this definition">¶</a></dt>
-<dd><p>makeWall(obj,[width],[height],[align],[name]): creates a wall based on the
-given object, which can be a sketch, a draft object, a face or a solid. align
+<tt class="descname">makeWall</tt><big>(</big><em>baseobj=None</em>, <em>length=None</em>, <em>width=None</em>, <em>height=None</em>, <em>align='Center'</em>, <em>name='Wall'</em><big>)</big><a class="headerlink" href="#ArchWall.makeWall" title="Permalink to this definition">¶</a></dt>
+<dd><p>makeWall([obj],[length],[width],[height],[align],[name]): creates a wall based on the
+given object, which can be a sketch, a draft object, a face or a solid, or no object at
+all, then you must provide length, width and height. Align
 can be &#8220;Center&#8221;,&#8221;Left&#8221; or &#8220;Right&#8221;</p>
 </dd></dl>
 
@@ -112,6 +114,16 @@ objects from the given list.</p>
 </dd></dl>
 
 <span class="target" id="module-ArchStructure"></span><dl class="function">
+<dt id="ArchStructure.makeProfile">
+<tt class="descname">makeProfile</tt><big>(</big><em>W=46</em>, <em>H=80</em>, <em>tw=3.8</em>, <em>tf=5.2</em><big>)</big><a class="headerlink" href="#ArchStructure.makeProfile" title="Permalink to this definition">¶</a></dt>
+<dd><p>makeProfile(W,H,tw,tf): returns a shape with one face describing 
+the profile of a steel beam (IPE, IPN, HE, etc...) based on the following
+dimensions: W = total width, H = total height, tw = web thickness
+tw = flange thickness (see <a class="reference external" href="http://en.wikipedia.org/wiki/I-beam">http://en.wikipedia.org/wiki/I-beam</a> for
+reference)</p>
+</dd></dl>
+
+<dl class="function">
 <dt id="ArchStructure.makeStructuralSystem">
 <tt class="descname">makeStructuralSystem</tt><big>(</big><em>objects</em>, <em>axes</em><big>)</big><a class="headerlink" href="#ArchStructure.makeStructuralSystem" title="Permalink to this definition">¶</a></dt>
 <dd><p>makeStructuralSystem(objects,axes): makes a structural system
@@ -120,7 +132,7 @@ based on the given objects and axes</p>
 
 <dl class="function">
 <dt id="ArchStructure.makeStructure">
-<tt class="descname">makeStructure</tt><big>(</big><em>baseobj=None</em>, <em>length=1</em>, <em>width=1</em>, <em>height=1</em>, <em>name='Structure'</em><big>)</big><a class="headerlink" href="#ArchStructure.makeStructure" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">makeStructure</tt><big>(</big><em>baseobj=None</em>, <em>length=0</em>, <em>width=0</em>, <em>height=0</em>, <em>name='Structure'</em><big>)</big><a class="headerlink" href="#ArchStructure.makeStructure" title="Permalink to this definition">¶</a></dt>
 <dd><p>makeStructure([obj],[length],[width],[heigth],[swap]): creates a
 structure element based on the given profile object and the given
 extrusion height. If no base object is given, you can also specify
@@ -170,6 +182,13 @@ example to add windows to a wall, or to add walls to a cell or floor.</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="ArchCommands.addFixture">
+<tt class="descname">addFixture</tt><big>(</big><em>fixture</em>, <em>baseobject</em><big>)</big><a class="headerlink" href="#ArchCommands.addFixture" title="Permalink to this definition">¶</a></dt>
+<dd><p>addFixture(fixture,baseobject): adds the given object as a 
+fixture to the given base object</p>
+</dd></dl>
+
+<dl class="function">
 <dt id="ArchCommands.check">
 <tt class="descname">check</tt><big>(</big><em>objectslist</em>, <em>includehidden=False</em><big>)</big><a class="headerlink" href="#ArchCommands.check" title="Permalink to this definition">¶</a></dt>
 <dd><p>check(objectslist,includehidden=False): checks if the given objects contain only solids</p>
@@ -213,7 +232,7 @@ from the given shapes and the given cutting plane</p>
 <dt id="ArchCommands.getDefaultColor">
 <tt class="descname">getDefaultColor</tt><big>(</big><em>objectType</em><big>)</big><a class="headerlink" href="#ArchCommands.getDefaultColor" title="Permalink to this definition">¶</a></dt>
 <dd><p>getDefaultColor(string): returns a color value for the given object
-type (Wall, Structure, Window)</p>
+type (Wall, Structure, Window, WindowGlass)</p>
 </dd></dl>
 
 <dl class="function">

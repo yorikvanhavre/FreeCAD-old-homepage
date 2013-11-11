@@ -25,6 +25,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="top" title="FreeCAD API documentation" href="index.html" />
     <link rel="next" title="Draft Trackers" href="DraftTrackers.html" />
     <link rel="prev" title="Draft Vector Utilities" href="DraftVecUtils.html" /> 
@@ -341,7 +342,7 @@ is returned. The placement point is the lowest corner of the shape.</p>
 
 <dl class="function">
 <dt id="DraftGeomUtils.getRotation">
-<tt class="descname">getRotation</tt><big>(</big><em>v1</em>, <em>v2=Vector (0</em>, <em>0</em>, <em>1)</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.getRotation" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">getRotation</tt><big>(</big><em>v1</em>, <em>v2=Vector (0.0</em>, <em>0.0</em>, <em>1.0)</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.getRotation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the rotation Quaternion between 2 vectors</p>
 </dd></dl>
 
@@ -429,6 +430,12 @@ if the given vector is (0,0,0)</p>
 <dt id="DraftGeomUtils.isReallyClosed">
 <tt class="descname">isReallyClosed</tt><big>(</big><em>wire</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.isReallyClosed" title="Permalink to this definition">¶</a></dt>
 <dd><p>checks if a wire is really closed</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DraftGeomUtils.isValidPath">
+<tt class="descname">isValidPath</tt><big>(</big><em>shape</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.isValidPath" title="Permalink to this definition">¶</a></dt>
+<dd><p>isValidPath(shape): returns True if the shape can be used as an extrusion path</p>
 </dd></dl>
 
 <dl class="function">

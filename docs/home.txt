@@ -1,9 +1,9 @@
 This document describes the steps needed to migrate the FreeCAD homepage
 to a different host.
 
-1. Copy the contents of this repository
+1. Copy the contents of the repository
 
-This git repository contains already the latest version of the
+The git repository contains already the latest version of the
 homepage. Simply copy the following files to the new location:
 
 - All the html files

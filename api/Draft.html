@@ -25,6 +25,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="top" title="FreeCAD API documentation" href="index.html" />
     <link rel="next" title="Draft Vector Utilities" href="DraftVecUtils.html" />
     <link rel="prev" title="The PartDesign module" href="PartDesign.html" /> 
@@ -83,6 +84,12 @@ original position.</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="Draft.compareObjects">
+<tt class="descname">compareObjects</tt><big>(</big><em>obj1</em>, <em>obj2</em><big>)</big><a class="headerlink" href="#Draft.compareObjects" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints the differences between 2 objects</p>
+</dd></dl>
+
+<dl class="function">
 <dt id="Draft.cut">
 <tt class="descname">cut</tt><big>(</big><em>object1</em>, <em>object2</em><big>)</big><a class="headerlink" href="#Draft.cut" title="Permalink to this definition">¶</a></dt>
 <dd><p>cut(oject1,object2): returns a cut object made from
@@ -114,6 +121,13 @@ of objects to be deleted</p>
 (objectslist can also be a single object) into a Draft parametric
 wire. If makeblock is True, multiple objects will be grouped in a block.
 If delete = False, old objects are not deleted</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Draft.epsilon">
+<tt class="descname">epsilon</tt><big>(</big><big>)</big><a class="headerlink" href="#Draft.epsilon" title="Permalink to this definition">¶</a></dt>
+<dd><p>epsilon(): returns a small number based on Draft.tolerance() for use in 
+floating point comparisons.  Use with caution.</p>
 </dd></dl>
 
 <dl class="function">
@@ -228,9 +242,17 @@ a clone of an object of the given type</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="Draft.loadSvgPatterns">
+<tt class="descname">loadSvgPatterns</tt><big>(</big><big>)</big><a class="headerlink" href="#Draft.loadSvgPatterns" title="Permalink to this definition">¶</a></dt>
+<dd><p>loads the default Draft SVG patterns and custom patters if available</p>
+</dd></dl>
+
+<dl class="function">
 <dt id="Draft.loadTexture">
-<tt class="descname">loadTexture</tt><big>(</big><em>filename</em><big>)</big><a class="headerlink" href="#Draft.loadTexture" title="Permalink to this definition">¶</a></dt>
-<dd><p>loadTexture(filename): returns a SoSFImage from a file</p>
+<tt class="descname">loadTexture</tt><big>(</big><em>filename</em>, <em>size=None</em><big>)</big><a class="headerlink" href="#Draft.loadTexture" title="Permalink to this definition">¶</a></dt>
+<dd><p>loadTexture(filename,[size]): returns a SoSFImage from a file. If size
+is defined (an int or a tuple), and provided the input image is a png file,
+it will be scaled to match the given size.</p>
 </dd></dl>
 
 <dl class="function">
@@ -311,8 +333,8 @@ given page. lwmod modifies lineweights (in percent), tmod modifies text heights
 
 <dl class="function">
 <dt id="Draft.makeEllipse">
-<tt class="descname">makeEllipse</tt><big>(</big><em>majradius</em>, <em>minradius</em>, <em>placement=None</em><big>)</big><a class="headerlink" href="#Draft.makeEllipse" title="Permalink to this definition">¶</a></dt>
-<dd><p>makeEllipse(majradius,minradius,[placement]): makes
+<tt class="descname">makeEllipse</tt><big>(</big><em>majradius</em>, <em>minradius</em>, <em>placement=None</em>, <em>face=True</em>, <em>support=None</em><big>)</big><a class="headerlink" href="#Draft.makeEllipse" title="Permalink to this definition">¶</a></dt>
+<dd><p>makeEllipse(majradius,minradius,[placement],[face],[support]): makes
 an ellipse with the given major and minor radius, and optionally
 a placement.</p>
 </dd></dl>
@@ -365,6 +387,13 @@ specify a list of face numbers to be considered in individual faces mode.</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="Draft.makeShapeString">
+<tt class="descname">makeShapeString</tt><big>(</big><em>String</em>, <em>FontFile</em>, <em>Size=100</em>, <em>Tracking=0</em><big>)</big><a class="headerlink" href="#Draft.makeShapeString" title="Permalink to this definition">¶</a></dt>
+<dd><p>ShapeString(Text,FontFile,Height,Track): Turns a text string 
+into a Compound Shape</p>
+</dd></dl>
+
+<dl class="function">
 <dt id="Draft.makeSketch">
 <tt class="descname">makeSketch</tt><big>(</big><em>objectslist</em>, <em>autoconstraints=False</em>, <em>addTo=None</em>, <em>delete=False</em>, <em>name='Sketch'</em><big>)</big><a class="headerlink" href="#Draft.makeSketch" title="Permalink to this definition">¶</a></dt>
 <dd><p>makeSketch(objectslist,[autoconstraints],[addTo],[delete],[name]): makes a Sketch
@@ -376,7 +405,7 @@ creating a new one. If delete is True, the original object will be deleted</p>
 
 <dl class="function">
 <dt id="Draft.makeText">
-<tt class="descname">makeText</tt><big>(</big><em>stringslist</em>, <em>point=Vector (0</em>, <em>0</em>, <em>0)</em>, <em>screen=False</em><big>)</big><a class="headerlink" href="#Draft.makeText" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">makeText</tt><big>(</big><em>stringslist</em>, <em>point=Vector (0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>screen=False</em><big>)</big><a class="headerlink" href="#Draft.makeText" title="Permalink to this definition">¶</a></dt>
 <dd><p>makeText(strings,[point],[screen]): Creates a Text object at the given point,
 containing the strings given in the strings list, one string by line (strings
 can also be one single string). The current color and text height and font
@@ -436,7 +465,7 @@ sides, the total width being the given delta length.</p>
 
 <dl class="function">
 <dt id="Draft.rotate">
-<tt class="descname">rotate</tt><big>(</big><em>objectslist</em>, <em>angle</em>, <em>center=Vector (0</em>, <em>0</em>, <em>0)</em>, <em>axis=Vector (0</em>, <em>0</em>, <em>1)</em>, <em>copy=False</em><big>)</big><a class="headerlink" href="#Draft.rotate" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">rotate</tt><big>(</big><em>objectslist</em>, <em>angle</em>, <em>center=Vector (0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>axis=Vector (0.0</em>, <em>0.0</em>, <em>1.0)</em>, <em>copy=False</em><big>)</big><a class="headerlink" href="#Draft.rotate" title="Permalink to this definition">¶</a></dt>
 <dd><p>rotate(objects,angle,[center,axis,copy]): Rotates the objects contained
 in objects (that can be a list of objects or an object) of the given angle
 (in degrees) around the center, using axis as a rotation axis. If axis is
@@ -447,7 +476,7 @@ are created instead. The objects (or their copies) are returned.</p>
 
 <dl class="function">
 <dt id="Draft.scale">
-<tt class="descname">scale</tt><big>(</big><em>objectslist</em>, <em>delta=Vector (1</em>, <em>1</em>, <em>1)</em>, <em>center=Vector (0</em>, <em>0</em>, <em>0)</em>, <em>copy=False</em>, <em>legacy=False</em><big>)</big><a class="headerlink" href="#Draft.scale" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">scale</tt><big>(</big><em>objectslist</em>, <em>delta=Vector (1.0</em>, <em>1.0</em>, <em>1.0)</em>, <em>center=Vector (0.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>copy=False</em>, <em>legacy=False</em><big>)</big><a class="headerlink" href="#Draft.scale" title="Permalink to this definition">¶</a></dt>
 <dd><p>scale(objects,vector,[center,copy,legacy]): Scales the objects contained
 in objects (that can be a list of objects or an object) of the given scale
 factors defined by the given vector (in X, Y and Z directions) around
@@ -473,6 +502,12 @@ but copies are created instead. The objects (or their copies) are returned.</p>
 <tt class="descname">shapify</tt><big>(</big><em>obj</em><big>)</big><a class="headerlink" href="#Draft.shapify" title="Permalink to this definition">¶</a></dt>
 <dd><p>shapify(object): transforms a parametric shape object into
 non-parametric and returns the new object</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Draft.svgpatterns">
+<tt class="descname">svgpatterns</tt><big>(</big><big>)</big><a class="headerlink" href="#Draft.svgpatterns" title="Permalink to this definition">¶</a></dt>
+<dd><p>svgpatterns(): returns a dictionnary with installed SVG patterns</p>
 </dd></dl>
 
 <dl class="function">
