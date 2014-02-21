@@ -107,7 +107,7 @@ h2 {
 }
 
 .downloadbox {
-    background: #191b26 url("images/background.jpg") center center no-repeat;
+    background: #191b26; /*url("images/background.jpg") center center no-repeat; */
     color: #eee;
     border-radius: 5px;
     padding: 15px;
@@ -118,6 +118,8 @@ h2 {
 
 .downloadbox h2 {
     font-size: 150%;
+    margin: 20px 0 0 0;
+
 }
 
 .downloadbox a {
