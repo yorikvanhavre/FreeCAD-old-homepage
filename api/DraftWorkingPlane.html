@@ -1,0 +1,253 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Draft Working Plane &mdash; FreeCAD API documentation</title>
+    
+    <link rel="stylesheet" href="_static/freecad.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.14',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="FreeCAD API documentation" href="index.html" />
+    <link rel="next" title="The Arch module" href="Arch.html" />
+    <link rel="prev" title="Draft Snapper" href="DraftSnap.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="Arch.html" title="The Arch module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="DraftSnap.html" title="Draft Snapper"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">FreeCAD API documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="draft-working-plane">
+<h1>Draft Working Plane<a class="headerlink" href="#draft-working-plane" title="Permalink to this headline">¶</a></h1>
+<p>The Draft WorkingPlane module contains utilities to create and manipulate working planes, which are used by the Draft and Arch modules.</p>
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+<span class="target" id="module-WorkingPlane"></span><dl class="function">
+<dt id="WorkingPlane.getPlacementFromFace">
+<tt class="descname">getPlacementFromFace</tt><big>(</big><em>face</em>, <em>rotated=False</em><big>)</big><a class="headerlink" href="#WorkingPlane.getPlacementFromFace" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a placement from a face</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="WorkingPlane.getPlacementFromPoints">
+<tt class="descname">getPlacementFromPoints</tt><big>(</big><em>points</em><big>)</big><a class="headerlink" href="#WorkingPlane.getPlacementFromPoints" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a placement from a list of 3 or 4 vectors</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="WorkingPlane.plane">
+<em class="property">class </em><tt class="descname">plane</tt><big>(</big><em>u=Vector (1.0</em>, <em>0.0</em>, <em>0.0)</em>, <em>v=Vector (0.0</em>, <em>1.0</em>, <em>0.0)</em>, <em>w=Vector (0.0</em>, <em>0.0</em>, <em>1.0)</em>, <em>pos=Vector (0.0</em>, <em>0.0</em>, <em>0.0)</em><big>)</big><a class="headerlink" href="#WorkingPlane.plane" title="Permalink to this definition">¶</a></dt>
+<dd><p>A WorkPlane object</p>
+<dl class="method">
+<dt id="WorkingPlane.plane.alignToSelection">
+<tt class="descname">alignToSelection</tt><big>(</big><em>offset</em><big>)</big><a class="headerlink" href="#WorkingPlane.plane.alignToSelection" title="Permalink to this definition">¶</a></dt>
+<dd><p>If selection uniquely defines a plane, align working plane to it.  Return success (bool)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="WorkingPlane.plane.getClosestAxis">
+<tt class="descname">getClosestAxis</tt><big>(</big><em>point</em><big>)</big><a class="headerlink" href="#WorkingPlane.plane.getClosestAxis" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns which of the workingplane axes is closest from the given vector</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="WorkingPlane.plane.getDeviation">
+<tt class="descname">getDeviation</tt><big>(</big><big>)</big><a class="headerlink" href="#WorkingPlane.plane.getDeviation" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the deviation angle between the u axis and the horizontal plane</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="WorkingPlane.plane.getGlobalCoords">
+<tt class="descname">getGlobalCoords</tt><big>(</big><em>point</em><big>)</big><a class="headerlink" href="#WorkingPlane.plane.getGlobalCoords" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the global coordinates of the given point, taken relatively to this working plane</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="WorkingPlane.plane.getGlobalRot">
+<tt class="descname">getGlobalRot</tt><big>(</big><em>point</em><big>)</big><a class="headerlink" href="#WorkingPlane.plane.getGlobalRot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Same as getGlobalCoords, but discards the WP position</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="WorkingPlane.plane.getLocalCoords">
+<tt class="descname">getLocalCoords</tt><big>(</big><em>point</em><big>)</big><a class="headerlink" href="#WorkingPlane.plane.getLocalCoords" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the coordinates of a given point on the working plane</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="WorkingPlane.plane.getLocalRot">
+<tt class="descname">getLocalRot</tt><big>(</big><em>point</em><big>)</big><a class="headerlink" href="#WorkingPlane.plane.getLocalRot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Same as getLocalCoords, but discards the WP position</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="WorkingPlane.plane.getPlacement">
+<tt class="descname">getPlacement</tt><big>(</big><em>rotated=False</em><big>)</big><a class="headerlink" href="#WorkingPlane.plane.getPlacement" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the placement of the working plane</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="WorkingPlane.plane.getRotation">
+<tt class="descname">getRotation</tt><big>(</big><big>)</big><a class="headerlink" href="#WorkingPlane.plane.getRotation" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a placement describing the working plane orientation ONLY</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="WorkingPlane.plane.isGlobal">
+<tt class="descname">isGlobal</tt><big>(</big><big>)</big><a class="headerlink" href="#WorkingPlane.plane.isGlobal" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns True if the plane axes are equal to the global axes</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="WorkingPlane.plane.isOrtho">
+<tt class="descname">isOrtho</tt><big>(</big><big>)</big><a class="headerlink" href="#WorkingPlane.plane.isOrtho" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns True if the plane axes are following the global axes</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="WorkingPlane.plane.offsetToPoint">
+<tt class="descname">offsetToPoint</tt><big>(</big><em>p</em>, <em>direction=None</em><big>)</big><a class="headerlink" href="#WorkingPlane.plane.offsetToPoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the signed distance from p to the plane, such
+that p + offsetToPoint(p)*direction lies on the plane.
+direction defaults to -plane.axis</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="WorkingPlane.plane.projectPoint">
+<tt class="descname">projectPoint</tt><big>(</big><em>p</em>, <em>direction=None</em><big>)</big><a class="headerlink" href="#WorkingPlane.plane.projectPoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>project point onto plane, default direction is orthogonal</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="WorkingPlane.plane.projectPointOld">
+<tt class="descname">projectPointOld</tt><big>(</big><em>p</em>, <em>direction=None</em><big>)</big><a class="headerlink" href="#WorkingPlane.plane.projectPointOld" title="Permalink to this definition">¶</a></dt>
+<dd><p>project point onto plane, default direction is orthogonal. Obsolete</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="WorkingPlane.plane.restore">
+<tt class="descname">restore</tt><big>(</big><big>)</big><a class="headerlink" href="#WorkingPlane.plane.restore" title="Permalink to this definition">¶</a></dt>
+<dd><p>restores a previously saved plane state, if exists</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="WorkingPlane.plane.save">
+<tt class="descname">save</tt><big>(</big><big>)</big><a class="headerlink" href="#WorkingPlane.plane.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>stores the current plane state</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="WorkingPlane.plane.setFromPlacement">
+<tt class="descname">setFromPlacement</tt><big>(</big><em>pl</em><big>)</big><a class="headerlink" href="#WorkingPlane.plane.setFromPlacement" title="Permalink to this definition">¶</a></dt>
+<dd><p>sets the working plane from a placement (rotaton ONLY)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="WorkingPlane.plane.setup">
+<tt class="descname">setup</tt><big>(</big><em>direction=None</em>, <em>point=None</em>, <em>upvec=None</em><big>)</big><a class="headerlink" href="#WorkingPlane.plane.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>If working plane is undefined, define it!</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="DraftSnap.html"
+                        title="previous chapter">Draft Snapper</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="Arch.html"
+                        title="next chapter">The Arch module</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/DraftWorkingPlane.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+  <p>
+	  <a href="http://www.freecadweb.org">Go back to the FreeCAD homepage</a>
+  </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="Arch.html" title="The Arch module"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="DraftSnap.html" title="Draft Snapper"
+             >previous</a> |</li>
+        <li><a href="index.html">FreeCAD API documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Jürgen Riegel, Werner Mayer, Yorik van Havre.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.1.
+    </div>
+  </body>
+</html>

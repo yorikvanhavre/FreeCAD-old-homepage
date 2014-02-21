@@ -1,0 +1,10 @@
+The FreeCAD Task Panel
+======================
+
+.. toctree::
+   :maxdepth: 4
+
+.. automodule:: TaskPanel
+   
+   .. autoclass:: TaskPanel
+      :members:

@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -15,8 +13,8 @@
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '0.13',
+        URL_ROOT:    './',
+        VERSION:     '0.14',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -335,6 +333,14 @@ By default a cylindrical surface is used to create the helix. If the fourth para
 </dd></dl>
 
 <dl class="function">
+<dt id="Part.makeLongHelix">
+<tt class="descname">makeLongHelix</tt><big>(</big><big>)</big><a class="headerlink" href="#Part.makeLongHelix" title="Permalink to this definition">¶</a></dt>
+<dd><p>makeLongHelix(pitch,height,radius,[angle],[hand]) &#8211; Make a (multi-edge) helix with a given pitch, height and radius
+By default a cylindrical surface is used to create the helix. If the fourth parameter is set
+(the apex given in degree) a conical surface is used instead.</p>
+</dd></dl>
+
+<dl class="function">
 <dt id="Part.makePlane">
 <tt class="descname">makePlane</tt><big>(</big><big>)</big><a class="headerlink" href="#Part.makePlane" title="Permalink to this definition">¶</a></dt>
 <dd><p>makePlane(length,width,[pnt,dir]) &#8211; Make a plane
@@ -350,10 +356,10 @@ By default pnt=Vector(0,0,0) and dir=Vector(0,0,1)</p>
 <dl class="function">
 <dt id="Part.makeRevolution">
 <tt class="descname">makeRevolution</tt><big>(</big><big>)</big><a class="headerlink" href="#Part.makeRevolution" title="Permalink to this definition">¶</a></dt>
-<dd><p>makeRevolution(Curve,[vmin,vmax,angle,pnt,dir]) &#8211; Make a revolved shape
+<dd><p>makeRevolution(Curve,[vmin,vmax,angle,pnt,dir,shapetype]) &#8211; Make a revolved shape
 by rotating the curve or a portion of it around an axis given by (pnt,dir).
 By default vmin/vmax=bounds of the curve,angle=360,pnt=Vector(0,0,0) and
-dir=Vector(0,0,1)</p>
+dir=Vector(0,0,1) and shapetype=Part.Solid</p>
 </dd></dl>
 
 <dl class="function">
@@ -437,6 +443,12 @@ xmax, ymax, zmax, z2max, x2max,[pnt,dir])</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="Part.setStaticValue">
+<tt class="descname">setStaticValue</tt><big>(</big><big>)</big><a class="headerlink" href="#Part.setStaticValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>setStaticValue(string,string|int|float) &#8211; Set a name to a value The value can be a string, int or float.</p>
+</dd></dl>
+
+<dl class="function">
 <dt id="Part.show">
 <tt class="descname">show</tt><big>(</big><big>)</big><a class="headerlink" href="#Part.show" title="Permalink to this definition">¶</a></dt>
 <dd><p>show(shape) &#8211; Add the shape to the active document or create one if no document exists.</p>
@@ -500,8 +512,8 @@ xmax, ymax, zmax, z2max, x2max,[pnt,dir])</p>
       </ul>
     </div>
     <div class="footer">
-        &copy; Copyright 2011, Jürgen Riegel, Werner Mayer, Yorik van Havre.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+        &copy; Copyright 2013, Jürgen Riegel, Werner Mayer, Yorik van Havre.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.1.
     </div>
   </body>
 </html>

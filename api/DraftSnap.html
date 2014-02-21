@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -15,8 +13,8 @@
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '0.13',
+        URL_ROOT:    './',
+        VERSION:     '0.14',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -27,7 +25,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="top" title="FreeCAD API documentation" href="index.html" />
-    <link rel="next" title="The Arch module" href="Arch.html" />
+    <link rel="next" title="Draft Working Plane" href="DraftWorkingPlane.html" />
     <link rel="prev" title="Draft Trackers" href="DraftTrackers.html" /> 
   </head>
   <body>
@@ -41,7 +39,7 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="Arch.html" title="The Arch module"
+          <a href="DraftWorkingPlane.html" title="Draft Working Plane"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="DraftTrackers.html" title="Draft Trackers"
@@ -156,6 +154,12 @@ the last snapped object. Finally, a pyqt dialog can be passed as extra taskbox.<
 </dd></dl>
 
 <dl class="method">
+<dt id="DraftSnap.Snapper.setAngle">
+<tt class="descname">setAngle</tt><big>(</big><big>)</big><a class="headerlink" href="#DraftSnap.Snapper.setAngle" title="Permalink to this definition">¶</a></dt>
+<dd><p>keeps the current angle</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="DraftSnap.Snapper.setArchDims">
 <tt class="descname">setArchDims</tt><big>(</big><em>p1</em>, <em>p2</em><big>)</big><a class="headerlink" href="#DraftSnap.Snapper.setArchDims" title="Permalink to this definition">¶</a></dt>
 <dd><p>show arch dimensions between 2 points</p>
@@ -171,6 +175,12 @@ the last snapped object. Finally, a pyqt dialog can be passed as extra taskbox.<
 <dt id="DraftSnap.Snapper.setGrid">
 <tt class="descname">setGrid</tt><big>(</big><big>)</big><a class="headerlink" href="#DraftSnap.Snapper.setGrid" title="Permalink to this definition">¶</a></dt>
 <dd><p>sets the grid, if visible</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftSnap.Snapper.setSelectMode">
+<tt class="descname">setSelectMode</tt><big>(</big><em>mode</em><big>)</big><a class="headerlink" href="#DraftSnap.Snapper.setSelectMode" title="Permalink to this definition">¶</a></dt>
+<dd><p>sets the snapper into select mode (hides snapping temporarily)</p>
 </dd></dl>
 
 <dl class="method">
@@ -207,6 +217,12 @@ the tracking line is not displayed.</p>
 <dt id="DraftSnap.Snapper.snapToCenter">
 <tt class="descname">snapToCenter</tt><big>(</big><em>shape</em><big>)</big><a class="headerlink" href="#DraftSnap.Snapper.snapToCenter" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns a list of center snap locations</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="DraftSnap.Snapper.snapToCrossExtensions">
+<tt class="descname">snapToCrossExtensions</tt><big>(</big><em>point</em><big>)</big><a class="headerlink" href="#DraftSnap.Snapper.snapToCrossExtensions" title="Permalink to this definition">¶</a></dt>
+<dd><p>snaps to the intersection of the last 2 extension lines</p>
 </dd></dl>
 
 <dl class="method">
@@ -301,8 +317,8 @@ the tracking line is not displayed.</p>
   <p class="topless"><a href="DraftTrackers.html"
                         title="previous chapter">Draft Trackers</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="Arch.html"
-                        title="next chapter">The Arch module</a></p>
+  <p class="topless"><a href="DraftWorkingPlane.html"
+                        title="next chapter">Draft Working Plane</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/DraftSnap.txt"
@@ -338,7 +354,7 @@ the tracking line is not displayed.</p>
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="Arch.html" title="The Arch module"
+          <a href="DraftWorkingPlane.html" title="Draft Working Plane"
              >next</a> |</li>
         <li class="right" >
           <a href="DraftTrackers.html" title="Draft Trackers"
@@ -347,8 +363,8 @@ the tracking line is not displayed.</p>
       </ul>
     </div>
     <div class="footer">
-        &copy; Copyright 2011, Jürgen Riegel, Werner Mayer, Yorik van Havre.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+        &copy; Copyright 2013, Jürgen Riegel, Werner Mayer, Yorik van Havre.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.1.
     </div>
   </body>
 </html>
