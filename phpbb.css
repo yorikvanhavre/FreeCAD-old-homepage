@@ -22,4 +22,13 @@ a {
     max-width: 140px;
     }
 
+.attach-image {
+    max-height: 100%;
+}
+
+.attach-image img {
+    max-height: 99%;
+    max-width: 99%;
+}
+
 
