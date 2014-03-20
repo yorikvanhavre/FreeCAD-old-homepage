@@ -22,6 +22,10 @@ a {
     max-width: 140px;
     }
 
+.attachbox {
+    max-width: 100%;
+}
+
 .attach-image {
     max-height: 100%;
 }
