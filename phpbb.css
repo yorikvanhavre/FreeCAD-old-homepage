@@ -35,4 +35,8 @@ a {
     max-width: 99%;
 }
 
+.content img {
+    max-width: 100%;
+}
+
 
