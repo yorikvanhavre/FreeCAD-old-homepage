@@ -28,6 +28,7 @@ a {
 
 .attach-image {
     max-height: 100%;
+    overflow: hidden;
 }
 
 .attach-image img {
