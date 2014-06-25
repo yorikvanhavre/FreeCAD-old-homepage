@@ -109,7 +109,7 @@ the difference of the 2 given objects.</p>
 an object or a list of objects). If delete is True, old objects are deleted.
 The force attribute can be used to
 force a certain way of downgrading. It can be: explode, shapify, subtr,
-splitFaces, cut2, getWire, splitWires.
+splitFaces, cut2, getWire, splitWires, splitCompounds.
 Returns a dictionnary containing two lists, a list of new objects and a list 
 of objects to be deleted</p>
 </dd></dl>
@@ -199,8 +199,8 @@ in the given object list</p>
 
 <dl class="function">
 <dt id="Draft.getSVG">
-<tt class="descname">getSVG</tt><big>(</big><em>obj</em>, <em>scale=1</em>, <em>linewidth=0.35</em>, <em>fontsize=12</em>, <em>fillstyle='shape color'</em>, <em>direction=None</em>, <em>linestyle=None</em><big>)</big><a class="headerlink" href="#Draft.getSVG" title="Permalink to this definition">¶</a></dt>
-<dd><p>getSVG(object,[scale], [linewidth],[fontsize],[fillstyle],[direction],[linestyle]):
+<tt class="descname">getSVG</tt><big>(</big><em>obj</em>, <em>scale=1</em>, <em>linewidth=0.35</em>, <em>fontsize=12</em>, <em>fillstyle='shape color'</em>, <em>direction=None</em>, <em>linestyle=None</em>, <em>color=None</em><big>)</big><a class="headerlink" href="#Draft.getSVG" title="Permalink to this definition">¶</a></dt>
+<dd><p>getSVG(object,[scale], [linewidth],[fontsize],[fillstyle],[direction],[linestyle],[color]):
 returns a string containing a SVG representation of the given object,
 with the given linewidth and fontsize (used if the given object contains
 any text). You can also supply an arbitrary projection vector. the
@@ -290,6 +290,13 @@ from the given list of vectors. If closed is True or first
 and last points are identical, the wire is closed. If face is
 true (and wire is closed), the wire will appear filled. Instead of
 a pointslist, you can also pass a Part Wire.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Draft.makeBezCurve">
+<tt class="descname">makeBezCurve</tt><big>(</big><em>pointslist</em>, <em>closed=False</em>, <em>placement=None</em>, <em>face=True</em>, <em>support=None</em>, <em>Degree=None</em><big>)</big><a class="headerlink" href="#Draft.makeBezCurve" title="Permalink to this definition">¶</a></dt>
+<dd><p>makeBezCurve(pointslist,[closed],[placement]): Creates a Bezier Curve object
+from the given list of vectors.   Instead of a pointslist, you can also pass a Part Wire.</p>
 </dd></dl>
 
 <dl class="function">
@@ -437,6 +444,13 @@ containing the strings given in the strings list, one string by line (strings
 can also be one single string). The current color and text height and font
 specified in preferences are used.
 If screen is True, the text always faces the view direction.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Draft.makeVisGroup">
+<tt class="descname">makeVisGroup</tt><big>(</big><em>group=None</em>, <em>name='VisGroup'</em><big>)</big><a class="headerlink" href="#Draft.makeVisGroup" title="Permalink to this definition">¶</a></dt>
+<dd><p>makeVisGroup([group]): creates a VisGroup object in the given group, or in the
+active document if no group is given</p>
 </dd></dl>
 
 <dl class="function">
@@ -626,7 +640,7 @@ of objects to be deleted</p>
     </div>
     <div class="footer">
         &copy; Copyright 2013, Jürgen Riegel, Werner Mayer, Yorik van Havre.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.1.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
     </div>
   </body>
 </html>

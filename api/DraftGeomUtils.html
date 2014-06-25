@@ -160,7 +160,7 @@ towards the shape&#8217;s normal. Otherwise, it returns a null placement.</p>
 
 <dl class="function">
 <dt id="DraftGeomUtils.cleanProjection">
-<tt class="descname">cleanProjection</tt><big>(</big><em>shape</em>, <em>tessellate=False</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.cleanProjection" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">cleanProjection</tt><big>(</big><em>shape</em>, <em>tessellate=True</em>, <em>seglength=0.05</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.cleanProjection" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns a valid compound of edges, by recreating them</p>
 </dd></dl>
 
@@ -551,6 +551,13 @@ have coincident endpoints. If closed=True, wire will always be closed</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="DraftGeomUtils.tessellateProjection">
+<tt class="descname">tessellateProjection</tt><big>(</big><em>shape</em>, <em>seglen</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.tessellateProjection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns projection with BSplines and Ellipses broken into line segments.
+Useful for exporting projected views to <a href="#id1"><span class="problematic" id="id2">*</span></a>dxf files.</p>
+</dd></dl>
+
+<dl class="function">
 <dt id="DraftGeomUtils.v1">
 <tt class="descname">v1</tt><big>(</big><em>edge</em><big>)</big><a class="headerlink" href="#DraftGeomUtils.v1" title="Permalink to this definition">¶</a></dt>
 <dd><p>v1(edge): returns the first point of an edge</p>
@@ -621,7 +628,7 @@ have coincident endpoints. If closed=True, wire will always be closed</p>
     </div>
     <div class="footer">
         &copy; Copyright 2013, Jürgen Riegel, Werner Mayer, Yorik van Havre.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.1.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
     </div>
   </body>
 </html>

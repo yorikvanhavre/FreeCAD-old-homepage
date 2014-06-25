@@ -115,14 +115,14 @@ reference)</p>
 
 <dl class="function">
 <dt id="ArchStructure.makeStructuralSystem">
-<tt class="descname">makeStructuralSystem</tt><big>(</big><em>objects</em>, <em>axes</em><big>)</big><a class="headerlink" href="#ArchStructure.makeStructuralSystem" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">makeStructuralSystem</tt><big>(</big><em>objects</em>, <em>axes</em>, <em>name='StructuralSystem'</em><big>)</big><a class="headerlink" href="#ArchStructure.makeStructuralSystem" title="Permalink to this definition">¶</a></dt>
 <dd><p>makeStructuralSystem(objects,axes): makes a structural system
 based on the given objects and axes</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="ArchStructure.makeStructure">
-<tt class="descname">makeStructure</tt><big>(</big><em>baseobj=None</em>, <em>length=0</em>, <em>width=0</em>, <em>height=0</em>, <em>name='Structure'</em><big>)</big><a class="headerlink" href="#ArchStructure.makeStructure" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">makeStructure</tt><big>(</big><em>baseobj=None</em>, <em>length=None</em>, <em>width=None</em>, <em>height=None</em>, <em>name='Structure'</em><big>)</big><a class="headerlink" href="#ArchStructure.makeStructure" title="Permalink to this definition">¶</a></dt>
 <dd><p>makeStructure([obj],[length],[width],[heigth],[swap]): creates a
 structure element based on the given profile object and the given
 extrusion height. If no base object is given, you can also specify
@@ -174,13 +174,6 @@ example to add windows to a wall, or to add walls to a cell or floor.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="ArchCommands.addFixture">
-<tt class="descname">addFixture</tt><big>(</big><em>fixture</em>, <em>baseobject</em><big>)</big><a class="headerlink" href="#ArchCommands.addFixture" title="Permalink to this definition">¶</a></dt>
-<dd><p>addFixture(fixture,baseobject): adds the given object as a 
-fixture to the given base object</p>
-</dd></dl>
-
-<dl class="function">
 <dt id="ArchCommands.check">
 <tt class="descname">check</tt><big>(</big><em>objectslist</em>, <em>includehidden=False</em><big>)</big><a class="headerlink" href="#ArchCommands.check" title="Permalink to this definition">¶</a></dt>
 <dd><p>check(objectslist,includehidden=False): checks if the given objects contain only solids</p>
@@ -203,7 +196,7 @@ when that property exists in both objects</p>
 <dt id="ArchCommands.download">
 <tt class="descname">download</tt><big>(</big><em>url</em>, <em>force=False</em><big>)</big><a class="headerlink" href="#ArchCommands.download" title="Permalink to this definition">¶</a></dt>
 <dd><p>downloads a file from the given URL and saves it in the
-user directory. Returns the path to the saved file</p>
+macro path. Returns the path to the saved file</p>
 </dd></dl>
 
 <dl class="function">
@@ -211,15 +204,6 @@ user directory. Returns the path to the saved file</p>
 <tt class="descname">fixWindow</tt><big>(</big><em>obj</em><big>)</big><a class="headerlink" href="#ArchCommands.fixWindow" title="Permalink to this definition">¶</a></dt>
 <dd><p>fixWindow(object): Fixes non-DAG problems in windows
 by removing supports and external geometry from underlying sketches</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="ArchCommands.getBrepFacesData">
-<tt class="descname">getBrepFacesData</tt><big>(</big><em>obj</em>, <em>scale=1</em><big>)</big><a class="headerlink" href="#ArchCommands.getBrepFacesData" title="Permalink to this definition">¶</a></dt>
-<dd><p>getBrepFacesData(obj,[scale]): returns a list(0) of lists(1) of lists(2) of lists(3), 
-list(3) being a list of vertices defining a loop, list(2) describing a face from one or 
-more loops, list(1) being the whole solid made of several faces, list(0) being the list
-of solids inside the object. Scale can indicate a scaling factor</p>
 </dd></dl>
 
 <dl class="function">
@@ -237,18 +221,35 @@ type (Wall, Structure, Window, WindowGlass)</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="ArchCommands.getExtrusionData">
-<tt class="descname">getExtrusionData</tt><big>(</big><em>obj</em>, <em>scale=1</em><big>)</big><a class="headerlink" href="#ArchCommands.getExtrusionData" title="Permalink to this definition">¶</a></dt>
-<dd><p>getExtrusionData(obj,[scale]): returns a closed path (a list of tuples) and a tuple expressing an extrusion
-vector, or None, if a base loop and an extrusion direction cannot be extracted. Scale can indicate a scale factor.</p>
-</dd></dl>
-
-<dl class="function">
 <dt id="ArchCommands.getHost">
 <tt class="descname">getHost</tt><big>(</big><em>obj</em>, <em>strict=True</em><big>)</big><a class="headerlink" href="#ArchCommands.getHost" title="Permalink to this definition">¶</a></dt>
 <dd><p>getHost(obj,[strict]): returns the host of the current object. If strict is true (default),
 the host can only be an object of a higher level than the given one, or in other words, if a wall
 is contained in another wall which is part of a floor, the floor is returned instead of the parent wall</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ArchCommands.getIfcBrepFacesData">
+<tt class="descname">getIfcBrepFacesData</tt><big>(</big><em>obj</em>, <em>scale=1</em>, <em>sub=False</em>, <em>tessellation=1</em><big>)</big><a class="headerlink" href="#ArchCommands.getIfcBrepFacesData" title="Permalink to this definition">¶</a></dt>
+<dd><p>getIfcBrepFacesData(obj,[scale,tesselation]): returns a list(0) of lists(1) of lists(2) of lists(3), 
+list(3) being a list of vertices defining a loop, list(2) describing a face from one or 
+more loops, list(1) being the whole solid made of several faces, list(0) being the list
+of solids inside the object. Scale can indicate a scaling factor. Tesselation is the tesselation
+factor to apply on curved faces.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ArchCommands.getIfcElevation">
+<tt class="descname">getIfcElevation</tt><big>(</big><em>obj</em><big>)</big><a class="headerlink" href="#ArchCommands.getIfcElevation" title="Permalink to this definition">¶</a></dt>
+<dd><p>getIfcElevation(obj): Returns the lowest height (Z coordinate) of this object</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ArchCommands.getIfcExtrusionData">
+<tt class="descname">getIfcExtrusionData</tt><big>(</big><em>obj</em>, <em>scale=1</em>, <em>nosubs=False</em><big>)</big><a class="headerlink" href="#ArchCommands.getIfcExtrusionData" title="Permalink to this definition">¶</a></dt>
+<dd><p>getIfcExtrusionData(obj,[scale,nosubs]): returns a closed path (a list of tuples), a tuple expressing an extrusion
+vector, and a list of 3 tuples for base position, x axis and z axis. Or returns None, if a base loop and 
+an extrusion direction cannot be extracted. Scale can indicate a scale factor.</p>
 </dd></dl>
 
 <dl class="function">
@@ -260,8 +261,8 @@ of objects</p>
 
 <dl class="function">
 <dt id="ArchCommands.getTuples">
-<tt class="descname">getTuples</tt><big>(</big><em>data</em>, <em>scale=1</em>, <em>placement=None</em><big>)</big><a class="headerlink" href="#ArchCommands.getTuples" title="Permalink to this definition">¶</a></dt>
-<dd><p>getTuples(data,[scale,placement]): returns a tuple or a list of tuples from a vector
+<tt class="descname">getTuples</tt><big>(</big><em>data</em>, <em>scale=1</em>, <em>placement=None</em>, <em>normal=None</em>, <em>close=True</em><big>)</big><a class="headerlink" href="#ArchCommands.getTuples" title="Permalink to this definition">¶</a></dt>
+<dd><p>getTuples(data,[scale,placement,normal,close]): returns a tuple or a list of tuples from a vector
 or from the vertices of a shape. Scale can indicate a scale factor</p>
 </dd></dl>
 
@@ -337,7 +338,7 @@ Clicking on no object (on an empty area) stops survey mode.</p>
 
 <span class="target" id="module-ArchAxis"></span><dl class="function">
 <dt id="ArchAxis.makeAxis">
-<tt class="descname">makeAxis</tt><big>(</big><em>num=5</em>, <em>size=1</em>, <em>name='Axes'</em><big>)</big><a class="headerlink" href="#ArchAxis.makeAxis" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">makeAxis</tt><big>(</big><em>num=5</em>, <em>size=1000</em>, <em>name='Axes'</em><big>)</big><a class="headerlink" href="#ArchAxis.makeAxis" title="Permalink to this definition">¶</a></dt>
 <dd><p>makeAxis(num,size): makes an Axis System
 based on the given number of axes and interval distances</p>
 </dd></dl>
@@ -373,7 +374,7 @@ selection objects as got from getSelectionEx(), or a list of tuples (object, sub
 
 <span class="target" id="module-ArchStairs"></span><dl class="function">
 <dt id="ArchStairs.makeStairs">
-<tt class="descname">makeStairs</tt><big>(</big><em>base=None</em>, <em>length=4.5</em>, <em>width=1</em>, <em>height=3</em>, <em>steps=17</em>, <em>name='Stairs'</em><big>)</big><a class="headerlink" href="#ArchStairs.makeStairs" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">makeStairs</tt><big>(</big><em>base=None</em>, <em>length=None</em>, <em>width=None</em>, <em>height=None</em>, <em>steps=None</em>, <em>name='Stairs'</em><big>)</big><a class="headerlink" href="#ArchStairs.makeStairs" title="Permalink to this definition">¶</a></dt>
 <dd><p>makeStairs([base,length,width,height,steps]): creates a Stairs
 objects with given attributes.</p>
 </dd></dl>
@@ -451,7 +452,7 @@ containing wires) and a profile object (an extrudable 2D object containing faces
     </div>
     <div class="footer">
         &copy; Copyright 2013, Jürgen Riegel, Werner Mayer, Yorik van Havre.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.1.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
     </div>
   </body>
 </html>
