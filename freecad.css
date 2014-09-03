@@ -260,6 +260,7 @@ li.current {
     font-weight: normal;
     /*border-bottom: none;*/
     margin-bottom: 20px;
+    color: #666;
 }
 
 .mediawiki h3 {
