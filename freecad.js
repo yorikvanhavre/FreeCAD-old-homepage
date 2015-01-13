@@ -5,7 +5,7 @@
 * License: GNU GPL v3.0 - scriptiny.com/license
 */
 
-var TINY = TINY || {};
+var TINY = {};
 
 function T$( i ) {
 	return document.getElementById(i);
@@ -195,6 +195,7 @@ function showJSON(data) {
     for (x = 1; x < 11 ; x++) {
         var pubdate = data.value.items[x].pubDate;
         var title = truncate(data.value.items[x].title);
+        //var title = data.value.items[x].title;
         pubdate = "<small>" + pubdate.substr(0,4) + "." + pubdate.substr(5,2) + "." + pubdate.substr(8,2) + ": </small> ";
         var buildstring = "<li>" + pubdate + "<a href=" + data.value.items[x].link + ">" + title + "</a></li>";
         html += buildstring;
@@ -205,22 +206,23 @@ function showJSON(data) {
 
  /* truncate function, Author: Andrew Hedges, andrew@hedges.name
  * License: free to use, alter, and redistribute without attribution */
- 
-function truncate(str, limit=100) {
+
+function truncate(str) {
     var bits, i;
-    bits = str.split('');
+    var limit=100;
+    bits = str.split("");
     if (bits.length > limit) {
         for (i = bits.length - 1; i > -1; --i) {
             if (i > limit) {
                 bits.length = i;
             }
-            else if (' ' === bits[i]) {
+            else if (" " === bits[i]) {
                 bits.length = i;
                 break;
             }
         }
-        bits.push(' (...)');
+        bits.push(" (...)");
     }
-    return bits.join('');
+    return bits.join("");
 }
     
