@@ -366,3 +366,9 @@ table.mousemodel td, table.mousemodel th {
     border-left: 3px solid white;
     padding: 0 12px;
 }
+
+.mw-collapsible {
+    border: none !important;
+    border-bottom: 2px solid #ddd !important;
+    background-color: #fff !important;
+}
