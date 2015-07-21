@@ -1,6 +1,6 @@
 This is the FreeCAD landing page, to become the entry point to the FreeCAD universe, at
 
-http://free-cad.sourceforge.net
+http://freecadweb.org/
 
 You can see what this version of the page looks like by visiting this URL:
 
@@ -12,7 +12,7 @@ http://pipes.yahoo.com/pipes/pipe.info?_id=da8b612e97a6bb4588b1ce27db30efd9
 
 Discussion thread about this page:
 
-http://sourceforge.net/apps/phpbb/free-cad/viewtopic.php?f=8&t=3167
+http://forum.freecadweb.org/viewtopic.php?f=8&t=11881
 
 Help us by translating the page in your own language:
 
