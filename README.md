@@ -1,4 +1,4 @@
-OBSOLETE! - see https://github.com/FreeCAD/Homepage
+## OBSOLETE! - see https://github.com/FreeCAD/Homepage
 
 This is the FreeCAD landing page, to become the entry point to the FreeCAD universe, at
 
